@@ -6,12 +6,8 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
-      rel="stylesheet"
-    />
+    <meta name="description" content="Selbstdarstellung, Lebenslauf, portfolio" />
+    <meta name="author" content="hrdominik" />
 
     <title>Dominik Höhr</title>
 
@@ -19,10 +15,11 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="assets/css/brands.min.css" />
+    <link rel="stylesheet" href="assets/css/regular.min.css" />
+    <link rel="stylesheet" href="assets/css/solid.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/owl.css" />
-    <link rel="stylesheet" href="assets/css/lightbox.css" />
   </head>
 
   <body>
@@ -52,10 +49,10 @@
               <ul class="soial-icons">
                 
                 <li>
-                  <a href="https://de.linkedin.com/in/dominik-h%C3%B6hr"><i class="fa fa-linkedin"></i></a>
+                  <a href="https://de.linkedin.com/in/dominik-h%C3%B6hr"><i class="fab fa-linkedin"></i></a>
                 </li>
                 <li>
-                  <a href="https://github.com/hrdominik"><i class="fa fa-github"></i></a>
+                  <a href="https://github.com/hrdominik"><i class="fab fa-github"></i></a>
                 </li>
                 <li>
                   <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#100;&#111;&#109;&#105;&#110;&#105;&#107;&#64;&#104;&#246;&#104;&#114;&#46;&#100;&#101;"><i class="fa fa-envelope"></i></a>
@@ -123,29 +120,29 @@
                   <div class="line-dec"></div>
                 </div>
                 <figcaption>
-                  Frontend
-                  <ul>
-                  <li><i class="fa fa-html5"></i></li>
-                  <li><i class="fa fa-css3"></i></li>
-                  <li><i class="fa fa-reactjs"></i></li>
-                  <li><i class="fa fa-js"></i></li>
-                  </ul>
-                  Backend
-                  <ul>
-                  <li><i class="fa fa-python"></i></li>
-                  <li><i class="fa fa-java"></i></li>
-                  <li><i class="fa fa-sql"></i></li>
-                  </ul>
-                  Entwicklungs- und Buildprozess
-                  <ul>
-                  <li><i class="fa fa-git"></i></li>
-                  <li><i class="fa fa-yarn"></i></li>
-                  <li><i class="fa fa-maven"></i></li>
-                  </ul>
-                  Weitere
-                  <ul>
-                  <li><i class="fa fa-microsoft"></i> Insbesondere Sharepoint und Teams</li>
-                  </ul>
+                  <h5>Frontend</h5>
+                  <div class="skills">
+                    <span title="HTML5"><i class="fab fa-html5"></i></span>
+                    <span title="CSS3"><i class="fab fa-css3"></i></span>
+                    <span title="ReactJS"><i class="fab fa-react"></i></span>
+                    <span title="JavaScript"><i class="fab fa-js"></i></span>
+                  </div>
+                  <h5>Backend</h5>
+                  <div class="skills">
+                    <span title="Python"><i class="fab fa-python"></i></span>
+                    <span title="JakartaEE"><i class="fab fa-java"></i></span>
+                    <span title="SQL"><i class="fas fa-database"></i></span>
+                  </div>
+                  <h5>Entwicklungs- und Buildprozess</h5>
+                  <div class="skills">
+                    <span title="git"><i class="fab fa-git"></i></span>
+                    <span title="yarn"><i class="fab fa-yarn"></i></span>
+                    <span title="Nginx"><i class="fas fa-server"></i></span>
+                  </div>
+                  <h5>Weitere</h5>
+                  <div class="skills">
+                    <span title="Microsoft Office 365"><i class="fab fa-microsoft"></i></span>
+                  </div><span>Insbesondere Sharepoint und Teams</span>
                 </figcaption>
               </figure>
             </div>
@@ -156,7 +153,26 @@
                   <div class="line-dec"></div>
                 </div>
                 <figcaption>
-                  
+                  <h5>Projektmanagement</h5>
+                  <div class="skills">
+                    <span title="SCRUM"><i class="fas fa-tasks"></i></span>
+                    <span title="Projektmanagement"><i class="fas fa-project-diagram"></i></span>
+                  </div>
+                  <h5>Modellierung</h5>
+                  <div class="skills">
+                    <span title="Business Process Model and Notation 2.0"><i class="fab" style="font-size: small;">BPMN</i></span>
+                    <span title="Erweiterte Ereignisgesteuerte Prozesskette"><i class="fab" style="font-size: small;">eEPK</i></span>
+                    <span title="Datenbank Normalisierung"><i class="fas fa-database"></i></span>
+                  </div>
+                  <h5>Tools</h5>
+                  <div class="skills">
+                    <span title="SAP"><i class="fab">SAP</i></span>
+                    <span title="Data Science, CRISP-DM"><i class="fab fa-r-project"></i></span>
+                  </div>
+                  <h5>Weitere</h5>
+                  <div class="skills">
+                    <span title="Social Media Understanding"><i class="fas fa-hashtag"></i></span>
+                  </div>
                 </figcaption>
               </figure>
             </div>
@@ -195,10 +211,10 @@
                 <span>Ehrenamt</span></label>
                 <label><input
                     type="radio"
-                    data-type="work"
+                    data-type="career"
                     name="isotope-filter"
                   />
-                  <span>Arbeit</span></label>
+                  <span>Karriere</span></label>
                 <label><input
                     type="radio"
                     data-type="education"
@@ -223,9 +239,9 @@
                     </p>
                   </div>
                 </div>
-                <div class="isotope-item" data-type="work">
+                <div class="isotope-item" data-type="career">
                   <div class="service-item">
-                    <div class="first-service-icon service-icon" ></div>
+                    <div class="fourth-service-icon service-icon" ></div>
                     <h4>Werkstudent</h4>
                     <p>Seit August 2020</p>
                     <p>
@@ -233,8 +249,10 @@
                     </p>
                     Konzeptionierung und Realisierung verschiedener interner Projekte
                   </div>
+                </div>
+                <div class="isotope-item" data-type="career">
                   <div class="service-item">
-                    <div class="first-service-icon service-icon"></div>
+                    <div class="fourth-service-icon service-icon"></div>
                     <h4>Aushilfe</h4>
                     <p>April 2018 bis April 2019</p>
                     <p>
@@ -253,6 +271,8 @@
                     </p>
                     Wirtschaftsinformatik, Bachelor of Science 
                   </div>
+                </div>
+                <div class="isotope-item" data-type="education">
                   <div class="service-item">
                     <div class="second-service-icon service-icon"></div>
                     <h4>Allgemeine Hochschulreife</h4>
@@ -271,6 +291,8 @@
                     </p>
                     und weitere Meetings
                   </div>
+                </div>
+                <div class="isotope-item" data-type="other">
                   <div class="service-item">
                     <div class="second-service-icon service-icon"></div>
                     <h4>Tonmeister Assistent</h4>
@@ -312,7 +334,6 @@
 
     <script src="assets/js/isotope.min.js"></script>
     <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/lightbox.js"></script>
     <script src="assets/js/custom.js"></script>
     <script>
       //according to loftblog tut

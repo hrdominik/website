@@ -547,12 +547,12 @@ section.my-work .section-heading {
 }
 
 .service {
-    height: 200px; 
+    height: 350px; 
     width: 100%; 
     border-radius: 5px; 
     background-color: #EEEEEE;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 25%;
 }
 .service .line-dec {
     width: 60px;
@@ -563,6 +563,23 @@ section.my-work .section-heading {
 
 .servicContent {
     color: black;
+}
+.fa{
+    color: #410000 !important;
+}
+.fas{
+    margin-left: 3px;
+    margin-right: 3px;
+    color: #410000 !important;
+}
+.fab{
+    margin-left: 3px;
+    margin-right: 3px;
+    color: #410000 !important;
+}
+.skills{
+    display: flex;
+    justify-content: center;
 }
 
 figure.snip1321 {
