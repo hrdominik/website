@@ -713,6 +713,11 @@ section.contact-me {
     text-align: center;
 }
 
+.moreContact{
+    display: flex;
+    justify-content: center;
+}
+
 @media screen and (max-width: 1680px) {
     .menu {
         left: 5%;
