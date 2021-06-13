@@ -69,8 +69,8 @@ body{
     border: solid var(--accentColor) 2px;
     height: 50px;
 }
-.fab, .fa{
-    color: var(--bgColor);
+.link .fab, .link .fa{
+    color: var(--bgColor) !important;
     margin-right: 0;
     margin-left: 0;
 }

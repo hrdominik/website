@@ -565,17 +565,17 @@ section.my-work .section-heading {
     color: black;
 }
 .fa{
-    color: #FFB900;
+    color: #FFB900 !important;
 }
 .fas{
     margin-left: 3px;
     margin-right: 3px;
-    color: #FFB900;
+    color: #FFB900 !important;
 }
 .fab{
     margin-left: 3px;
     margin-right: 3px;
-    color: #FFB900;
+    color: #FFB900 !important;
 }
 .skills{
     display: flex;
