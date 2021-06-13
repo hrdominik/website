@@ -565,16 +565,20 @@ section.my-work .section-heading {
     color: black;
 }
 .fa{
-    color: #FFB900 !important;
+    color: #FFB900;
 }
 .fas{
     margin-left: 3px;
     margin-right: 3px;
-    color: #FFB900 !important;
+    color: #FFB900;
 }
 .fab{
     margin-left: 3px;
     margin-right: 3px;
+    color: #FFB900;
+}
+
+.skills .fab, .skills .fa, .skills .fas{
     color: #FFB900 !important;
 }
 .skills{

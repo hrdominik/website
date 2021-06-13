@@ -70,7 +70,7 @@ body{
     height: 50px;
 }
 .link .fab, .link .fa{
-    color: var(--bgColor) !important;
+    color: var(--bgColor);
     margin-right: 0;
     margin-left: 0;
 }
