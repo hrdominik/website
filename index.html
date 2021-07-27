@@ -94,7 +94,7 @@
             <h2>Über mich</h2>
             <div class="line-dec"></div>
             <span>
-              Ich bin Dominik Höhr, 20 Jahre alt, Student der Wirtschaftsinformatik an der Universität Paderborn.
+              Ich bin Dominik Höhr, <span id="yearOutput"></span> Jahre alt, Student der Wirtschaftsinformatik an der Universität Paderborn.
             </span>
           </div>
           <div class="left-image-post">
@@ -365,6 +365,11 @@
     <script src="assets/js/isotope.min.js"></script>
     <script src="assets/js/owl-carousel.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script>
+        const myBday = new Date('2000-10-13T06:35:00');
+        const years = calculateAge(myBday);
+        document.getElementById('yearOutput').innerHTML = years;
+    </script>
     <script>
       //according to loftblog tut
       $(".main-menu li:first").addClass("active");
