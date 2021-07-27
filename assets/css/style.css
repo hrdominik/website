@@ -126,7 +126,7 @@ html {
 .main-nav li:hover a,
 .main-nav li.active a {
     background: #fff;
-    color: #FFB900;
+    color: #8d0015;
 }
 
 /* Sidebar Menu */
@@ -308,7 +308,7 @@ html {
 .section-heading .line-dec {
     width: 60px;
     height: 3px;
-    background-color: #FFB900;
+    background-color: #8d0015;
     margin: 10px auto;
 }
 
@@ -326,7 +326,7 @@ html {
     display: inline-block;
     padding: 12px 20px;
     background-color: #fff;
-    color: #FFB900;
+    color: #8d0015;
     font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.5px;
@@ -335,28 +335,24 @@ html {
 }
 
 .white-button a:hover {
-    background-color: #FFB900;
+    background-color: #8d0015;
     color: #fff;
 }
 
 button {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 20px;
     background-color: #fff;
-    color: #999999;
-    font-size: 12px;
+    color: #8d0015;
+    font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     transition: all 0.5s;
-    border: none;
-    outline: none;
-    cursor: pointer;
 }
 
 button:hover {
-    outline: none;
-    background-color: #999999;
+    background-color: #8d0015;
     color: #fff;
 }
 
@@ -497,8 +493,8 @@ section.my-work .section-heading {
 }
 
 .isotope-toolbar input[type="radio"]:checked + span {
-    color: #FFB900;
-    border-bottom: 2px solid #FFB900;
+    color: #8d0015;
+    border-bottom: 2px solid #8d0015;
 }
 
 .isotope-box {
@@ -557,7 +553,7 @@ section.my-work .section-heading {
 .service .line-dec {
     width: 60px;
     height: 3px;
-    background-color: #FFB900;
+    background-color: #8d0015;
     margin: 10px auto;
 }
 
@@ -565,21 +561,21 @@ section.my-work .section-heading {
     color: black;
 }
 .fa{
-    color: #FFB900;
+    color: #8d0015;
 }
 .fas{
     margin-left: 3px;
     margin-right: 3px;
-    color: #FFB900;
+    color: #8d0015;
 }
 .fab{
     margin-left: 3px;
     margin-right: 3px;
-    color: #FFB900;
+    color: #8d0015;
 }
 
 .skills .fab, .skills .fa, .skills .fas{
-    color: #FFB900 !important;
+    color: #8d0015 !important;
 }
 .skills{
     display: flex;
@@ -854,3 +850,72 @@ section.contact-me {
         margin-bottom: 20px;
     }
 }
+
+/* Cookies */
+
+
+.cookieContainer {
+
+	z-index: 9999;
+	width: 350px;
+	min-height: 20px;
+	box-sizing: border-box;
+	padding: 30px 30px 30px 30px;
+    border-radius: 5px;
+	background: #333333;
+	overflow: hidden;
+	position: fixed;
+    bottom: 30px;
+	right: 30px;
+}
+
+.cookieContainer .cookieTitle a {
+	color: #b90924 !important;
+	font-size: 22px;
+	line-height: 20px;
+	display: block;
+}
+
+.cookieContainer .cookieDesc p {
+
+	margin: 0;
+	padding: 0;
+	color: #FFFFFF;
+	font-size: 13px;
+	line-height: 20px;
+	display: block;
+	margin-top: 10px;
+} 
+
+.cookieContainer .cookieDesc a {
+
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.cookieContainer .cookieButtons{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* .cookieContainer .cookieButton button {
+
+	display: inline-block;
+    padding: 12px 20px;
+    background-color: #fff;
+    color: #8d0015;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.5s;
+} */
+
+/* .cookieContainer .cookieButton button:hover { 
+
+	cursor: pointer;
+	background: #8d0015;
+    background-color: #8d0015;
+    color: #fff;
+} */
