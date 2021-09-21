@@ -8,17 +8,86 @@ https://templatemo.com/tm-531-reflux
 
 /* @import url(fontawesome.css); */
 @import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
-body {
-    font-family: 'Lato', sans-serif;
+:root {
+    --bgColor:#333333;
+    --accentColor: #FFB900;
+    --font: 'Lato', sans-serif;
 }
 
+body {
+    font-family: var(--font);
+    background-color: var(--bgColor);
+}
+
+
 #page-wraper {
-    background: #333333 no-repeat center center fixed;
+    background: var(--bgColor) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     width: 100%;
+}
+
+/* Error */
+
+#home{
+    
+}
+
+.link{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--accentColor);
+    color: var(--bgColor);
+    font-family: var(--font);
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 17px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all .25s cubic-bezier(.08,.59,.29,.99);
+    border: solid var(--accentColor) 2px;
+    height: 50px;
+}
+
+.link:hover{
+    background-color: var(--bgColor);
+    color: var(--accentColor);
+}
+
+.heading {
+    padding-top: 20px !important;
+    text-align: center;
+    padding: 10px 15px;
+}
+
+.heading h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 0;
+}
+
+.heading .line-dec {
+    width: 60px;
+    height: 3px;
+    background-color: var(--accentColor);
+    margin: 10px auto;
+}
+
+.heading span {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+#home-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -125,8 +194,8 @@ html {
 
 .main-nav li:hover a,
 .main-nav li.active a {
-    background: #fff;
-    color: #8d0015;
+    background: #333;
+    color: var(--accentColor);
 }
 
 /* Sidebar Menu */
@@ -177,7 +246,7 @@ html {
 }
 
 .menu .social-network ul li a:hover {
-    background-color: #fff;
+    background-color: var(--bgColor);
     color: #999999;
 }
 
@@ -308,7 +377,7 @@ html {
 .section-heading .line-dec {
     width: 60px;
     height: 3px;
-    background-color: #8d0015;
+    background-color: var(--accentColor);
     margin: 10px auto;
 }
 
@@ -325,8 +394,8 @@ html {
 .white-button a {
     display: inline-block;
     padding: 12px 20px;
-    background-color: #fff;
-    color: #8d0015;
+    background-color: #545454;
+    color: var(--accentColor);
     font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.5px;
@@ -335,15 +404,15 @@ html {
 }
 
 .white-button a:hover {
-    background-color: #8d0015;
-    color: #fff;
+    background-color: var(--accentColor);
+    color: var(--bgColor);
 }
 
 button {
     display: inline-block;
     padding: 12px 20px;
     background-color: #fff;
-    color: #8d0015;
+    color: var(--accentColor);
     font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.5px;
@@ -352,7 +421,7 @@ button {
 }
 
 button:hover {
-    background-color: #8d0015;
+    background-color: var(--accentColor);
     color: #fff;
 }
 
@@ -493,8 +562,8 @@ section.my-work .section-heading {
 }
 
 .isotope-toolbar input[type="radio"]:checked + span {
-    color: #8d0015;
-    border-bottom: 2px solid #8d0015;
+    color: var(--accentColor);
+    border-bottom: 2px solid var(--accentColor);
 }
 
 .isotope-box {
@@ -553,7 +622,7 @@ section.my-work .section-heading {
 .service .line-dec {
     width: 60px;
     height: 3px;
-    background-color: #8d0015;
+    background-color: var(--accentColor);
     margin: 10px auto;
 }
 
@@ -561,21 +630,21 @@ section.my-work .section-heading {
     color: black;
 }
 .fa{
-    color: #8d0015;
+    color: var(--accentColor);
 }
 .fas{
     margin-left: 3px;
     margin-right: 3px;
-    color: #8d0015;
+    color: var(--accentColor);
 }
 .fab{
     margin-left: 3px;
     margin-right: 3px;
-    color: #8d0015;
+    color: var(--accentColor);
 }
 
 .skills .fab, .skills .fa, .skills .fas{
-    color: #8d0015 !important;
+    color: var(--accentColor) !important;
 }
 .skills{
     display: flex;
@@ -862,7 +931,7 @@ section.contact-me {
 	box-sizing: border-box;
 	padding: 30px 30px 30px 30px;
     border-radius: 5px;
-	background: #333333;
+	background: var(--bgColor);
 	overflow: hidden;
 	position: fixed;
     bottom: 30px;
@@ -870,7 +939,7 @@ section.contact-me {
 }
 
 .cookieContainer .cookieTitle a {
-	color: #b90924 !important;
+	color: var(--accentColor) !important;
 	font-size: 22px;
 	line-height: 20px;
 	display: block;
@@ -904,7 +973,7 @@ section.contact-me {
 	display: inline-block;
     padding: 12px 20px;
     background-color: #fff;
-    color: #8d0015;
+    color: var(--accentColor);
     font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.5px;
@@ -915,7 +984,7 @@ section.contact-me {
 /* .cookieContainer .cookieButton button:hover { 
 
 	cursor: pointer;
-	background: #8d0015;
-    background-color: #8d0015;
+	background: var(--accentColor);
+    background-color: var(--accentColor);
     color: #fff;
 } */
