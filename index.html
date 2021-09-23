@@ -44,10 +44,10 @@
             </div>
             <nav class="main-nav" role="navigation">
               <ul class="main-menu">
-                <li><a href="#section1">Über mich</a></li>
-                <li><a href="#section2">Fertigkeiten & Fähigkeiten</a></li>
-                <li><a href="#section3">Erfahrung</a></li>
-                <li><a href="#section4">Kontakt</a></li>
+                <li><a href="#about-me">Über mich</a></li>
+                <li><a href="#skills">Fertigkeiten & Fähigkeiten</a></li>
+                <li><a href="#cv">Erfahrung</a></li>
+                <li><a href="#contact">Kontakt</a></li>
               </ul>
             </nav>
             <div class="social-network">
@@ -79,7 +79,7 @@
         </div>
       </div>
 
-      <section class="section about-me" data-section="section1">
+      <section class="section about-me" data-section="about-me">
         <div class="container">
           <div class="section-heading">
             <h2>Über mich</h2>
@@ -120,7 +120,7 @@
         </div>
       </section>
 
-      <section class="section my-services" data-section="section2">
+      <section class="section my-services" data-section="skills">
         <div class="container">
           <div class="section-heading">
             <h2>Fertigkeiten & Fähigkeiten</h2>
@@ -197,7 +197,7 @@
         </div>
       </section>
 
-      <section class="section my-work" data-section="section3">
+      <section class="section my-work" data-section="cv">
         <div class="container">
           <div class="section-heading">
             <h2>Erfahrung</h2>
@@ -252,7 +252,7 @@
                     <h4>Aktives Mitglied</h4>
                     <p>Seit Oktober 2019</p>
                     <p>
-                      <a href="https://www.fsrwinfo.de" style="all: inherit;">FACHSCHAFTSRAT WIRTSCHAFTSINFORMATIK</a>
+                      <a href="https://www.fsrwinfo.de" id="service-place">FACHSCHAFTSRAT WIRTSCHAFTSINFORMATIK</a>
                     </p>
                   </div>
                 </div>
@@ -262,7 +262,7 @@
                     <h4>Werkstudent</h4>
                     <p>Seit August 2020</p>
                     <p>
-                      <a href="https://www.beckmann-partner.de" style="all: inherit;">BECKMANN & PARTNER CONSULT</a> 
+                      <a href="https://www.beckmann-partner.de" id="service-place">BECKMANN & PARTNER CONSULT</a> 
                     </p>
                     Konzeptionierung und Realisierung verschiedener interner Projekte
                   </div>
@@ -284,7 +284,7 @@
                     <h4>Studium</h4>
                     <p>Seit 2018</p>
                     <p>
-                      UNIVERSITÄT PADERBORN
+                      <a href="https://www.uni-paderborn.de" id="service-place">UNIVERISITÄT PADERBORN</a> 
                     </p>
                     Wirtschaftsinformatik, Bachelor of Science 
                   </div>
@@ -304,7 +304,7 @@
                     <div class="second-service-icon service-icon"></div>
                     <h4>Teilnahme</h4>
                     <p>
-                      PYTHON SPRINT, DÜSSELDORF <a href="https://www.pyddf.de" style="all: inherit;">(PyDDF)</a>
+                      <a href="https://www.pyddf.de" id="service-place">PYTHON SPRINT, DÜSSELDORF (PyDDF)</a>
                     </p>
                     und weitere Meetings
                   </div>
@@ -326,7 +326,7 @@
         </div>
       </section>
 
-      <section class="section contact-me" data-section="section4">
+      <section class="section contact-me" data-section="contact">
         <div class="container">
           <div class="section-heading">
             <h2>Kontakt</h2>
@@ -371,7 +371,6 @@
             '[data-section="' + direction + '"]'
           ),
           reqSectionPos = reqSection.offset().top - 0;
-
         if (isAnimate) {
           $("body, html").animate(
             {
