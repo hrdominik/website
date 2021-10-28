@@ -79,7 +79,7 @@
         </div>
       </div>
 
-      <section class="section about-me" data-section="about-me">
+      <section class="section about-me" data-section="about-me" id="about-me">
         <div class="container">
           <div class="section-heading">
             <h2>Über mich</h2>
@@ -120,7 +120,7 @@
         </div>
       </section>
 
-      <section class="section my-services" data-section="skills">
+      <section class="section my-services" data-section="skills" id="skills">
         <div class="container">
           <div class="section-heading">
             <h2>Fertigkeiten & Fähigkeiten</h2>
@@ -197,7 +197,7 @@
         </div>
       </section>
 
-      <section class="section my-work" data-section="cv">
+      <section class="section my-work" data-section="cv" id="cv">
         <div class="container">
           <div class="section-heading">
             <h2>Erfahrung</h2>
@@ -246,6 +246,17 @@
                   <span>Sonstige</span></label>
               </form>
               <div class="isotope-box">
+                <div class="isotope-item" data-type="volunteering">
+                  <div class="service-item">
+                    <div class="third-service-icon service-icon"></div>
+                    <h4>Gewähltes Mitglied <br /><small>in verschiedenen Kommissionen und Ausschüssen</small></h4>
+                    <p>Seit Oktober 2021</p>
+                    <p>
+                      <a href="https://stupa.upb.de" id="service-place">STUDIERENDENPARLAMENT</a>
+                    </p>
+                    Stellvertretender Vorsitz im Haushaltsausschuss <br />Beratendesmitglied im Prüfungsausschuss
+                  </div>
+                </div>
                 <div class="isotope-item" data-type="volunteering">
                   <div class="service-item">
                     <div class="third-service-icon service-icon"></div>
@@ -326,7 +337,7 @@
         </div>
       </section>
 
-      <section class="section contact-me" data-section="contact">
+      <section class="section contact-me" data-section="contact" id="contact">
         <div class="container">
           <div class="section-heading">
             <h2>Kontakt</h2>
@@ -365,23 +376,23 @@
       //according to loftblog tut
       $(".main-menu li:first").addClass("active");
 
-      var showSection = function showSection(section, isAnimate) {
-        var direction = section.replace(/#/, ""),
-          reqSection = $(".section").filter(
-            '[data-section="' + direction + '"]'
-          ),
-          reqSectionPos = reqSection.offset().top - 0;
-        if (isAnimate) {
-          $("body, html").animate(
-            {
-              scrollTop: reqSectionPos
-            },
-            800
-          );
-        } else {
-          $("body, html").scrollTop(reqSectionPos);
-        }
-      };
+      // var showSection = function showSection(section, isAnimate) {
+      //   var direction = section.replace(/#/, ""),
+      //     reqSection = $(".section").filter(
+      //       '[data-section="' + direction + '"]'
+      //     ),
+      //     reqSectionPos = reqSection.offset().top - 0;
+      //   if (isAnimate) {
+      //     $("body, html").animate(
+      //       {
+      //         scrollTop: reqSectionPos
+      //       },
+      //       800
+      //     );
+      //   } else {
+      //     $("body, html").scrollTop(reqSectionPos);
+      //   }
+      // };
 
       var checkSection = function checkSection() {
         $(".section").each(function() {
@@ -401,10 +412,10 @@
         });
       };
 
-      $(".main-menu").on("click", "a", function(e) {
-        e.preventDefault();
-        showSection($(this).attr("href"), true);
-      });
+      // $(".main-menu").on("click", "a", function(e) {
+      //   e.preventDefault();
+      //   showSection($(this).attr("href"), true);
+      // });
 
       $(window).scroll(function() {
         checkSection();

@@ -19,6 +19,10 @@ body {
     background-color: var(--bgColor);
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 
 #page-wraper {
     background: var(--bgColor) no-repeat center center fixed;
