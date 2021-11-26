@@ -615,6 +615,9 @@ section.my-work .section-heading {
 .servicContent {
     color: black;
 }
+.servicContent .skills span{
+    cursor: pointer;
+}
 .fa{
     color: var(--accentColor);
 }
