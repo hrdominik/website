@@ -1,36 +1,23 @@
-/* Style Settings */
 @import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
 :root {
     --bgColor:#333333;
+    --bgAccColor: #545454;
     --accentColor: #FFB900;
     --font: 'Lato', sans-serif;
 }
 
-body{
-    background-color: var(--bgColor);
-}
-
-#userPhoto{
-    width: 110px;
-    height: 110px;
-    display: block;
-    margin: 35px auto 20px;
-    border-radius: 50%;
-}
-
-.authorContent{
-    color: #bbb;
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1;
-    display: block;
+body {
     font-family: var(--font);
-    width: 100%;
-    text-align: center;
-    text-decoration: none;
+    background-color: var(--bgColor);
+    color: #fff;
 }
-.authorContent h4{
-    margin-bottom: 20px;
+
+html {
+    scroll-behavior: smooth;
+}
+
+.page-wraper{
+    margin-top: 50px;
 }
 
 #worklinks{
@@ -45,12 +32,6 @@ body{
     width: auto;
     display: block;
     margin: 27px auto;
-}
-
-#website{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .link{
@@ -82,6 +63,7 @@ body{
 
 label{
     margin-left: -32px;
+    margin-bottom: 0;
 }
 
 .link:hover .fab,.link:hover .fa{
@@ -90,7 +72,9 @@ label{
 
 #discord label::after{
     content: 'Discord';
+    color: var(--bgColor);
 }
 #discord:hover label::after{
     content: 'DHR#9918';
+    color: var(--accentColor);
 }
