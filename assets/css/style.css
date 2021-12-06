@@ -17,6 +17,10 @@ html {
 }
 
 /* Basics */
+h2{
+    font-weight: 700;
+}
+
 input,
 select,
 textarea {
@@ -34,15 +38,8 @@ p {
     color: #fff;
 }
 
-h4 {
-    font-size: 26px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.25px;
-}
-
 span {
-    font-size: 13px;
+    font-size: 16px;
     font-style: italic;
 }
 
@@ -145,6 +142,17 @@ button:hover{
 }
 
 /* Content */
+
+section {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 80px;
+}
+.section-heading{
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+}
 .line-dec {
     width: 60px;
     height: 3px;
