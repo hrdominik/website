@@ -29,6 +29,7 @@ textarea {
 
 a,
 a:hover {
+    color: #fff;
     text-decoration: none;
 }
 
@@ -81,6 +82,7 @@ button:hover{
     color: var(--bgColor);
 }
 .link-button a{
+    padding: 12px 20px;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.75px;
@@ -148,8 +150,9 @@ section {
     min-height: 100vh;
     padding-bottom: 80px;
 }
-.section-heading{
+.heading{
     text-align: center;
+    margin-top: 20px;
     margin-bottom: 30px;
     letter-spacing: 0.5px;
 }
@@ -161,9 +164,93 @@ section {
 }
 
 /* Skills */
+figure.skill .heading{
+    height: 300px;
+    border-radius: 5px; 
+    background-color: var(--bgAccColor);
+    padding-top: 25%;
+}
+figure.skill {
+    cursor: pointer;
+    text-align: center;
+    -webkit-perspective: 50em;
+    perspective: 50em;
+}
+figure.skill * {
+    -webkit-box-sizing: padding-box;
+    box-sizing: padding-box;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+figure.skill figcaption {
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+}
+figure.skill:after {
+    background-color: var(--bgColor);
+    position: absolute;
+    content: "";
+    display: block;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    -webkit-transform: translateY(50%);
+    transform: translateY(50%);
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    opacity: 0;
+}
+figure small{
+    font-style: italic;
+    color: var(--bgAccColor);
+}
+  
+figure.skill:hover figcaption,
+figure.skill.hover figcaption {
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    opacity: 1;
+    /* -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s; */
+}
+figure.skill:hover:after,
+figure.skill.hover:after {
+    -webkit-transform: rotateX(0);
+    transform: rotateX(0);
+    opacity: .98;
+}
+.skill-list{
+    margin-left: 25%;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
 
 /* Career */
-
+.cv-item {
+    width: 45%;
+    border-bottom: 2px solid var(--accentColor);
+    padding: 40px;
+    margin: 10px;
+}
+.cv-item .cv-head{
+    display: flex;
+    justify-content: space-between;
+}
+.cv-item:hover{
+    background-color: var(--bgAccColor);
+}
+.cv-item h4{
+    color: var(--accentColor);
+}
 
 /* Cookies */
 
