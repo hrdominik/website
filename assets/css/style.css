@@ -248,6 +248,7 @@ figure.skill.hover:after {
 .cv-item .cv-head{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
 }
 .cv-item:hover{
     background-color: var(--bgAccColor);
@@ -310,6 +311,18 @@ figure.skill.hover:after {
     figcaption small {
         font-size: 55%;
     }
+    .cv-item .fas-3x, .cv-item .fab-3x, .cv-item .fa-3x{
+        font-size: 2em;
+    }
+    .cv-item .fa-link{
+        font-size: .75em;
+    }
+    .cv-item small{
+        font-size: 60%;
+    }
+    .cv-item i{
+        font-size: .9rem;
+    }
 }
 
 @media screen and (max-width: 999px) and (min-width: 759px) {
@@ -318,7 +331,7 @@ figure.skill.hover:after {
     }
 }
 
-@media screen and (max-width: 845px) { 
+@media screen and (max-width: 880px) { 
     .menu, ::after, ::before {
         box-sizing: unset;
     }
