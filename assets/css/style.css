@@ -78,7 +78,7 @@ button:hover{
     cursor: pointer;
     background-color: var(--accentColor);
 }
-.link-button:hover a, .link-button:hover .fab, .link-button:hover .fa, .link-button:hover .fas{
+.link-button:hover a, .link-button:hover .fab, .link-button:hover .fa, .link-button:hover .fas, .link-button:hover .fa-solid{
     color: var(--bgColor);
 }
 .link-button a{
@@ -90,7 +90,7 @@ button:hover{
     color: var(--accentColor);
 }
 
-.fa, .fas, .fab{
+.fa, .fas, .fab, .fa-solid{
     color: var(--accentColor);
 }
 
@@ -311,7 +311,7 @@ figure.skill.hover:after {
     figcaption small {
         font-size: 55%;
     }
-    .cv-item .fas-3x, .cv-item .fab-3x, .cv-item .fa-3x{
+    .cv-item .fas-3x, .cv-item .fab-3x, .cv-item .fa-3x, .cv-item .fa-solid-3x{
         font-size: 2em;
     }
     .cv-item .fa-link{
