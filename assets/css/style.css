@@ -48,6 +48,18 @@ img {
     width: 100%;
 }
 
+small {
+    font-size: 60%;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    line-height: 0.9;
+}
+
+.spacer{
+    min-height: 7px;
+}
+
 button{
     border: inherit;
     display: inline-flex;
@@ -242,8 +254,9 @@ figure.skill.hover:after {
 .cv-item {
     width: 45%;
     border-bottom: 2px solid var(--accentColor);
-    padding: 40px;
+    padding: 30px;
     margin: 10px;
+    cursor: default;
 }
 .cv-item .cv-head{
     display: flex;
@@ -255,6 +268,18 @@ figure.skill.hover:after {
 }
 .cv-item h4{
     color: var(--accentColor);
+}
+
+.cv-item i {
+    cursor: text;
+}
+.cv-item .fa, .cv-item .fas, .cv-item .fab, .cv-item .fa-solid{
+    cursor: default;
+}
+
+.service-date{
+    text-align: right;
+    max-width: 150px;
 }
 
 /* Cookies */
