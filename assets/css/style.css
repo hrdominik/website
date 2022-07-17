@@ -251,6 +251,26 @@ figure.skill.hover:after {
 }
 
 /* Career */
+.cv-isotope-selector{
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    width: 100%;
+}
+.cv-isotope-selector input[type="radio"]{
+    display: none;
+}
+.cv-isotope-selector input[type="radio"]:checked + span{
+    border-bottom: 2px solid var(--accentColor);
+    color: var(--accentColor);
+}
+.cv-isotope-selector span {
+    font-style: normal;
+    font-weight: 700;
+    margin-bottom: .5rem;
+    margin-right: 15px;
+}
+
 .cv-item {
     width: 45%;
     border-bottom: 2px solid var(--accentColor);
