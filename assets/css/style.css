@@ -109,11 +109,26 @@ button:hover{
 /* Menu */
 .menu{
     background-color: var(--bgAccColor);
+    display: flex;
+    flex-direction: column;   
+    justify-content: space-between; 
 }
 .menu-content{
     margin-top: 100px;
     position: sticky;
     top: 100px;
+}
+
+.menu-footer{
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    bottom: 10px;
+}
+
+.menu-footer a{
+    color: var(--accentColor);
+    text-decoration: underline;
 }
 
 .image-round img {
