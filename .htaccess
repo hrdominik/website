@@ -1,0 +1,8 @@
+ErrorDocument 400 /assets/error_pages/400_bad_request.html
+ErrorDocument 401 /assets/error_pages/401_unauthorized.html
+ErrorDocument 403 /assets/error_pages/403_forbidden.html
+ErrorDocument 404 /assets/error_pages/404_not_found.html
+ErrorDocument 405 /assets/error_pages/405_method_not_allowed.html
+ErrorDocument 415 /assets/error_pages/415_unsupported_media_type.html
+ErrorDocument 500 /assets/error_pages/500_internal_server_error.html
+ErrorDocument 503 /assets/error_pages/maintenance.html

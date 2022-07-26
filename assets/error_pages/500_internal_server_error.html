@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="apple-touch-icon" href="../favicon.png" />
+    <meta charset="UTF-8">
+    <title>Interner Fehler</title>
+    <meta name="description" content="Internal Server Error" />
+    <meta name="author" content="hrdominik" />
+    <style>
+        :root {
+            --bgColor:#333333;
+            --accentColor: #FFB900;
+            --font: 'Lato', sans-serif;
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bgColor);
+        }
+
+        #page-wraper {
+            background: var(--bgColor) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            width: 100%;
+        }
+        .container {
+            margin: 0 auto;
+            text-align: center;
+            color: #fff;
+            font-size: 16px;
+        }
+        .horizontal-group{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .section-heading {
+            padding: 45px 45px;
+        }
+        .section-heading h2 {
+            font-size: 32px;
+            font-weight: 700;
+        }
+        .section-heading .line-dec {
+            width: 60px;
+            height: 3px;
+            background-color: var(--accentColor);
+            margin: 10px auto;
+        }
+        
+
+        .link-button a {
+            display: inline-block;
+            margin: auto 10px;
+            padding: 12px 20px;
+            background-color: #545454;
+            color: var(--accentColor);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.5s;
+            text-decoration: none;
+        }
+        .link-button a:hover {
+            background-color: var(--accentColor);
+            color: var(--bgColor);
+        }
+
+        p {
+            line-height: 24px;
+            margin-bottom: 20px;
+        }
+        span {
+            margin-top: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .error-wrapper{
+            margin-bottom: 40px;
+        }
+        .error-type{
+            font-size: 26px;
+        }
+        .error-code{
+            font-size: 20px;
+            color: #f47755;
+        }
+        .error-title{
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="page-wraper">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Interner Fehler</h2>
+                <div class="line-dec"></div>
+            </div>
+            <div class="error-wrapper">
+                <div class="error-type">Server Error</div>
+                <div class="error-code">500</div>
+                <div class="error-title">Internal Server Error</div>
+                <span class="error-description">The server encountered an internal error or misconfiguration and was unable to complete your request. <br />Please contact the server administrator to inform of the time the error occurred and of anything you might have done that may have caused the error.</span>
+            </div>
+            <p>Der Server sendet einen Fehler und kann die Anfrage nicht verarbeiten.</p>
+            <div class="horizontal-group">
+                <div class="link-button">
+                    <a href="javascript:history.back();">Zurück</a>  
+                </div> 
+                <div class="link-button">
+                    <a href="/">zur Homepage</a>  
+                </div> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="apple-touch-icon" href="../favicon.png" />
+    <meta charset="UTF-8">
+    <title>Fehlerhafte Anfrage</title>
+    <meta name="description" content="Bad Request" />
+    <meta name="author" content="hrdominik" />
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
+        :root {
+            --bgColor:#333333;
+            --accentColor: #FFB900;
+            --font: 'Lato', sans-serif;
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bgColor);
+        }
+
+        #page-wraper {
+            background: var(--bgColor) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            width: 100%;
+        }
+        .container {
+            margin: 0 auto;
+            text-align: center;
+            color: #fff;
+            font-size: 16px;
+        }
+        .horizontal-group{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .section-heading {
+            padding: 45px 45px;
+        }
+        .section-heading h2 {
+            font-size: 32px;
+            font-weight: 700;
+        }
+        .section-heading .line-dec {
+            width: 60px;
+            height: 3px;
+            background-color: var(--accentColor);
+            margin: 10px auto;
+        }
+        
+
+        .link-button a {
+            display: inline-block;
+            margin: auto 10px;
+            padding: 12px 20px;
+            background-color: #545454;
+            color: var(--accentColor);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.5s;
+            text-decoration: none;
+        }
+        .link-button a:hover {
+            background-color: var(--accentColor);
+            color: var(--bgColor);
+        }
+
+        p {
+            line-height: 24px;
+            margin-bottom: 20px;
+        }
+        span {
+            margin-top: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .error-wrapper{
+            margin-bottom: 40px;
+        }
+        .error-type{
+            font-size: 26px;
+        }
+        .error-code{
+            font-size: 20px;
+            color: #f47755;
+        }
+        .error-title{
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="page-wraper">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Die Anfrage konnte nicht verarbeitet werden</h2>
+                <div class="line-dec"></div>
+            </div>
+            <div class="error-wrapper">
+                <div class="error-type">Client Error</div>
+                <div class="error-code">400</div>
+                <div class="error-title">Bad Request</div>
+                <span class="error-description">The requested can not be handled.</span>
+            </div>
+            <p>Die von Ihnen gestellte Anfrage konnte nicht verarbeitet werden.</p>
+            <div class="horizontal-group">
+                <div class="link-button">
+                    <a href="javascript:history.back();">Zurück</a>  
+                </div> 
+                <div class="link-button">
+                    <a href="/">zur Homepage</a>  
+                </div> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>
