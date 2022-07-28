@@ -123,6 +123,13 @@ button:hover{
     color: var(--accentColor);
 }
 
+.footer{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
 
 /* Menu */
 .menu{
@@ -141,7 +148,7 @@ button:hover{
     display: flex;
     justify-content: space-between;
     position: sticky;
-    bottom: 10px;
+    bottom: 15px;
     max-width: 100%;
     flex-wrap: wrap;
 }
@@ -420,9 +427,18 @@ figure.skill.hover:after {
     
 }
 
+.mobile-only{
+    display: none;
+}
+
 @media screen and (max-width: 758px) {
     .menu {
         display: none;
     }
+    .mobile-only{
+        display: block;
+    }
 }
+
+
 
