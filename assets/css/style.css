@@ -26,10 +26,28 @@ textarea {
     outline: none;
 }
 
-a,
+a {
+    color: var(--accentColor);
+}
 a:hover {
+    color: var(--accentColor);
+    text-decoration: underline;
+}
+
+.menu-content a:hover, .link-button a:hover, .cv a:hover, .cv a {
     color: #fff;
     text-decoration: none;
+}
+
+@media (max-width: 920px) and (min-width: 880px) {
+    .linebreak{
+        line-height: 30px !important;
+    }
+}
+@media (max-width: 800px) {
+    .linebreak{
+        line-height: 30px !important;
+    }
 }
 
 p {
@@ -124,11 +142,8 @@ button:hover{
     justify-content: space-between;
     position: sticky;
     bottom: 10px;
-}
-
-.menu-footer a{
-    color: var(--accentColor);
-    text-decoration: underline;
+    max-width: 100%;
+    flex-wrap: wrap;
 }
 
 .image-round img {
