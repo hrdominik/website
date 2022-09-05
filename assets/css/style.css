@@ -28,6 +28,7 @@ textarea {
 
 a {
     color: var(--accentColor);
+    text-decoration: none;
 }
 a:hover {
     color: var(--accentColor);
@@ -154,8 +155,8 @@ button:hover{
 }
 
 .image-round img {
-    width: 140px;
-    height: 140px;
+    /* width: 140px;
+    height: 140px; */
     border-radius: 50%;
     text-align: center;
 }
@@ -304,7 +305,6 @@ figure.skill.hover:after {
     font-style: normal;
     font-weight: 700;
     margin-bottom: .5rem;
-    margin-right: 15px;
 }
 
 .cv-item {
@@ -318,6 +318,7 @@ figure.skill.hover:after {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    height: 48px;
 }
 .cv-item:hover{
     background-color: var(--bgAccColor);

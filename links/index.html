@@ -3,7 +3,8 @@
 <html>
 <head>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="../favicon.ico" />
@@ -25,22 +26,26 @@
 <body>
     <div class="page-wraper container">
         <div class="row justify-content-center align-self-center image-round">
-            <img id="userPhoto" src="../DHR_squared.png" alt="User Photo">
+            <img id="userPhoto" src="../DHR_squared.png" style="width: 300px;" alt="User Photo">
         </div>
-        <div class="row justify-content-center align-self-center mt-3">
-            <h4>Dominik Höhr</h4><div class="w-100"></div>
-            <span>Student</span>
+        <div class="row justify-content-center align-self-center mt-3 text-center">
+            <div class="col">
+                <h4>Dominik Höhr</h4><div class="w-100"></div>
+                <span>Student</span>
+            </div>
         </div>
-        <div class="row justify-content-center align-self-center mt-3">
-            <div class="link-button"><a id="home" href="https://dominik.hoehr.net"> &laquo; Zurück zur Webseite</a></div>
+        <div class="row justify-content-center align-self-center mt-3 text-center">
+            <div class="col-3 link-button"><a id="home" href="https://dominik.hoehr.net"> &laquo; Zurück zur Webseite</a></div>
         </div>
         <br />
 
-        <div class="heading">
-            <h2>Geschäftlich</h2>
-            <div class="line-dec"></div>
+        <div class="row justify-content-center align-self-center mt-3 text-center heading">
+            <div class="col">
+                <h2>Geschäftlich</h2>
+                <div class="line-dec"></div>
+            </div>
         </div>
-        <div id="worklinks">
+        <div class="row justify-content-center align-self-center mt-3 text-center" id="worklinks">
             <a class="link" href="https://de.linkedin.com/in/dominik-h%C3%B6hr"><i class="fab fa-linkedin fa-2x"></i><label>LinkedIn</label><div></div></a>
             <a class="link" href="https://github.com/hrdominik"><i class="fab fa-github fa-2x"></i><label>GitHub</label><div></div></a>
             <br />
@@ -50,12 +55,14 @@
             <a class="link" href="../DHR.vcf" download title="Vcard Download only for Android and Windows"><i class="fa fa-address-book fa-2x"></i><label>Kontakt</label><div></div></a>
         </div>
         
-        <div class="heading">
-            <h2>Privat</h2>
-            <div class="line-dec"></div>
+        <div class="row justify-content-center align-self-center mt-3 text-center heading">
+            <div class="col">
+                <h2>Privat</h2>
+                <div class="line-dec"></div>
+            </div>
         </div>
 
-        <div id="privatelinks">
+        <div class="row justify-content-center align-self-center mt-3 text-center" id="privatelinks">
             <a class="link" href="https://www.instagram.com/hr.dominik"><i class="fab fa-instagram fa-2x"></i><label>Instagram</label><div></div></a>
             <a class="link" href="https://www.facebook.com/hhr.dominik"><i class="fab fa-facebook fa-2x"></i><label>Facebook</label><div></div></a>
             <a class="link" href="https://www.snapchat.com/add/hrdominik"><i class="fab fa-snapchat fa-2x"></i><label>Snapchat</label><div></div></a>
