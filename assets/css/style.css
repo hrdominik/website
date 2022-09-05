@@ -140,9 +140,8 @@ button:hover{
     justify-content: space-between; 
 }
 .menu-content{
-    margin-top: 100px;
     position: sticky;
-    top: 100px;
+    top: 50px;
 }
 
 .menu-footer{
