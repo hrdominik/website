@@ -60,6 +60,10 @@ html {
     color: var(--accentColor);
 }
 
+.link label{
+    cursor: pointer;
+}
+
 label{
     margin-left: -32px;
     margin-bottom: 0;
