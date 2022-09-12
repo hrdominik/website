@@ -442,3 +442,51 @@ figure.skill.hover:after {
 
 
 
+/* Blog */
+.feed .feed-article{
+    margin: 20px 0px 20px 0px;
+    border-radius: 20px;
+}
+.feed-wrapper:hover{
+    border-radius: 20px;
+    border-top: 2px solid var(--accentColor);
+}
+.feed .feed-article:hover{
+    background-color: var(--bgAccColor);
+}
+.feed hr{
+    width: 50%;
+    height: 2px;
+    background-color: var(--bgAccColor);
+}
+.feed .feed-article .feed-article-header{
+    margin-bottom: 10px;
+    display: flex;
+}
+.feed .feed-article .feed-article-header .feed-article__date{
+    align-self: flex-start;
+    font-weight: 700;
+}
+.feed .feed-article .feed-article-header .feed-article__heading{
+    align-self: center;
+    font-weight: 700;
+    font-size: 30px;
+}
+.feed .feed-article .feed-article__teaser{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+    min-height: 130px;
+    text-align: left;
+}
+/* #blog{
+    min-height: 98vh;
+} */
+#blog-footer{
+    background-color: var(--bgAccColor);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: unset;
+}

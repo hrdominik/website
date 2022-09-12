@@ -9,27 +9,122 @@
     <link rel="icon" href="../favicon.ico" />
     <link rel="apple-touch-icon" href="../favicon.png" />
     <meta charset="UTF-8">
-    <title>Neuigkeiten</title>
-    <meta name="description" content="Blog from Dominik" />
+    <title>Dominiks Blog</title>
+    <meta name="description" content="Dominiks Blog" />
     <meta name="author" content="hrdominik" />
     <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="../assets/css/brands.min.css" />
+    <link rel="stylesheet" href="../assets/css/regular.min.css" />
+    <link rel="stylesheet" href="../assets/css/solid.min.css" />
+
     <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 
 <body>
-    <div class="page-wraper container">
+    <div class="page-wraper container" id="blog">
         <div class="row">
             <div class="col heading">
-                <h2>Neuigkeiten</h2>
-                <div class="line-dec"></div>
+            <h2>Dominiks Blog</h2>
+            <div class="line-dec"></div>
+            <p>Ich bin Dominik Höhr, Student der Wirtschaftsinformatik an der Universität Paderborn.</p>
             </div>
         </div>
-        <div class="row justify-content-around align-self-center text-center">
-            <p>Hier entsteht ein Blog von Dominik Höhr.<br /> Schauen Sie gerne zu einen späteren Zeitpunkt wieder vorbei.</p>
+        <div class="row">
+            <div class="col-md-6 d-flex justify-content-center">
+            <img src="../DHR_LI.png" height="570px" alt="" />
+            </div>
+            <div class="col-md-6 d-flex align-content-center flex-wrap">
+            <div class="row">
+                <div class="col">
+                <p>
+                    Interessiert bin ich an der Programmierung und die damit zusammenhängenden Prozesse in den Unternehmen und der Wirtschaft. <br /> 
+                    Insbesondere beschäftige ich mich mit dem DevOps-Engineering.<br /> 
+                    Aktuell studiere ich im 1.Masterstudium und arbeite als Werkstudent in der IT-Consulting-Branche. <br />
+                </p>
+                <p>
+                    In diesem Blog möchte ich über verschieden Dinge berichten und diskutieren die mich auf meinem Werdegang bewegen. <br />
+                    Ich möchte meine Erfahrungen dabei von zwei Seiten beleuten, der persönlichen und der technischen. <br />
+                    Auf meinen der persönlichen Seite werde ich auf meine erlernten Softskills sowie meinen persönlichen Erfahrungen eingehen. <br />
+                    In meinem technsichen Blog werde ich erlernte Techniken und Technologien vorstellen und meine Erfahrung und mein Wissen teilen. <br />
+                    <br /><i>Dieser Blog ist frei von persönlicher oder politischer Meinung.</i>
+                </p>
+                <br />
+                <p>
+                    Weitere Informationen über mich finden Sie auf meiner Webseite und den verlinkten Profilen.
+                    <div class="link-button"><a id="home" href="https://dominik.hoehr.net"> zur Webseite</a></div>
+                </p>
+                </div>
+            </div>
+            </div>
         </div>
-        <div class="row justify-content-around align-self-center">
-            <div class="link-button"><a id="home" href="https://dominik.hoehr.net"> &laquo; Zurück zur Homepage</a></div>        
+        <br />
+        <div class="row justify-content-around align-self-center text-center">
+            <div class="col feed-wrapper">
+                <div class="heading">
+                    <h3>Persönlich</h3>
+                    <div class="line-dec"></div>
+                </div>
+                <div class="feed" id="feed_personal">
+                    <div class="feed-article">
+                        <div class="row feed-article-header">
+                            <div class="col-md-3 feed-article__date">02.08.2022</div>
+                            <div class="col-md-9 feed-article__heading">Vorstellung und Intention</div>
+                        </div>
+                        <div class="row feed-article-content">
+                            <div class="col-md-4 feed-article__picture"></div>
+                            <div class="col-md-8 feed-article__teaser" >
+                                Ich stelle mich kurz vor und erläutere meine Intention diesen Blog zu erstellen.
+                                <a class="feed-article__link" href="#">Zum Blogeintrag</a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+            <div class="col feed-wrapper">
+                <div class="heading">
+                    <h3>Technisch</h3>
+                    <div class="line-dec"></div>
+                </div>
+                <div class="feed" id="feed_technical">
+                    <div class="feed-article">
+                        <div class="row feed-article-header">
+                            <div class="col-md-3 feed-article__date">02.08.2022</div>
+                            <div class="col-md-9 feed-article__heading">ReactJS ist der Hammer</div>
+                        </div>
+                        <div class="row feed-article-content">
+                            <div class="col-md-4 feed-article__picture"></div>
+                            <div class="col-md-8 feed-article__teaser" >
+                                Ich gehe auf meine Erfahrungen mit ReactJS ein.
+                                <a class="feed-article__link" href="#">Zum Blogeintrag</a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+            </div>
         </div>
     </div>
+    <div class="footer" id="blog-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <a href="https://de.linkedin.com/in/dominik-h%C3%B6hr"><i class="fab fa-linkedin fa-lg"></i></a>
+                    <a href="https://github.com/hrdominik"><i class="fab fa-github fa-lg"></i></a>
+                    <a href="javascript:linkTo_UnCryptMailto('nbjmup;epnjojlAipfis/ofu');"><i class="fa fa-envelope fa-lg"></i></a>
+                    <a href="https://dominik.hoehr.net"><i class="fas fa-globe"></i></a>
+                </div>
+                <div class="col text-right">
+                    <a href="../impressum.html">Impressum</a>
+                    <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/custom.js"></script>
+    <script>
+        // ToDo For each html file in folder generate feed-article
+    </script>
 </body>
 </html>
