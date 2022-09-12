@@ -147,6 +147,7 @@ button:hover{
     display: flex;
     justify-content: space-between;
     height: 100vh;
+    max-height: 990px;
 }
 
 .menu-footer{
