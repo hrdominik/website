@@ -141,7 +141,12 @@ button:hover{
 }
 .menu-content{
     position: sticky;
-    top: 50px;
+    top: 25px;
+
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
 }
 
 .menu-footer{
