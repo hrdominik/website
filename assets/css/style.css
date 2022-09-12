@@ -151,9 +151,14 @@ button:hover{
 }
 
 .legal{
-    position: fixed;
     bottom: 5px;
     flex-direction: column;
+}
+
+@media screen and (min-height: 900px) {
+    .legal{
+        position: fixed;
+    }
 }
 
 .menu-footer{
