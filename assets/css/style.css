@@ -147,7 +147,13 @@ button:hover{
     display: flex;
     justify-content: space-between;
     height: 100vh;
-    max-height: 990px;
+    max-height: 800px;
+}
+
+.legal{
+    position: fixed;
+    bottom: 5px;
+    flex-direction: column;
 }
 
 .menu-footer{
