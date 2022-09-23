@@ -19,6 +19,13 @@ html {
 h2{
     font-weight: 700;
 }
+h3 {
+    font-size: calc(1.2rem + .6vw);
+}
+
+color{
+    color: var(--accentColor);
+}
 
 input,
 select,
@@ -227,6 +234,9 @@ section {
     background-color: var(--accentColor);
     margin: 10px auto;
 }
+.long-line{
+    width: 150px;
+}
 
 .moreContact{
     display: flex;
@@ -244,6 +254,9 @@ figure.skill {
     text-align: center;
     -webkit-perspective: 50em;
     perspective: 50em;
+}
+figure.skill h4{
+    font-size: 1rem;
 }
 figure.skill * {
     -webkit-box-sizing: padding-box;
