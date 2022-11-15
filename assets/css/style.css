@@ -115,7 +115,7 @@ button:hover{
     cursor: pointer;
     background-color: var(--accentColor);
 }
-.link-button:hover a, .link-button:hover .fab, .link-button:hover .fa, .link-button:hover .fas, .link-button:hover .fa-solid{
+.link-button:hover a, .link-button:hover .fab, .link-button:hover .fa, .link-button:hover .fas, .link-button:hover .fa-solid, .link-button:hover .fa-brands{
     color: var(--bgColor);
 }
 .link-button a{
@@ -127,7 +127,7 @@ button:hover{
     color: var(--accentColor);
 }
 
-.fa, .fas, .fab, .fa-solid{
+.fa, .fas, .fab, .fa-solid, .fa-brands{
     color: var(--accentColor);
 }
 
@@ -334,6 +334,7 @@ figure.skill.hover:after {
     font-style: normal;
     font-weight: 700;
     margin-bottom: .5rem;
+    cursor: pointer;
 }
 
 .cv-item {
@@ -359,7 +360,7 @@ figure.skill.hover:after {
 .cv-item i {
     cursor: text;
 }
-.cv-item .fa, .cv-item .fas, .cv-item .fab, .cv-item .fa-solid{
+.cv-item .fa, .cv-item .fas, .cv-item .fab, .cv-item .fa-solid, .cv-item .fa-brands{
     cursor: default;
 }
 
@@ -383,6 +384,7 @@ figure.skill.hover:after {
 	position: fixed;
     bottom: 30px;
 	right: 15px;
+    text-align: center;
 }
 
 .cookieContainer .cookieTitle a {
