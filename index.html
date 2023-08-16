@@ -34,14 +34,15 @@
       <div class="row justify-content-center align-self-center">
         <div class="menu col-sm-3">
           <div class="menu-content">
-            <div class="row justify-content-center align-self-center image-round">
-              <a class="d-flex justify-content-around align-self-center" href=""><img src="./static/DHR_squared.png" alt="Dominik, myself as a portrait for business" style="width: 50%;" /></a>
-              <div class="text-center mt-3">
+            <div id="titel" class="row justify-content-center align-self-center image-round">
+              <a class="d-flex justify-content-around align-self-center desktop-only-im" href=""><img src="./static/DHR_squared.png" alt="Dominik, myself as a portrait for business" style="width: 50%;" /></a>
+              <div id="titel-text" class="text-center mt-3">
                 <h4>Dominik Höhr</h4>
                 <span>Student</span>
               </div>
+              <a id="nav-icon" class="mobile-only" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></a>
             </div>
-            <div class="mt-3 w-100 text-center">
+            <div id="nav" class="mt-3 w-100 text-center desktop-only">
               <nav class="menu-nav" role="navigation">
                 <ul>
                   <li><a href="#about-me">Über mich</a></li>
@@ -51,7 +52,7 @@
                 </ul>
               </nav>
             </div>
-            <div class="row justify-content-around align-self-center social-icons">
+            <div id="social-links" class="row justify-content-around align-self-center social-icons desktop-only">
               <div class="row justify-content-around align-self-center px-3 social-icons">
                 <a class="col-sm text-center" href="https://de.linkedin.com/in/dominik-h%C3%B6hr"><i class="fab fa-linkedin fa-lg"></i></a>
                 <a class="col-sm text-center" href="https://github.com/hrdominik"><i class="fab fa-github fa-lg"></i></a>
@@ -61,7 +62,7 @@
                 <span class="col-sm text-center"><i class="fa fa-map-marker fa-lg"></i> Paderborn</span>
               </div>
             </div>
-            <div class="row justify-content-around align-self-center mt-3 legal">
+            <div id="legal-links" class="row justify-content-around align-self-center mt-3 legal desktop-only">
               <a class="col" href="./impressum.html">Impressum</a>
               <a class="col" href="./datenschutzerklaerung.html">Datenschutzerklärung</a>
             </div>
@@ -381,9 +382,62 @@
             }
 
             reqListItem.classList.add("active");
+            if (window.matchMedia("screen and (max-width: 759px)").matches){
+              var nav = document.getElementById("nav");
+              var sLinks = document.getElementById("social-links");
+              var lLinks = document.getElementById("legal-links");
+              nav.style.display = "none";
+              sLinks.style.display = "none";
+              lLinks.style.display = "none";
+            }
           }
         }
       };
+
+      function toggleMobileMenu(){
+        var nav = document.getElementById("nav");
+        var sLinks = document.getElementById("social-links");
+        var lLinks = document.getElementById("legal-links");
+
+        if (nav.style.display === "flex") {
+          nav.style.display = "none";
+          sLinks.style.display = "none";
+          lLinks.style.display = "none";
+        } else {
+          nav.style.display = "flex";
+          sLinks.style.display = "flex";
+          lLinks.style.display = "block";
+        }
+      }
+
+      if (window.matchMedia("screen and (max-width: 759px)").matches){
+        console.log("### media fires", window.matchMedia("screen and (max-width: 759px)").matches)
+        var nav = document.getElementById("nav");
+        var sLinks = document.getElementById("social-links");
+        var lLinks = document.getElementById("legal-links");
+        nav.style.display = "none";
+        sLinks.style.display = "none";
+        lLinks.style.display = "none";
+      }
+      function mobileMediaListener(x) {
+        var nav = document.getElementById("nav");
+        var sLinks = document.getElementById("social-links");
+        var lLinks = document.getElementById("legal-links");
+        if (x.matches) { // If media query matches
+          console.log("### media fires", window.matchMedia("screen and (max-width: 759px)").matches)
+          nav.style.display = "none";
+          sLinks.style.display = "none";
+          lLinks.style.display = "none";
+        } else {
+          nav.style.display = "block";
+          sLinks.style.display = "flex";
+          lLinks.style.display = "block";
+        }
+      }
+
+      var mobileMedia = window.matchMedia("screen and (max-width: 759px)")
+      mobileMediaListener(mobileMedia)
+      mobileMedia.addListener(mobileMediaListener)
 
       function filterCV(datatype) {
         // Get all CV items

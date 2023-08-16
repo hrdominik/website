@@ -47,12 +47,12 @@ a:hover {
     text-decoration: none;
 }
 
-@media (max-width: 920px) and (min-width: 880px) {
+@media (max-width: 896px) and (min-width: 880px){
     .linebreak{
         line-height: 30px !important;
     }
 }
-@media (max-width: 800px) {
+@media (max-width: 802px) and (min-width: 760px){
     .linebreak{
         line-height: 30px !important;
     }
@@ -463,12 +463,68 @@ figure.skill.hover:after {
     display: none;
 }
 
-@media screen and (max-width: 758px) {
+#nav, #legal-links{
+    display: block;
+}
+#social-links {
+    display: flex;
+}
+#social-links a{
+    width: fit-content;
+}
+
+
+@media screen and (max-width: 759px) {
     .menu {
-        display: none;
+        /* display: none; */
+        flex: unset;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 99;
+        height: fit-content;
+        min-height: 45px;
+    }
+    #nav-icon{
+        display: flex;
+        align-items: center;
+        width: fit-content;
+    }
+    .menu .menu-content{
+        height: 100%;
+        padding: 0 20px 0 20px;
+    }
+    .menu .menu-content #titel{
+        display: flex;
+        justify-content: space-between !important;
+        width: 100%;
+        margin-bottom: 7px;
+        margin-top: 15px;
+    }
+    .menu .menu-content #titel h4{
+        margin-bottom: 0;
+        display: inline;
+        margin-right: 15px;
+    }
+    .menu .menu-content #titel #titel-text{
+        margin-top: 0 !important;
+        width: fit-content;
+    }
+    .menu-nav{
+        width: 250px;
+    }
+    #nav{
+        display: flex;
+        justify-content: center;
     }
     .mobile-only{
         display: block;
+    }
+    .desktop-only{
+        display: none;
+    }
+    .desktop-only-im{
+        display: none !important;
     }
 }
 
