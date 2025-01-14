@@ -145,6 +145,7 @@ button:hover{
     display: flex;
     flex-direction: column;   
     justify-content: space-between; 
+    z-index: 99;
 }
 .menu-content{
     position: sticky;
@@ -520,10 +521,11 @@ figure.skill.hover:after {
     }
     .menu .menu-content #titel{
         display: flex;
-        justify-content: space-between !important;
+        /* justify-content: space-between !important; */
         width: 100%;
         margin-bottom: 7px;
         margin-top: 15px;
+        flex-wrap: nowrap;
     }
     .menu .menu-content #titel h4{
         margin-bottom: 0;
