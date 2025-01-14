@@ -141,7 +141,7 @@ button:hover{
 
 /* Menu */
 .menu{
-    background-color: var(--bgAccColor);
+    background-color: var(--bgAccColor) !important;
     display: flex;
     flex-direction: column;   
     justify-content: space-between; 
