@@ -299,13 +299,30 @@ figure small{
 }
 
 figure.project .heading{
-    height: 75px;
+    height: 200px;
     margin-bottom: 10px;
+}
+
+.carousel-inner {
+    width: 75%;
+    margin: 0 auto;
+}
+.carousel-item {
+    padding: 0 10px;
+}
+.carousel-control {
+    height: 100%;
+    width: 50px;
+    min-width: unset;
+
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 figure.project figcaption p {
     font-size: smaller;
-    margin-bottom: 0;
+    /* line-height: normal; */
+    margin-bottom: 20px;
 }
 
 figure.project .skill-list{
