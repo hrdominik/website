@@ -268,14 +268,22 @@ figure.skill * {
     transition: all 0.2s ease-out;
 }
 figure.skill figcaption {
-    top: 50%;
+    top: 20%;
     left: 20px;
     right: 20px;
     position: absolute;
     opacity: 0;
     z-index: 1;
+    background-color: var(--bgColor);
+    padding: 40px 0;
+    border-radius: 5px;
+    /* display: none; */
+
+    /* transition: display 0.2s ease-in-out; */
+    /* transition: transform 2s ease-in-out;
+    transition: opacity 2s ease-in-out; */
 }
-figure.skill:after {
+/* figure.skill:after {
     background-color: var(--bgColor);
     position: absolute;
     content: "";
@@ -292,7 +300,7 @@ figure.skill:after {
     -ms-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
     opacity: 0;
-}
+} */
 figure small{
     font-style: italic;
     color: var(--bgAccColor);
@@ -339,11 +347,12 @@ figure.project:after {
   
 figure.skill:hover figcaption,
 figure.skill.hover figcaption {
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+    -webkit-transform: translateY(-16%);
+    transform: translateY(-16%);
     opacity: 1;
-    /* -webkit-transition-delay: 0.2s;
-    transition-delay: 0.2s; */
+    /* display: block;
+    -webkit-transition-delay: 0.9s;
+    transition-delay: 0.9s; */
 }
 figure.skill:hover:after,
 figure.skill.hover:after {
