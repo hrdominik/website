@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="apple-touch-icon" href="../favicon.png" />
+    <meta charset="UTF-8">
+    <title>Blogeintrag</title>
+    <meta name="description" content="Blog from Dominik" />
+    <meta name="author" content="hrdominik" />
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="../assets/bootstrap-5/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/bootstrap-5/css/bootstrap.css" />
+
+    <!-- <script type="text/javascript" src="assets/jquery/jquery-3.6.3.min.js"></script> -->
+    <script type="text/javascript" src="../assets/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+
+<body>
+    <div class="container page-intro">
+        <div class="row">
+          <div class="col-5">
+              <div id="titel" class="row justify-content-center align-self-center image-round mt-3">
+                  <div class="col col-3"><a class="d-flex justify-content-around align-self-center desktop-only-im" href="/"><img src="../static/DHR_squared.png" alt="Dominik, myself as a portrait for business" style="width: 50%; min-width: 60px;" /></a></div>
+                  <div id="titel-text" class="text-center col col-9 mt-3">
+                    <h4>Dominik Höhr</h4>
+                    <span>Student | DevOps @ CGI</span>
+                  </div>
+              </div>
+          </div>
+          <div class="col col-7 mt-4" style="text-align: center;">
+              <h2>Blogeintrag</h2>
+          </div>
+          <div class="line-dec"></div>
+        </div>
+    </div>
+    <div class="page-wraper container blog-entry">
+        <div class="row heading">
+            <h1 class="display-5">Docker compose and database connections</h1>
+            <p class="lead">Ever had an Problem with docker compose and connection your app with the database?</p>
+            <hr class="my-4">
+        </div>
+        <div class="row justify-content-around align-self-center text-center">
+            <p>In the world of containerized applications, managing database connections efficiently is a crucial aspect of application architecture. 
+                When designing your Docker Compose setup, you'll inevitably face an important architectural decision: should you run your database inside your Docker Compose environment alongside your application containers, 
+                or should you connect to a database running directly on your host machine?</p>
+            <p>Both approaches have their merits and challenges, affecting everything from performance and security to development workflow and production deployment. This decision isn't just a technical one—it reflects your priorities regarding isolation, resource management, and operational convenience.</p>
+
+            <ul>
+                <li><b>Database Inside Docker Compose:</b> Running your database as a service within your Docker Compose configuration, creating a self-contained ecosystem of containers.</li>
+                <li><b>Host Database Connection:</b> Configuring your application containers to connect to a database instance running natively on your host machine, outside the Docker environment.</li>
+            </ul>
+
+            <p>We'll examine the technical considerations, configuration differences, and practical implications of each approach. By the end of this guide, you'll have a clearer understanding of which strategy aligns best with your specific use case and development philosophy.
+                Let's dive into the world of containerized database connections and discover how to make the right architectural choice for your projects.</p>
+
+            <h5>Database Inside Docker Compose</h5>
+            <p>
+
+            </p>
+            <p>
+                <code>
+                    // code here
+                </code>
+            </p>
+            
+            <h5>Host Database Connection</h5>
+            <p>
+
+            </p>
+            <p>
+                <code>
+                    // code here
+                </code>
+            </p>
+        </div>
+    </div>
+    <div class="container page-end">
+        <div class="row justify-content-around align-self-center mt-3 text-center">
+            <div class="col-8 col-lg-5 link-button"><a id="home" href="https://dominik.hoehr.net"> &laquo; Zurück zur Webseite</a></div>        
+        </div>
+        <div class="row justify-content-center align-self-center mt-3 text-center">
+            <div class="col">
+                <a href="../impressum.html">Impressum</a>
+            </div>
+            <div class="col">
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -19,16 +19,41 @@
 </head>
 
 <body>
-    <div class="page-wraper container">
+    <div class="container page-intro">
         <div class="row">
-            <div class="col heading">
+            <div class="col-5">
+                <div id="titel" class="row justify-content-center align-self-center image-round mt-3">
+                    <div class="col col-3"><a class="d-flex justify-content-around align-self-center desktop-only-im" href="/"><img src="../static/DHR_squared.png" alt="Dominik, myself as a portrait for business" style="width: 50%; min-width: 60px;" /></a></div>
+                    <div id="titel-text" class="text-center col col-9 mt-3">
+                      <h4>Dominik Höhr</h4>
+                      <span>Student | DevOps @ CGI</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-7 mt-4" style="text-align: center;">
                 <h2>Neuigkeiten</h2>
-                <div class="line-dec"></div>
+            </div>
+            <div class="line-dec"></div>
+        </div>
+    </div>
+    <div class="page-wraper container">
+        <div class="row justify-content-around align-self-center text-center">
+            <div class="jumbotron">
+                <h1 class="display-5">Docker compose and database connections</h1>
+                <p class="lead">Ever had an Problem with docker compose and connection your app with the database?</p>
+                <hr class="my-4">
+                <p style="text-align: left;">Do you every thought about the two primary patterns for database connections in Docker Compose environments:
+                    <ul style="text-align: left;">
+                        <li><b>Database Inside Docker Compose:</b> Running your database as a service within your Docker Compose configuration, creating a self-contained ecosystem of containers.</li>
+                        <li><b>Host Database Connection:</b> Configuring your application containers to connect to a database instance running natively on your host machine, outside the Docker environment.</li>
+                    </ul>
+                <p class="lead">
+                  <a class="btn btn-primary btn-lg" href="./docker-compose-database-connections.html" role="button">Learn more</a>
+                </p>
             </div>
         </div>
-        <div class="row justify-content-around align-self-center text-center">
-            <p>Hier entsteht ein Blog von Dominik Höhr.<br /> Schauen Sie gerne zu einen späteren Zeitpunkt wieder vorbei.</p>
-        </div>
+    </div>
+    <div class="container page-end">
         <div class="row justify-content-around align-self-center mt-3 text-center">
             <div class="col-8 col-lg-5 link-button"><a id="home" href="https://dominik.hoehr.net"> &laquo; Zurück zur Webseite</a></div>        
         </div>
