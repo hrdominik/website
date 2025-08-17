@@ -78,46 +78,63 @@
 
             <h3>Typical <code>docker-compose.yml</code></h3>
             <pre><code class="language-yaml">version: "3.9"
-        services:
-        app:
-            build: .
-            ports:
-            - "3000:3000"
-            depends_on:
-            db:
-                condition: service_healthy
-            environment:
-            DATABASE_URL: "postgresql://myuser:mypassword@db:5432/mydb"
-
+    services:
+    app:
+        build: .
+        ports:
+        - "3000:3000"
+        depends_on:
         db:
-            image: postgres:16-alpine
-            restart: always
-            environment:
-            POSTGRES_DB: mydb
-            POSTGRES_USER: myuser
-            POSTGRES_PASSWORD: mypassword
-            volumes:
-            - db_data:/var/lib/postgresql/data
+            condition: service_healthy
+        environment:
+        DATABASE_URL: "postgresql://myuser:mypassword@db:5432/mydb"
 
+    db:
+        image: postgres:16-alpine
+        restart: always
+        environment:
+        POSTGRES_DB: mydb
+        POSTGRES_USER: myuser
+        POSTGRES_PASSWORD: mypassword
         volumes:
-        db_data:</code></pre>
+        - db_data:/var/lib/postgresql/data
+
+    volumes:
+    db_data:</code></pre>
+
+            <h4>Or with MariaDB in Docker Compose</h4>
+            <pre><code class="language-yaml">version: "3" # us version 3 for compatibility
+    services:
+    app:
+        build: .
+        environment:
+        DATABASE_URL: "mariadb://user:password@db:3306/dbname"
+    db:
+        image: mariadb:latest
+        environment:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_DATABASE: dbname
+        MYSQL_USER: user
+        MYSQL_PASSWORD: password
+    # No network_mode, use service name as host (mariadb), or sometimes the host IP (e.g. 172.19.3.1)
+    </code></pre>
 
             <h4>Health check (prevents race conditions)</h4>
             <p>PostgreSQL:</p>
             <pre><code class="language-yaml">db:
-        healthcheck:
-            test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER"]
-            interval: 10s
-            timeout: 5s
-            retries: 5</code></pre>
+    healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER"]
+        interval: 10s
+        timeout: 5s
+        retries: 5</code></pre>
 
             <p>MySQL / MariaDB:</p>
             <pre><code class="language-yaml">db:
-        healthcheck:
-            test: ["CMD-SHELL", "mysqladmin ping -h localhost -u $$MYSQL_USER -p$$MYSQL_PASSWORD"]
-            interval: 10s
-            timeout: 5s
-            retries: 5</code></pre>
+    healthcheck:
+        test: ["CMD-SHELL", "mysqladmin ping -h localhost -u $$MYSQL_USER -p$$MYSQL_PASSWORD"]
+        interval: 10s
+        timeout: 5s
+        retries: 5</code></pre>
 
             <h4>Networking choices</h4>
             <ul>
@@ -137,9 +154,11 @@
             <h4><code>DB_HOST</code> environment value</h4>
             <p>Inside Compose, reference the service name:</p>
             <pre><code class="language-yaml">environment:
-        DB_HOST: db</code></pre>
+    DB_HOST: db</code></pre>
 
-            <p><em>Tip:</em> Store credentials in <code>.env</code> and reference them with <code>${VAR}</code>.</p>
+            <p><em>Tip:</em> Store credentials in <code>.env</code> and reference them with <code>${VAR}</code> or via:</p>
+            <pre><code class="language-yaml">env_file:
+    - .env</code></pre>
 
             <h2 id="host-db">Option 2: Database on the Host Machine</h2>
 
@@ -160,34 +179,57 @@
 
             <h3>Connecting from Compose</h3>
             <pre><code class="language-yaml">services:
+    app:
+        build: .
+        ports:
+        - "3000:3000"
+        environment:
+        DATABASE_URL: "postgresql://myuser:mypassword@host.docker.internal:5432/mydb"
+        extra_hosts:
+        - "host.docker.internal:host-gateway"</code></pre>
+
+            <h4>MariaDB on the Host</h4>
+            <pre><code class="language-yaml">version: "3.9"
+    services:
         app:
             build: .
-            ports:
-            - "3000:3000"
+            network_mode: host
             environment:
-            DATABASE_URL: "postgresql://myuser:mypassword@host.docker.internal:5432/mydb"
+            DATABASE_URL: "mariadb://user:password@127.0.0.1:3306/dbname"
             extra_hosts:
-            - "host.docker.internal:host-gateway"</code></pre>
+            - "localhost:127.0.0.1"
+        # Use 127.0.0.1 as host, network_mode: host, host wildcard may be needed</code></pre>
 
-            <h4>Health checks</h4>
-            <p>The DB runs outside Compose, so health monitoring happens via host tooling (systemd, monit). The app container can still expose its own health check.</p>
-
-            <h4>Networking choices</h4>
-            <ul>
-            <li><strong>Default bridge + <code>host.docker.internal</code></strong> – Works on macOS, Windows, and Docker&nbsp;≥ 20.10 on Linux.</li>
-            <li><strong><code>network_mode: host</code></strong> – Lets the container reach <code>127.0.0.1</code>; Linux only; no port isolation.</li>
-            <li>Sidecar networks do not apply—there is no DB container to share.</li>
-            </ul>
-
-            <h4>Volume considerations</h4>
-            <p>Because the DB lives on the host, Compose volumes are largely irrelevant unless the app needs to mount tls certs or similar. Real data resides in the host’s DB data directory, where existing backups already run.</p>
-
+            <p><em>Remember:</em> The database must listen on a TCP port; Unix sockets such as <code>/var/run/postgresql</code> or <code>/var/run/mysqld/mysqld.sock</code> are not visible inside container names-paces.</p>
+            
             <h4><code>DB_HOST</code> environment value</h4>
-            <pre><code class="language-yaml">DB_HOST: host.docker.internal
-        # If using network_mode: host
-        DB_HOST: 127.0.0.1</code></pre>
+            <pre><code class="language-yaml">DB_HOST: host.docker.internal # If using network_mode: host
+DB_HOST: 127.0.0.1</code></pre>
 
-            <p><em>Remember:</em> The database must listen on a TCP port; Unix sockets such as <code>/var/run/postgresql</code> are not visible inside container names-paces.</p>
+            <h4>Troubleshooting: Socket vs TCP Connections</h4>
+            <div class="alert alert-warning">
+              <strong>Connection to database does not work?</strong><br>
+              If you see an error like <code>(mariadb.OperationalError) Can't connect to local server through socket '/run/mysqld/mysqld.sock'</code>, it means the socket connection is failing. This is typical in local dev environments. MariaDB interprets <code>localhost</code> as a socket connection, not TCP. For local development, use <code>127.0.0.1</code> to force TCP. This is especially important if the DB port (<code>3306</code>) is not published.<br>
+              If your application requires <code>localhost</code>, you can fix it by setting:
+              <pre><code class="language-yaml">network_mode: host
+        extra_hosts:
+        - "localhost:127.0.0.1"</code></pre>
+            </div>
+
+            <h2>Excurse: How to read the host IP from a Docker container?</h2>
+            <p>Sometimes you need to connect from your container to a service running on the host. The method depends on your OS and Docker version:</p>
+            <ul>
+              <li><strong>Windows & macOS:</strong> Use <code>host.docker.internal</code> as the hostname in your connection string. Docker automatically resolves this to the host IP.</li>
+              <li><strong>Linux:</strong> For Docker &ge; 20.10, <code>host.docker.internal</code> is supported if you add <code>extra_hosts: ["host.docker.internal:host-gateway"]</code> to your Compose file. 
+            </ul>
+            <p>Alternatively, you can get the container IP from inside the container by running:</p>
+            <ul>
+                <li><code>docker inspect $CONTAINER_ID --format '{{range .NetworkSettings.Networks}}{{.Gateway}}{{end}}'</code></li>
+                <li><strong>or</strong> <code>docker inspect $CONTAINER_ID | grep "IPAddress"</code></li>
+            <i>This commands returns the default gateway IP, which is usually the host's IP address as seen by the container.</i>
+            </ul>
+                
+            <p>For MariaDB, you can use this IP in your connection string if <code>host.docker.internal</code> is not available.</p>
 
             <h2 id="decision">How to choose?</h2>
             <ul>

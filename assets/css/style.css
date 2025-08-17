@@ -156,6 +156,8 @@ button:hover{
     justify-content: space-between;
     height: 100vh;
     max-height: 800px;
+
+    background-color: var(--bgAccColor) !important;
 }
 
 .legal{
@@ -241,6 +243,9 @@ section {
 
 .moreContact{
     display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 10px;
 }
 
 /* Skills */
@@ -373,6 +378,7 @@ figure.skill.hover:after {
     justify-content: center;  
     align-items: center;
     width: 100%;
+    row-gap: 10px;
 }
 .cv-isotope-selector input[type="radio"]{
     display: none;
@@ -542,6 +548,11 @@ figure.skill.hover:after {
     display: block;
 }
 
+#titel-text span {
+    font-size: small;
+    line-height: normal;
+}
+
 .blog-entry {
     font-size: medium;
     font-weight: 300;
@@ -558,11 +569,11 @@ figure.skill.hover:after {
 .blog-entry p, .blog-entry ul, .blog-entry ol {
     text-align: left;
     font-size: medium;
-    padding: 0 80px
+    /* padding: 0 80px */
 }
 .blog-entry ul, .blog-entry ol {
     text-align: left;
-    padding: 0 100px;
+    padding: 0 40px;
 }
 
 .blog-entry h2, .blog-entry h3, .blog-entry h4, .blog-entry h5 {
@@ -572,15 +583,17 @@ figure.skill.hover:after {
 }
 
 .blog-entry h3, .blog-entry h4, .blog-entry h5 {
-    padding-left: 80px;
+    /* padding-left: 80px; */
     font-size: medium;
 }
 
 pre {
     text-align: left;
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
-    width: 80% !important;
+    width: 75% !important;
+    padding: 10px;
     border-radius: 0.375rem;
+    margin-left: -7vw;
 }
 
 pre code {
@@ -601,8 +614,15 @@ b {
     /* border-radius: 0.25rem; */
     /* margin-bottom: 1rem; */
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
-    width: 80%;
+    width: 75%;
+    padding: 10px;
     border-left: var(--accentColor) 4px solid;
+    margin-left: -7vw;
+}
+
+.alert pre {
+    margin-left: 0;
+    width: fit-content !important;
 }
 
 @media screen and (max-width: 1200px){
