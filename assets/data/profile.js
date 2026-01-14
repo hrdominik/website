@@ -211,8 +211,8 @@ const PROFILE = {
     },
     {
       type: "volunteer",
-      role: "Gewählte Gremienarbeit",
-      org: "Universität Paderborn Gremien",
+      role: "Gewähltes Mitglied in universitären Gremien",
+      org: "Universität Paderborn",
       start: "2021-10",
       end: "2025-10",
       summary: "Kontinuierliche ehrenamtliche Mitwirkung in universitären Gremien und Vertretungen.",
