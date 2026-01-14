@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Standard-Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon.png">
+  <!-- Fallback für ältere Browser -->
+  <link rel="shortcut icon" href="../assets/icons/favicon.png" type="image/x-icon">
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/favicon.png">
+  <title>Tools - Dominik Höhr</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Arial'],
+            display: ['Space Grotesk', 'ui-sans-serif', 'system-ui']
+          },
+          colors: {
+            ink: '#0B0B0C',
+            paper: '#F6F6F7',
+            line: '#E6E6E9'
+          },
+          boxShadow: {
+            crisp: '0 1px 0 rgba(0,0,0,0.08), 0 18px 60px rgba(0,0,0,0.06)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+
+  <script src="../assets/js/base.js"></script>
+  <script src="../assets/data/profile.js" defer></script>
+  <script src="../assets/js/profile.js" defer></script>
+  <script src="../assets/js/tools.js" defer></script>
+</head>
+
+<body class="bg-paper text-ink antialiased">
+  <div class="noise-overlay pointer-events-none fixed inset-0"></div>
+  <div class="blob pointer-events-none fixed left-1/2 top-[-60px] h-[320px] w-[320px] -translate-x-1/2 rounded-full"></div>
+
+  <header class="site-header">
+    <div class="mx-auto max-w-6xl px-4 py-4">
+      <nav class="flex items-center justify-between gap-4">
+        <a href="/tools" class="flex items-baseline gap-2">
+          <span class="font-display text-lg tracking-tight">it’s me</span>
+          <span class="text-xs opacity-60">/ Dominik</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-7 text-sm font-medium">
+          <a class="navlink" href="/">Startseite</a>
+          <a class="navlink" href="/links">Links</a>
+          <a class="navlink" href="/blog">Blog</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="hidden lg:flex profile-chip">
+            <img class="profile-chip__img" data-bind-attr="src:portraitUrl" src="../assets/img/DHR_transparent.png" alt="Portrait">
+            <div href="/" class="">
+              <div class="profile-chip__name" data-bind="name">Dominik Höhr</div>
+              <div class="profile-chip__title" data-bind="title"></div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+    <section class="mx-auto max-w-4xl px-4 pt-10 pb-20">
+      <div class="card p-6 md:p-8">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] opacity-70">to make life easier</p>
+            <h1 class="mt-2 font-display text-3xl md:text-4xl">Tools</h1>
+            <p class="mt-3 text-sm opacity-75">
+              Kleine Utilities, Templates und Scripts
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+          <a data-bind-attr="href:social.github"
+             href="#"
+             class="rounded-full bg-ink px-4 py-2 text-sm font-extrabold text-paper shadow-crisp hover:translate-y-[-1px] transition">
+            Repositories
+          </a>
+        </div>
+        </div>
+      </div>
+
+      <div id="toolsList" class="mt-6 grid gap-4 md:grid-cols-2">
+        <!-- rendered -->
+      </div>
+
+      <div class="border-t border-ink/10 px-6 py-5 md:px-10 mt-10">
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm opacity-80 md:justify-between">
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+          <a class="hover:underline" data-bind-attr="href:social.github" href="#">GitHub</a>
+          <a class="hover:underline" data-bind-attr="href:social.linkedin" href="#">LinkedIn</a>
+          <a class="hover:underline" data-bind-attr="href:social.links" href="#">Links</a>
+          <a class="hover:underline" data-bind-attr="href:social.blog" href="#">Blog</a>
+        </div>
+        <p class="text-xs opacity-60">
+          <a class="hover:underline" href="/impressum">Impressum</a>
+          <a class="hover:underline" href="/datenschutz">Datenschutz</a>
+          © <span id="year"></span> <span data-bind="name">Dominik</span>
+        </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

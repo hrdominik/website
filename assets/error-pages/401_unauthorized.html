@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>401 – Unauthorized</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Arial'],
+            display: ['Space Grotesk', 'ui-sans-serif', 'system-ui']
+          },
+          colors: {
+            ink: '#0B0B0C',
+            paper: '#F6F6F7',
+            line: '#E6E6E9'
+          },
+          boxShadow: {
+            crisp: '0 1px 0 rgba(0,0,0,0.08), 0 18px 60px rgba(0,0,0,0.06)'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <script src="./assets/js/profile.js" defer></script>
+  <script src="./assets/js/base.js" defer></script>
+</head>
+<body class="bg-paper text-ink antialiased">
+  <div class="noise-overlay pointer-events-none fixed inset-0"></div>
+  <div class="blob pointer-events-none fixed left-1/2 top-[-60px] h-[320px] w-[320px] -translate-x-1/2 rounded-full"></div>
+  <header class="site-header">
+    <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+      <a class="font-display text-lg" href="./index.html">it’s me <span class="text-xs opacity-60">/ Error</span></a>
+      <a class="btn-outline" href="./index.html">Zum Portfolio</a>
+    </div>
+  </header>
+  <main class="relative z-10">
+    <section class="mx-auto max-w-3xl px-4 pt-12 pb-20">
+      <div class="card p-8 text-center">
+        <p class="font-display text-6xl">401</p>
+        <h1 class="mt-3 font-display text-2xl">Unauthorized</h1>
+        <p class="mt-3 text-sm opacity-75">Du bist nicht authentifiziert oder die Session ist abgelaufen.</p>
+        <div class="mt-8 flex flex-wrap justify-center gap-2">
+          <a class="btn-ink" href="./index.html">Portfolio</a>
+          <a id="emailBtn" class="btn-outline" href="#">Kontakt</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

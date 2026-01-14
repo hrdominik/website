@@ -1,722 +1,325 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-  <head>
-    <!-- <script src="assets/js/cookies.js"></script> -->
-    
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content="Dies ist die Seite von Dominik Höhr. Hier stelle ich mich, meinen Werdegang und meine Ziele detalliert und ansprechend aufbereitet für Sie.">
-    <link rel="icon" href="./favicon.ico" />
-    <link rel="apple-touch-icon" href="./favicon.png" />
-    <meta name="description" content="Selbstdarstellung, Lebenslauf, Portfolio" />
-    <meta name="author" content="hrdominik" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Standard-Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon.png">
+  <!-- Fallback für ältere Browser -->
+  <link rel="shortcut icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon.png">
+  <title>Dominik Höhr</title>
 
-    <title>Über mich, Dominik Höhr</title>
+  <!-- Tailwind config MUST load before Tailwind CDN -->
+  <!-- <script src="./assets/js/tailwind_config.js"></script> -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Arial'],
+            display: ['Space Grotesk', 'ui-sans-serif', 'system-ui']
+          },
+          colors: {
+            ink: '#0B0B0C',
+            paper: '#F6F6F7',
+            line: '#E6E6E9'
+          },
+          boxShadow: {
+            crisp: '0 1px 0 rgba(0,0,0,0.08), 0 18px 60px rgba(0,0,0,0.06)'
+          }
+        }
+      }
+    };
+  </script>
 
-    <!-- Additional CSS Files -->
-    <!-- FontAweSome6.2 -->
-    <link rel="stylesheet" href="assets/fontawesome/css/fontawesome.min.css" />
-    <link rel="stylesheet" href="assets/fontawesome/css/brands.min.css" />
-    <link rel="stylesheet" href="assets/fontawesome/css/solid.min.css" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
 
-    <link rel="stylesheet" type="text/css" href="assets/bootstrap-5/css/bootstrap-grid.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/bootstrap-5/css/bootstrap.css" />
+  <!-- Data + Renderer (defer keeps execution order) -->
+  <script src="./assets/js/base.js"></script>
+  <script src="./assets/data/profile.js" defer></script>
+  <script src="./assets/js/profile.js" defer></script>
+</head>
 
-    <!-- <script type="text/javascript" src="assets/jquery/jquery-3.6.3.min.js"></script> -->
-    <script type="text/javascript" src="assets/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<body class="bg-paper text-ink antialiased">
+  <!-- subtle background texture -->
+  <div class="noise-overlay pointer-events-none fixed inset-0"></div>
 
-    <link rel="stylesheet" href="assets/css/style.css" />
-    
-  </head>
+  <!-- STICKY HEADER -->
+  <header class="site-header">
+    <div class="mx-auto max-w-6xl px-4 py-4">
+      <nav class="flex items-center justify-between gap-4">
+        <a href="#top" class="flex items-baseline gap-2">
+          <span class="font-display text-lg tracking-tight">it’s me</span>
+          <span class="text-xs opacity-60">/ Dominik Höhr</span>
+        </a>
 
-  <body>
-    <div class="page-wrapper container">
-      <div class="row justify-content-center align-self-center">
-        <div class="menu col-sm-3">
-          <div class="menu-content">
-            <div id="titel" class="row justify-content-center align-self-center image-round">
-              <a class="d-flex justify-content-around align-self-center desktop-only-im" href=""><img src="./static/DHR_squared.png" alt="Dominik, myself as a portrait for business" style="width: 50%;" /></a>
-              <div id="titel-text" class="text-center mt-3">
-                <h4>Dominik Höhr</h4>
-                <span>Lead Consultant @ CGI</span>
-              </div>
-              <a id="nav-icon" class="mobile-only" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></a>
-            </div>
-            <div id="nav" class="mt-3 w-100 text-center desktop-only">
-              <nav class="menu-nav" role="navigation">
-                <ul>
-                  <li><a href="#about-me">Über mich</a></li>
-                  <li><a class="linebreak" href="#skills">Fertigkeiten & Fähigkeiten</a></li>
-                  <li><a href="#cv">Erfahrung</a></li>
-                  <li><a href="#contact">Kontakt</a></li>
-                </ul>
-              </nav>
-            </div>
-            <div id="social-links" class="row justify-content-around align-self-center social-icons desktop-only">
-              <div class="row justify-content-around align-self-center px-3 social-icons">
-                <a class="col-sm text-center" href="https://de.linkedin.com/in/dominik-hoehr"><i class="fab fa-linkedin fa-lg"></i></a>
-                <a class="col-sm text-center" href="https://github.com/hrdominik"><i class="fab fa-github fa-lg"></i></a>
-                <a class="col-sm text-center" href="javascript:linkTo_UnCryptMailto('nbjmup;epnjojlAipfis/ofu');"><i class="fa fa-envelope fa-lg"></i></a>
-              </div>
-              <div class="row justify-content-around align-self-center social-icons">
-                <span class="col-sm text-center"><i class="fa fa-map-marker fa-lg"></i> Paderborn</span>
-              </div>
-            </div>
-            <div id="legal-links" class="row justify-content-around align-self-center mt-3 legal desktop-only" style="font-size: 0.85em;">
-              <a class="col" href="./impressum.html">Impressum</a>
-              <a class="col" href="./datenschutzerklaerung.html">Datenschutzerklärung</a>
+        <div class="hidden md:flex items-center gap-7 text-sm font-medium">
+          <a class="navlink" href="#about">Über mich</a>
+          <a class="navlink" href="#services">Skills</a>
+          <a class="navlink" href="#cv">Erfahrungen</a>
+          <a class="navlink" href="#contact">Kontakt</a>
+
+          <!-- Projects later -->
+          <!-- <a class="navlink" href="#projects">Projekte</a> -->
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a id="emailCtaTop"
+             href="#"
+             class="rounded-full bg-ink px-4 py-2 text-sm font-extrabold text-paper shadow-crisp hover:translate-y-[-1px] transition">
+            Let’s Chat
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="top" class="relative">
+    <!-- gradient blob accent -->
+    <div class="blob absolute left-1/2 top-[-40px] h-[240px] w-[240px] -translate-x-1/2 rounded-full md:left-[58%] md:top-[-60px] md:h-[320px] md:w-[320px]"></div>
+
+    <section class="relative z-10 mx-auto max-w-6xl px-4 pt-10 md:pt-14">
+      <div class="grid items-center gap-10 md:grid-cols-12">
+        <!-- left -->
+        <div class="md:col-span-7">
+          <p class="text-xs font-semibold uppercase tracking-[0.22em] opacity-70" data-bind="tagline">
+            Full-Stack • DevOps • Cloud
+          </p>
+
+          <h1 class="mt-3 font-display text-4xl leading-[1.05] tracking-tight md:text-6xl">
+            Hallo! <b>Ich bin <span class="underline-accent" data-bind="nickname">Dominik</span></b>
+          </h1>
+
+          <p class="mt-4 max-w-xl text-base leading-relaxed opacity-80 md:text-lg" data-bind="intro">
+            Cloud & DevOps Engineer mit Full-Stack Background.
+          </p>
+
+          <ul id="heroBullets" class="mt-6 grid gap-3 text-sm md:text-base">
+            <!-- rendered via JS -->
+          </ul>
+
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <a 
+               data-bind-attr="href:social.linkedin"
+               href="https://www.linkedin.com/in/dominik-hoehr"
+               class="rounded-full bg-ink px-5 py-2.5 text-sm font-extrabold text-paper shadow-crisp hover:translate-y-[-1px] transition">
+              LinkedIn
+            </a>
+
+            <a data-bind-attr="href:social.github"
+               href="https://github.com/hrdominik"
+               class="rounded-full border border-ink/15 bg-white px-5 py-2.5 text-sm font-extrabold hover:border-ink/25 hover:translate-y-[-1px] transition">
+              GitHub
+            </a>
+
+            <div class="flex items-center gap-2 pl-1 text-sm opacity-80">
+              <span>Mail:</span>
+              <a id="emailLinkInline" class="font-extrabold hover:underline" href="#" rel="nofollow">
+                <span id="emailTextInline"></span>
+              </a>
             </div>
           </div>
         </div>
 
-        <div class="content col">
+        <!-- right -->
+        <div class="md:col-span-5">
+          <div id="portrait-wrapper" class="relative rounded-3xl p-4 flex justify-end">
 
-          <section class="section about-me mt-5" data-section="about-me" id="about-me">
-            <div class="container">
-              <div class="row">
-                <div class="col heading">
-                  <h1>Über mich, <color>Dominik Höhr</color></h1>
-                  <div class="line-dec long-line"></div>
-                  <p>Ich bin Dominik Höhr, <span id="yearOutput"></span> Jahre alt, Lead Consultant | Cloud- & DevOps-Engineer @ CGI.</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <img src="./static/DHR_LI.png" width="100%" alt="Dominik, myself as a portrait for casual, university and volunteer" />
-                </div>
-                <div class="col-md-6 d-flex align-content-between flex-wrap">
-                  <div class="row">
-                    <div class="col">
-                      <p>
-                        Meine Leidenschaft gilt der Entwicklung moderner, verteilter Systeme und der Automatisierung von Prozessen.<br /> 
-                        Mein Ziel ist es, technische Lösungen nicht nur effizient, sondern auch wirtschaftlich sinnvoll zu gestalten.<br /> 
-                        <br />
-                        Nach meinem Studium Master of Science Wirtschaftsinformatik arbeite ich nun als Cloud und DevOps-Engineer im IT Consulting.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <hr style="background-color: white;" />
-                      <p>Schauen Sie gerne auch auf meinen anderen Online-Profilen vorbei und verschaffen Sie sich einen detaillierten Überblick über mich, meinen bisherigen Werdegang und meine Leistungen. <br /> <br /> Aktuell versuche ich mich an einem eigenen Blog und möchte meine Erfahrungen und Erkenntnisse aus den alltäglichen Problemen teilen.</p>
-                      <div class="moreContact mt-3">
-                        <div class="link-button">
-                          <a href="https://de.linkedin.com/in/dominik-hoehr"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                        </div>
-                        <div class="link-button">
-                          <a href="https://github.com/hrdominik"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
-                        <div class="link-button">
-                          <a href="/blog"><i class="fas fa-rss"></i> Blog</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="section skills mt-5" data-section="skills" id="skills">
-            <div class="container">
-              <div class="row">
-                <div class="col heading">
-                  <h2>Fertigkeiten & Fähigkeiten</h2>
-                  <div class="line-dec"></div>
-                  <p>
-                    Ich bin habe bereits einige Erfahrung in der Softwareentwicklung (Full-Stack) und der Administration sowie Optimierung komplexer IT-Infrastruktur. Aktuell vertiefe ich meine Fähigkeiten im Bereich als DevOps-Engineer und dem Design von Cloud-Architekturen.
-                    <br />
-                    Einen Überblick über meine Techniken und Methoden finden Sie hier.
-                  </p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <figure class="skill">
-                    <div class="heading">
-                      <h3>Technische Skills</h3>
-                      <div class="line-dec"></div>
-                    </div>
-                    <figcaption>
-                      <h4>Frontend</h4>
-                      <div class="skill-list">
-                        <span title="HTML5"><i class="fab fa-html5"></i></span>
-                        <span title="CSS3, Sass"><i class="fab fa-css3"></i></span>
-                        <span title="ReactJS"><i class="fab fa-react"></i></span>
-                        <span title="Typescript, Javascript"><i class="fab fa-js"></i></span>
-                        <span title="Flutter"><i class="fa-solid fa-mobile"></i></span>
-                        <span title="PHP, Wordpress-Plugins"><i class="fab fa-php"></i></span>
-                      </div>
-                      <h4>Backend</h4>
-                      <div class="skill-list">
-                        <span title="Python, insb. FastAPI- und Flask Server"><i class="fab fa-python"></i></span>
-                        <span title="Java/JakartaEE"><i class="fab fa-java"></i></span>
-                        <span title="C#, C"><i class="fas fa-c"></i></span>
-                        <span title="SQL"><i class="fas fa-database"></i></span>
-                      </div>
-                      <h4>Entwicklungs- und Buildprozess</h4>
-                      <div class="skill-list">
-                        <span title="git, GitLab, CI/CD, Azure DevOps"><i class="fas fa-code-branch"></i></span>
-                        <span title="Kubernetes, Helm"><i class="fas fa-cube"></i></span>
-                        <span title="Terrafom, Ansible"><i class="fas fa-cogs"></i></span>
-                        <span title="docker, docker compose"><i class="fab fa-docker"></i></span>
-                        <span title="maven, yarn, pnpm"><i class="fas fa-cube"></i></span>
-                        <span title="Nginx"><i class="fas fa-server"></i></span>
-                      </div>
-                      <h4>Weitere</h4>
-                      <div class="skill-list">
-                        <span title="Amazon Web Services (Insb. Amazon Elastic und RDS)"><i class="fa-brands fa-aws"></i></span>
-                        <span title="Microsoft Azure (Insb. Azure Kubernetes Service)"><i class="fa fa-cloud"></i></span>
-                        <span title="cli (shell und bash)"><i class="fa fa-terminal"></i></span>
-                        <span title="Markdown, LaTeX"><i class="fab fa-markdown"></i></span>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
-                <div class="col-md-6">
-                  <figure class="skill">
-                    <div class="heading" >
-                      <h3>Fachliche Skills</h3>
-                      <div class="line-dec"></div>
-                    </div>
-                    <figcaption>
-                      <h4>Projektmanagement</h4>
-                      <div class="skill-list">
-                        <span title="SCRUM"><i class="fas fa-tasks"></i></span>
-                        <span title="Projekt- und Risikomanagement"><i class="fas fa-project-diagram"></i></span>
-                        <!-- <span title="Risikomanagement"><i class="fas fa-exclamation-triangle"></i></span> -->
-                        <span title="DevOps"><i class="fas fa-sync-alt"></i></span>
-                      </div>
-                      <h4>Modellierung</h4>
-                      <div class="skill-list">
-                        <span title="Business Process Model and Notation 2.0 / Erweiterte Ereignisgesteuerte Prozesskette"><i class="fab" style="font-size: small;">BPMN/eEPK</i></span>
-                        <span title="Datenbank Modellierung und Normalisierung"><i class="fas fa-database"></i></span>
-                      </div>
-                      <h4>Tools</h4>
-                      <div class="skill-list">
-                        <span title="SAP"><i class="fab">SAP</i></span>
-                        <span title="Data Science, CRISP-DM, R"><i class="fab fa-r-project"></i></span>
-                        <span title="Jupyter, Machine Learning, LLM"><i class="fa-solid fa-table"></i></span>
-                        <span title="Microsoft Powerautomate (ehem. Flow)"><i class="fa-solid fa-desktop"></i></span>
-                        <span title="Atlassian Jira Software"><i class="fa-brands fa-jira"></i></span>
-                      </div>
-                      <h4>Weitere</h4>
-                      <div class="skill-list">
-                        <!-- <span title="Social Media Understanding"><i class="fas fa-hashtag"></i></span> -->
-                        <span title="Cloud Architektur"><i class="fas fa-cloud"></i></span>
-                        <span title="Private and Sovereign Cloud"><i class="fas fa-shield-alt"></i></span>
-                        <span title="Microsoft 365"><i class="fab fa-microsoft"></i><small style="position: absolute; width: 80px">Insb. Flow, Sharepoint und AD/EntraID</small></span>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col text-center">
-                  <div class="spacer"></div>
-                  <p>
-                    Einen Überblick über meine Trainings und Zertifizierungen finden Sie unter anderem bei <a href="https://learn.microsoft.com/de-de/users/dominik-hoehr"><i class="fab fa-microsoft"></i> Microsoft Learn</a> und gerne auf Nachfrage<!-- und <a href="https://www.credly.com/users/dominik-hoehr"><i class="fa fa-certificate"></i> Credly</a>-->.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- <section class="section projects mt-5" data-section="projects" id="projects">
-            <div class="col heading">
-              <h3>Projekte</h3>
-              <i class="hint">Hier finden Sie einen Auszug aus Projekten, an denen ich maßgeblich beteiligt war oder bin; aufgeführt sind ausschließlich Open-Source-Projekte sowie solche, bei denen ich meine Beteiligung veröffentlichen darf und die nicht in Verbindung mit meiner hauptberuflichen Tätigkeit stehen.</i>
-              <div class="line-dec"></div>
-            </div>
-            <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <figure class="skill project" onclick="window.open('https://git.uni-paderborn.de/asta/raumbuchungen', '_blank')">
-                    <div class="heading">
-                      <h4>Raumbuchung <i class="fas fa-link"></i></h4>
-                    </div>
-                    <figcaption>
-                      <p>
-                        Webanwendung zur Raumbuchung verschiedener Raumtypen und zur Verwaltung von Nutzer(-gruppen) und deren Berechtigungen.
-                      </p>
-                      <div class="skill-list">
-                        <span title="Python, FastAPI"><i class="fab fa-python"></i></span>
-                        <span title="Typescript, ReactJS"><i class="fab fa-react"></i></span>
-                        <span title="CI/CD via webhook und docker compose"><i class="fas fa-code-branch"></i></span>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
-                <div class="carousel-item">
-                  <figure class="skill project" onclick="window.open('https://github.com/hrdominik/k8-challenge', '_blank')">
-                    <div class="heading">
-                      <h4>Kubernetes (local) Challenge <i class="fas fa-link"></i></h4>
-                    </div>
-                    <figcaption>
-                      <p>
-                        Challenge zur Einrichtung eines Kubernetes-Clusters mit mehreren Nodes und Ingress-Controler zur Bereitstellung einer einfachen Webseite. Automatisierte Veröffentlichung mittels Terraform auf Azure Kubernetes Service.
-                      </p>
-                      <div class="skill-list">
-                        <span title="Kubernetes, Helm"><i class="fas fa-cube"></i></span>
-                        <span title="Terrafom, Ansible"><i class="fas fa-cogs"></i></span>
-                        <span title="Microsoft Azure (Insb. Azure Kubernetes Service)"><i class="fab fa-microsoft"></i></span>
-                        <span title="Nginx"><i class="fas fa-server"></i></span>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
-                <div class="carousel-item">
-                  <figure class="skill project" onclick="window.open('https://git.uni-paderborn.de/asta/semesterticket', '_blank')">
-                    <div class="heading">
-                      <h4>Semesterticket <i class="fas fa-link"></i></h4>
-                    </div>
-                    <figcaption>
-                      <p>
-                        Mobileapp zur Anzeige des Semestertickets und eines Deutschlandtickets für die Studierenden der Universität Paderborn.
-                      </p>
-                      <div class="skill-list">
-                        <span title="Flutter"><i class="fa-solid fa-mobile"></i></span>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
-                <div class="carousel-item">
-                  <figure class="skill project" >
-                    <div class="heading">
-                      <h4>Konferenzverwaltung</h4>
-                    </div>
-                    <figcaption>
-                      <p>
-                        Webanwendung zur Verwaltung und Ausrichtung von Konferenzen. Verwaltung von Teilnehmern, Workshops und Plenarsitzungen.
-                      </p>
-                      <div class="skill-list">
-                        <span title="Python, FastAPI"><i class="fab fa-python"></i></span>
-                        <span title="Typescript, ReactJS"><i class="fab fa-react"></i></span>
-                        <span title="CI/CD via ssh"><i class="fas fa-code-branch"></i></span>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
-                <div class="carousel-item">
-                  <figure class="skill project">
-                    <div class="heading">
-                      <h4>Inventarverwaltung</h4>
-                    </div>
-                    <figcaption>
-                      <p>
-                        Webanwendung zur Verwaltung des Getränkeinventar und zur eigenständigen Buchung durch den Nutzer.
-                      </p>
-                      <div class="skill-list">
-                        <span title=".NET, C#, Javascript"><i class="fas fa-c"></i></span>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
-                <div class="carousel-item">
-                  <figure class="skill project">
-                    <div class="heading">
-                      <h4>Beraterprofile</h4>
-                    </div>
-                    <figcaption>
-                      <p>
-                        Webanwendung zur Verwaltung von Stammdaten zu Beratern, Projekten und Kompetenzen. Erstellung eines dynamischen Beraterprofils (CV).
-                      </p>
-                      <div class="skill-list">
-                        <span title="JavaEE"><i class="fab fa-java"></i></span>
-                        <span title="Javascript, ReactJS"><i class="fab fa-react"></i></span>
-                        <span title="CI/CD via GitLab-Pipeline und Amazon Web Services"><i class="fa-brands fa-aws"></i></span>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
-                <div class="carousel-item">
-                  <figure class="skill project" onclick="window.open('https://github.com/hrdominik/scripts', '_blank')">
-                    <div class="heading">
-                      <h4>Verschiedene Skripte <i class="fas fa-link"></i></h4>
-                    </div>
-                    <figcaption>
-                      <p>
-                        Sammlung von Skripten zur Automatisierung von Prozessen und zur Erleichterung von Aufgaben.
-                      </p>
-                      <div class="skill-list">
-                        <span title="Javascript"><i class="fab fa-js"></i></span>
-                        <span title="Python"><i class="fa-brands fa-python"></i></span>
-                        <span title="Batch"><i class="fa fa-terminal"></i></span>
-                        <span title="HTML"><i class="fab fa-html"></i></span>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
-                <div class="carousel-item">
-                  <figure class="skill project">
-                    <div class="heading">
-                      <h4>Verschiedene Wordpress-Plugins</h4>
-                    </div>
-                    <figcaption>
-                      <p>
-                        Entwicklung von Wordpress-Plugins zur Erfassung und Verwaltung von Daten mit spezifischen Berechnungen und zur Integration von Drittanbieterdiensten. 
-                      </p>
-                      <div class="skill-list">
-                        <span title="PHP"><i class="fab fa-php"></i></span>
-                        <span title="Javascript"><i class="fab fa-js"></i></span>
-                         <span title="Wordpress"><i class="fab fa-wordpress"></i></span>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
-                <div class="carousel-item">
-                  <figure class="skill project">
-                    <div class="heading">
-                      <h4>Verschiedene Microsoft Powerautomate Flows</h4>
-                    </div>
-                    <figcaption>
-                      <p>
-                        Automatisierung von Prozessen in Microsoft 365 und Teams. Erstellung von Flows zur Verwaltung von Daten und zur Erleichterung von Aufgaben.
-                      </p>
-                      <div class="skill-list">
-                        <span title="Microsoft Powerautomate (ehem. Flow)"><i class="fa-solid fa-desktop"></i></span>
-                        <span title="Microsoft 365, Teams, Sharepoint"><i class="fab fa-microsoft"></i></span>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
-                <div class="carousel-item">
-                  <figure class="skill project">
-                    <div class="heading">
-                      <h4>Verschiedene Webseitenprojekte</h4>
-                    </div>
-                    <figcaption>
-                      <p>
-                        Entwicklung und Verwaltung von Webseiten für verschiedene Zwecke. Von der einfachen Präsentation bis zur komplexen Anwendung.
-                      </p>
-                      <div class="skill-list">
-                        <span title="HTML, CSS"><i class="fab fa-html"></i></span>
-                        <span title="Javascript"><i class="fab fa-js"></i></span>
-                        <span title="Wordpress"><i class="fab fa-wordpress"></i></span>
-                        <span title="Bootstrap"><i class="fab fa-bootstrap"></i></span>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-              <button class="carousel-control carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control  carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-          </section> -->
-
-          <section class="section cv" data-section="cv" id="cv">
-            <div class="container">
-              <div class="row">
-                <div class="col heading">
-                  <h2>Erfahrung</h2>
-                  <div class="line-dec"></div>
-                  <span>Aktuell Vollzeit Lead Consultant als Cloud- und DevOps-Engineer</span>
-                  <br /> <br />
-                </div>
-              </div>
-              <div class="row px-5 cv-isotope-selector">
-                <label class="col text-center">
-                  <input type="radio" data-type="*" checked name="cv-isotope-selector" onclick="filterCV('*')">
-                  <span>Alle</span>
-                </label>
-                <label class="col text-center">
-                  <input type="radio" data-type="work" name="cv-isotope-selector" onclick="filterCV('work')">
-                  <span>Arbeit</span>
-                </label>
-                <label class="col text-center">
-                  <input type="radio" data-type="graduation" name="cv-isotope-selector" onclick="filterCV('graduation')">
-                  <span>Ausbildung</span>
-                </label>
-                <label class="col text-center">
-                  <input type="radio" data-type="volunteer" name="cv-isotope-selector" onclick="filterCV('volunteer')">
-                  <span>Ehrenamt</span>
-                </label>
-              </div>
-              <div class="row career">
-                <div class="cv-item work" data-type="work">
-                  <div class="cv-head"><div class="service-icon" ><i class="fas fa-briefcase fa-3x"></i></div><div class="service-date">Seit Dezember 2024</div></div>
-                  <h4>Lead Consultant |<br/>Cloud- und DevOps-Engineer</h4>
-                  <p><a href="https://www.cgi.com" id="service-place">CGI <i class="fas fa-link"></i></a></p>
-                  <i>Entwicklung von leistungsfähigen Cloud-Architekturen mit Fokus auf Sicherheit und automatisierter Bereitstellung</i>
-                </div>
-                <div class="cv-item volunteer" data-type="volunteer">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-users fa-3x"></i></div><div class="service-date">Oktober 2024 bis Oktober 2025</div></div>
-                  <h4>Gewähltes Mitglied <br /><small>in verschiedenen Gremien</small></h4>
-                  <p></p>
-                  <i>Kommission für Angelegenheiten des IMT<br/><div class="spacer"></div>Studierendenparlament</i>
-                </div>
-                <div class="cv-item work" data-type="work">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-briefcase fa-3x"></i></div><div class="service-date">Juli 2024 bis August 2025</div></div>
-                  <h4>Ressortleitung IT</h4>
-                  <p><a href="https://www.lookin-messe.de" id="service-place">LOOK IN! GbR <i class="fas fa-link"></i></a></p>
-                  <i>Sicherstellung der IT-Infrastruktur und Support</i>
-                </div>
-                <!-- <div class="cv-item volunteer" data-type="volunteer">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-briefcase fa-3x"></i></div><div class="service-date">April 2024</div></div>
-                  <h4>Teilnahme</h4>
-                  <p><a href="https://jax.de/" id="service-place">Jax 2024, Die Konferenz für Java, Architektur- und Software-Innovation<i class="fas fa-link"></i></a></p>
-                  <i>Entwicklermesse mit Themen über Java API, microservices, GitOps und Quantencomputing</i>
-                </div> -->
-                <div class="cv-item work" data-type="work">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-briefcase fa-3x"></i></div><div class="service-date">Oktober 2023 bis Oktober 2024</div></div>
-                  <h4>Referent für IT</h4>
-                  <p><a href="https://asta.upb.de" id="service-place">Allgemeiner Studierendenausschuss der Universität Paderborn <i class="fas fa-link"></i></a></p>
-                  <i>Konzeptionierung und Koordination der IT-Infrastruktur des AStA und der Aktivenschaft der Universität<br/><div class="spacer"></div>Wartung, Entwicklung und Prozessoptimierung<br/><div class="spacer"></div>Verantwortung von 3 Mitarbeitern</i>
-                </div>
-                <div class="cv-item work" data-type="work">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-briefcase fa-3x"></i></div><div class="service-date">Juli 2023 bis Juli 2024</div></div>
-                  <h4>Geschäftsführung</h4>
-                  <p><a href="https://www.lookin-messe.de" id="service-place">LOOK IN! GbR <i class="fas fa-link"></i></a></p>
-                  <i>Geschäftsführung und Durchführung der Firmenkontaktmesse</i>
-                </div>
-                <div class="cv-item volunteer" data-type="volunteer">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-briefcase fa-3x"></i></div><div class="service-date">Juli 2023 bis Juli 2025</div></div>
-                  <h4>Mitglied im Vereinsvorstand</h4>
-                  <p><a href="https://www.hgwinfo.de" id="service-place">Hochschulgruppe Wirtschaftsinformatik Paderborn e.V. <i class="fas fa-link"></i></a></p>
-                  <i></i>
-                </div>
-                <div class="cv-item volunteer" data-type="volunteer">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-briefcase fa-3x"></i></div><div class="service-date">Seit Mai 2023</div></div>
-                  <h4>Mitglied im Vereinsvorstand</h4>
-                  <p><a href="https://bufak-wiwi.org/" id="service-place">Verein der BuFaK WiWi e.V. <i class="fas fa-link"></i></a></p>
-                  <i>Unterstützung der Kontinuität und Durchführung der Bundesfachschaften Konferenzen</i>
-                </div>
-                <!-- <div class="cv-item volunteer" data-type="volunteer">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-briefcase fa-3x"></i></div><div class="service-date">Mai 2023 bis Mai 2024</div></div>
-                  <h4>Gewählter Vereinsbeirat</h4>
-                  <p><a href="https://bufak-wiwi.org/" id="service-place">Verein der BuFaK WiWi e.V. <i class="fas fa-link"></i></a></p>
-                  <i>Unterstützung der Kontinuität und Durchführung der Bundesfachschaften Konferenzen</i>
-                </div> -->
-                <div class="cv-item work" data-type="work">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-briefcase fa-3x"></i></div><div class="service-date">Oktober 2022 bis Oktober 2023</div></div>
-                  <h4>Referent für Kultur</h4>
-                  <p><a href="https://asta.upb.de" id="service-place">Allgemeiner Studierendenausschuss der Universität Paderborn <i class="fas fa-link"></i></a></p>
-                  <i>Gestaltung der Kultur an und um den Campus für die Studierenden der Universität Paderborn<br/><div class="spacer"></div>Unterstützung der Aktivenschaft</i>
-                </div>
-                <div class="cv-item volunteer" data-type="volunteer">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-users fa-3x"></i></div><div class="service-date">Oktober 2022 bis Oktober 2024</div></div>
-                  <h4>Gewähltes Mitglied <br /><small>in verschiedenen Gremien</small></h4>
-                  <p></p>
-                  <i>Kommission für Angelegenheiten des IMT<br/><div class="spacer"></div>Fakultätsrat der Fakultät Wirtschaftswissenschaften <br/><div class="spacer"></div>Fachschaftsvertretung der Fakultät Wirtschaftswissenschaften <br/><div class="spacer"></div>Prüfungsausschuss Wirtschaftsinformatik</i>
-                </div>
-                <div class="cv-item volunteer" data-type="volunteer">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-users fa-3x"></i></div><div class="service-date">Oktober 2022 bis Oktober 2025</div></div>
-                  <h4>Gewähltes Mitglied</h4>
-                  <p><a href="https://www.fsrwinfo.de" id="service-place">Fachschaftsrat Wirtschaftsinformatik <i class="fas fa-link"></i></a></p>
-                </div>
-                <div class="cv-item graduation" data-type="graduation">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-graduation-cap fa-3x"></i></div><div class="service-date">April 2022 bis November 2025</div></div>
-                  <h4>Studium</h4>
-                  <p><a href="https://www.uni-paderborn.de" id="service-place">Universität Paderborn <i class="fas fa-link"></i></a></p>
-                  <i>Wirtschaftsinformatik, Master of Science </i>
-                </div>
-                <div class="cv-item work" data-type="work">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-briefcase fa-3x"></i></div><div class="service-date">Januar 2022 bis Juli 2023</div></div>
-                  <h4>Ressortleitung Events</h4>
-                  <p><a href="https://www.lookin-messe.de" id="service-place">LOOK IN! GbR <i class="fas fa-link"></i></a></p>
-                  <i>Organisation von Events rund um die Firmenkontaktmesse</i>
-                </div>
-                <div class="cv-item volunteer" data-type="volunteer">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-users fa-3x"></i></div><div class="service-date">Oktober 2021 bis Oktober 2022</div></div>
-                  <h4>Gewähltes Mitglied <br /><small>in verschiedenen Gremien</small></h4>
-                  <p></p>
-                  <i>Haushaltsausschuss des Studierendenparlaments (Stellv. Vorsitz) <br/><div class="spacer"></div>Kommission für Angelegenheiten des IMT <br/><div class="spacer"></div>Prüfungsausschuss Wirtschaftsinformatik</i>
-                </div>
-                <div class="cv-item work" data-type="work">
-                  <div class="cv-head"><div class="service-icon" ><i class="fas fa-briefcase fa-3x"></i></div><div class="service-date">August 2020 bis November 2024</div></div>
-                  <h4>Full-Stack-Entwickler</h4>
-                  <p><a href="https://www.beckmann-partner.de" id="service-place">Beckmann & Partner Consult <i class="fas fa-link"></i></a></p>
-                  <i>Konzeptionierung und Realisierung interner Projekte. <br /><div class="spacer"></div> Full-Stack-Entwickler und DevOps-Engineer für RESTful Webservices und deren Architektur.</i>
-                </div>
-                <div class="cv-item volunteer" data-type="volunteer">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-users fa-3x"></i></div><div class="service-date">Oktober 2019 bis November 2025</div></div>
-                  <h4>Aktives Mitglied</h4>
-                  <p><a href="https://www.fsrwinfo.de" id="service-place">Fachschaftsrat Wirtschaftsinformatik <i class="fas fa-link"></i></a><br/><div class="spacer"></div>Hochschulgruppe Wirtschaftsinformatik Paderborn e.V.</p>
-                </div>
-                <div class="cv-item graduation" data-type="graduation">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-graduation-cap fa-3x"></i></div><div class="service-date">Oktober 2018 bis April 2022</div></div>
-                  <h4>Studium</h4>
-                  <p><a href="https://www.uni-paderborn.de" id="service-place">Universität Paderborn <i class="fas fa-link"></i></a></p>
-                  <i>Wirtschaftsinformatik, Bachelor of Science </i>
-                </div>
-                <div class="cv-item work" data-type="work">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-briefcase fa-3x"></i></div><div class="service-date">April 2018 bis<br/> April 2019</div></div>
-                  <h4>Aushilfe</h4>
-                  <p><a href="https://www.buenting.de/gesellschaften/combi" id="service-place">Combi-Verbrauchermarkt Einkaufsstätte <i class="fas fa-link"></i></a></p>
-                  <i>Verkäufer auf der Ladenfläche</i>
-                </div>
-                <div class="cv-item volunteer" data-type="volunteer">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-users fa-3x"></i></div><div class="service-date"></div></div>
-                  <h4>Teilnahme</h4>
-                  <p><a href="https://www.pyddf.de" id="service-place">Python Sprints, Düsseldorf (PyDDF) <i class="fas fa-link"></i></a></p>
-                  <i>und weitere Community-Events und MeetUps</i>
-                </div>
-                <div class="cv-item volunteer" data-type="volunteer">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-users fa-3x"></i></div><div class="service-date">2012 bis 2018</div></div>
-                  <h4>Tonmeister Assistent</h4>
-                  <p><a href="https://www.gymnasium-shs.de/" id="service-place">Gymnasium Schloß Holte - Stukenbrock <i class="fas fa-link"></i></a></p>
-                </div>
-                <div class="cv-item graduation" data-type="graduation">
-                  <div class="cv-head"><div class="service-icon"><i class="fas fa-graduation-cap fa-3x"></i></div><div class="service-date">2010 bis 2018</div></div>
-                  <h4>Allgemeine Hochschulreife</h4>
-                  <p><a href="https://www.gymnasium-shs.de/" id="service-place">Gymnasium Schloß Holte - Stukenbrock <i class="fas fa-link"></i></a></p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="section contact-me" data-section="contact" id="contact">
-            <div class="container">
-              <div class="row">
-                <div class="col heading">
-                  <h2>Kontakt</h2>
-                  <div class="line-dec"></div>
-                  <p>Ich freue mich jederzeit auf Ihre Anfrage.</p>
-                </div>
-              </div>
-              <div class="row justify-content-center align-self-center text-center">
-                <div class="col">
-                  <p>Erreichen können Sie mich per Mail</p>
-                  <div class="link-button">
-                    <a href="javascript:linkTo_UnCryptMailto('nbjmup;epnjojlAipfis/ofu');">dominik [at] hoehr.net</a>
-                  </div>  
-                  <br /> <br />
-                  <div class="link-button">
-                    <a href="./links">Weitere Links</a>   
-                  </div> 
-                </div>
-              </div>
-            </div>
-          </section>
-          <div class="container mobile-only">
-            <div class="row">
-              <div class="col">
-                <div class="footer">
-                  <a href="./impressum.html">Impressum</a>
-                  <a href="./datenschutzerklaerung.html">Datenschutzerklärung</a>
-                </div>
-              </div>
-            </div>
+            <img
+                src="./assets/img/DHR_transparent.png"
+                alt="Portrait"
+                class="portrait-cutout"
+                loading="lazy"
+              />
+            
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Scripts -->    
-    <script src="assets/js/custom.js"></script>
-    <script>
-        const myBday = new Date('2000-10-13T06:35:00');
-        const years = calculateAge(myBday);
-        document.getElementById('yearOutput').innerHTML = years;
-    </script>
-    <script>
+      <!-- black category bar + meta pills -->
+      <div class="mt-10 relative hero-belt">
+        <div class="meta-pills mt-3 flex flex-wrap justify-center gap-1 md:absolute md:right-4 md:-top-10 md:mt-0 md:justify-end">
+          <span class="meta-pill">
+            <span class="meta-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </span>
+            <span data-bind="location">Deutschland / Remote</span>
+          </span>
 
-      var checkSection = function checkSection() {
-        var sections = document.getElementsByClassName("section");
-        var wScroll = window.pageYOffset;
+          <!-- <span class="meta-pill">
+            <span class="meta-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 7v6l4 2"/>
+              </svg>
+            </span>
+            <span data-bind="availability"></span>
+          </span> -->
+        </div>
 
-        for (var i = 0; i < sections.length; i++) {
-          var section = sections[i];
-          var topEdge = section.offsetTop - 80;
-          var bottomEdge = topEdge + section.offsetHeight;
+        <div class="rounded-full bg-ink text-paper shadow-crisp relative z-40">
+          <div class="flex gap-7 justify-center overflow-x-hidden px-6 py-3 text-xs font-extrabold uppercase tracking-[0.18em] whitespace-nowrap">
+            <span class="opacity-95">Python</span><span class="opacity-50">•</span>
+            <span class="opacity-95">ReactJS</span><span class="opacity-50">•</span>
+            <span class="opacity-95">CI/CD</span><span class="opacity-50">•</span>
+            <span class="opacity-95">Docker</span><span class="opacity-50">•</span>
+            <span class="opacity-95">Kubernetes</span><span class="opacity-50">•</span>
+            <span class="opacity-95">Azure</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          if (topEdge < wScroll && bottomEdge > wScroll) {
-            var currentId = section.getAttribute("data-section");
-            var reqLink = document.querySelector("a[href*='#" + currentId + "']");
-            var reqListItem = reqLink.closest("li");
-            var siblings = reqListItem.parentNode.children;
+    <!-- ABOUT -->
+    <section id="about" class="relative z-10 mx-auto max-w-6xl px-4 pt-16 md:pt-24">
+      <div class="rounded-3xl border border-ink/10 bg-white p-6 shadow-crisp md:p-8">
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] opacity-70">Über mich</p>
+        <h2 class="mt-2 font-display text-3xl md:text-4xl" data-bind="aboutTitle">Build. Ship. Automate.</h2>
+        <p class="mt-3 max-w-3xl text-sm leading-relaxed opacity-80" data-bind="aboutText">
+          ...
+        </p>
+      </div>
+    </section>
 
-            for (var j = 0; j < siblings.length; j++) {
-              siblings[j].classList.remove("active");
-            }
+    <!-- SERVICES / SKILLS -->
+    <section id="services" class="relative z-10 mx-auto max-w-6xl px-4 pt-16 md:pt-24">
+      <div class="flex items-end justify-between gap-6">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.22em] opacity-70">What I’m offering</p>
+          <h2 class="mt-2 font-display text-3xl md:text-4xl">Skills & Services</h2>
+        </div>
+      </div>
 
-            reqListItem.classList.add("active");
-            if (window.matchMedia("screen and (max-width: 759px)").matches){
-              var nav = document.getElementById("nav");
-              var sLinks = document.getElementById("social-links");
-              var lLinks = document.getElementById("legal-links");
-              nav.style.display = "none";
-              sLinks.style.display = "none";
-              lLinks.style.display = "none";
-            }
-          }
-        }
-      };
+      <!-- service cards (black/white balance like reference) -->
+      <div class="mt-8 grid gap-4 md:grid-cols-3">
+        <div class="rounded-2xl bg-ink p-6 text-paper shadow-crisp">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] opacity-80">Engineering</p>
+          <h3 class="mt-2 font-display text-xl">Full-Stack Development</h3>
+          <p class="mt-2 text-sm opacity-80">
+            Saubere APIs, robuste Backends (Python/Java), moderne Frontends (TypeScript/React) – mit pragmatischem Qualitätsfokus.
+          </p>
+        </div>
 
-      function toggleMobileMenu(){
-        var nav = document.getElementById("nav");
-        var sLinks = document.getElementById("social-links");
-        var lLinks = document.getElementById("legal-links");
+        <div class="rounded-2xl border border-ink/10 bg-white p-6 shadow-crisp">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] opacity-70">Delivery</p>
+          <h3 class="mt-2 font-display text-xl">DevOps & Automation</h3>
+          <p class="mt-2 text-sm opacity-75">
+            CI/CD, Container, Deployments, Observability – reproduzierbar, nachvollziehbar und teamfähig.
+          </p>
+        </div>
 
-        if (nav.style.display === "flex") {
-          nav.style.display = "none";
-          sLinks.style.display = "none";
-          lLinks.style.display = "none";
-        } else {
-          nav.style.display = "flex";
-          sLinks.style.display = "flex";
-          lLinks.style.display = "block";
-        }
-      }
+        <div class="rounded-2xl border border-ink/10 bg-white p-6 shadow-crisp">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] opacity-70">Infrastructure</p>
+          <h3 class="mt-2 font-display text-xl">Cloud & Architecture</h3>
+          <p class="mt-2 text-sm opacity-75">
+            Cloud-Design, IaC, Networking & Identity – mit Blick auf Governance, Kosten, Security und Skalierbarkeit.
+          </p>
+        </div>
+      </div>
 
-      if (window.matchMedia("screen and (max-width: 759px)").matches){
-        console.log("### media fires", window.matchMedia("screen and (max-width: 759px)").matches)
-        var nav = document.getElementById("nav");
-        var sLinks = document.getElementById("social-links");
-        var lLinks = document.getElementById("legal-links");
-        nav.style.display = "none";
-        sLinks.style.display = "none";
-        lLinks.style.display = "none";
-      }
-      function mobileMediaListener(x) {
-        var nav = document.getElementById("nav");
-        var sLinks = document.getElementById("social-links");
-        var lLinks = document.getElementById("legal-links");
-        if (x.matches) { // If media query matches
-          console.log("### media fires", window.matchMedia("screen and (max-width: 759px)").matches)
-          nav.style.display = "none";
-          sLinks.style.display = "none";
-          lLinks.style.display = "none";
-        } else {
-          nav.style.display = "block";
-          sLinks.style.display = "flex";
-          lLinks.style.display = "block";
-        }
-      }
+      <!-- dynamic skills -->
+      <div class="mt-10 grid gap-4 md:grid-cols-2">
+        <div class="rounded-2xl border border-ink/10 bg-white p-6 shadow-crisp">
+          <h3 class="font-display text-xl">Technical Skills</h3>
+          <div id="skillsTechnical" class="mt-5 grid gap-5"></div>
+        </div>
 
-      var mobileMedia = window.matchMedia("screen and (max-width: 759px)")
-      mobileMediaListener(mobileMedia)
-      mobileMedia.addListener(mobileMediaListener)
+        <div class="rounded-2xl border border-ink/10 bg-white p-6 shadow-crisp">
+          <h3 class="font-display text-xl">Professional Skills</h3>
+          <div id="skillsProfessional" class="mt-5 grid gap-5"></div>
+        </div>
+      </div>
+    </section>
 
-      function filterCV(datatype) {
-        // Get all CV items
-        var cvItems = document.getElementsByClassName("cv-item");
-        // Loop through all CV items and dsplay none
-        for (var i = 0; i < cvItems.length; i++) {
-          var cvItem = cvItems[i];
-          if (datatype !== "*") {
-            if (cvItem.getAttribute("data-type") !== datatype) {
-              cvItem.style.display = "none";
-            } else {
-              cvItem.style.display = "";
-            }
-          } else {
-            cvItem.style.display = "";
-          }
-        }
-      }
+    <!-- EXPERIENCE / CV -->
+    <section id="cv" class="relative z-10 mx-auto max-w-6xl px-4 pt-16 md:pt-24">
+      <div class="text-center">
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] opacity-70">CV Timeline</p>
+        <h2 class="mt-2 font-display text-3xl md:text-4xl">Erfahrungen</h2>
+        <p class="mx-auto mt-3 max-w-2xl text-sm opacity-75">
+          <!-- Filtere nach Work, Volunteering oder Education. Kurze Beschreibungen + aufklappbare Details. -->
+        </p>
+      </div>
 
+      <div id="cvFilters" class="mt-8 flex flex-wrap justify-center gap-2">
+        <button class="filter-pill" data-filter="all" aria-pressed="true">Alle</button>
+        <button class="filter-pill" data-filter="work" aria-pressed="false">Arbeit</button>
+        <button class="filter-pill" data-filter="volunteer" aria-pressed="false">Ehrenamt</button>
+        <button class="filter-pill" data-filter="education" aria-pressed="false">Ausbildung</button>
+      </div>
 
-      window.addEventListener("scroll", function() {
-        checkSection();
-      });
+      <ol id="cvList" class="mt-8 grid gap-3">
+        <!-- rendered via JS -->
+      </ol>
+    </section>
 
-    </script>
-  </body>
+    <!-- PROJECTS / CASE STUDIES (later) -->
+    <!--
+    <section id="projects" class="relative z-10 mx-auto max-w-6xl px-4 pt-16 md:pt-24">
+      ...
+    </section>
+    -->
+
+    <!-- CONTACT -->
+    <section id="contact" class="relative z-10 mx-auto max-w-6xl px-4 pb-20 pt-16 md:pt-24">
+      <div class="contact-card">
+        <div class="grid gap-10 p-6 md:grid-cols-12 md:items-end md:p-10">
+          <div class="md:col-span-7">
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] opacity-70">Say Hi!</p>
+
+            <h2 class="mt-3 font-display text-3xl leading-[1.05] tracking-tight md:text-5xl">
+              Schreib mir kurz eine Mail.
+            </h2>
+
+            <p class="mt-4 max-w-xl text-sm leading-relaxed opacity-75 md:text-base">
+              Ziel, Scope, Timeline, Tech‑Umfeld – 5 Zeilen reichen.
+            </p>
+          </div>
+
+          <div class="md:col-span-5 md:flex md:justify-end">
+            <div class="relative text-center md:text-right">
+              <a id="emailBtn" href="#" class="cta-mail rounded-full bg-ink px-4 py-2 text-sm font-extrabold text-paper shadow-crisp hover:translate-y-[-1px] transition">
+                Mail schreiben <span class="cta-mail__icon" aria-hidden="true">↗</span>
+              </a>
+
+              <div class="mt-3 text-sm font-extrabold opacity-80">
+                <a id="emailLinkFooter" class="hover:underline" href="#" rel="nofollow">
+                  <span id="emailTextFooter"></span>
+                </a>
+              </div>
+
+              <div class="cta-doodle" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-ink/10 px-6 py-5 md:px-10">
+          <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm opacity-80 md:justify-between">
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+              <a class="hover:underline" data-bind-attr="href:social.github" href="#">GitHub</a>
+              <a class="hover:underline" data-bind-attr="href:social.linkedin" href="#">LinkedIn</a>
+              <a class="hover:underline" data-bind-attr="href:social.links" href="#">Links</a>
+              <a class="hover:underline" data-bind-attr="href:social.blog" href="#">Blog</a>
+            </div>
+
+            <p class="text-xs opacity-60">
+              <a class="hover:underline" href="./impressum">Impressum</a>
+              <a class="hover:underline" href="./datenschutz">Datenschutz</a>
+              © <span id="year"></span> <span data-bind="name">Dominik</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
 </html>
