@@ -36,8 +36,8 @@ const PROFILE = {
       { label: "Kontakt", url: "/assets/data/DHR.vcf", desc: "", icon: "phone" },
     ],
     private: [
-      { label: "Instagram", url: "#", desc: "", icon: "pulse" },
-      { label: "Snapchat", url: "#", desc: "", icon: "pulse" },
+      { label: "Instagram", url: "https://www.instagram.com/hr.dominik", desc: "", icon: "pulse" },
+      { label: "Snapchat", url: "https://www.snapchat.com/add/hrdominik", desc: "", icon: "pulse" },
       { label: "Discord", url: "#", desc: "", icon: "gaming" },
       { label: "Steam", url: "#", desc: "", icon: "gaming" },
       { label: "PayPal", url: "https://www.paypal.me/dhoehr", desc: "", icon: "money" },
