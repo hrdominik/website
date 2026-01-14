@@ -162,7 +162,7 @@ const PROFILE = {
     },
     {
       type: "work",
-      role: "LOOK IN! GbR – Geschäftsführung, IT & Events",
+      role: "Geschäftsführung, IT & Events",
       org: "LOOK IN! GbR",
       start: "2022-01",
       end: "2025-08",
@@ -175,7 +175,7 @@ const PROFILE = {
     },
     {
       type: "work",
-      role: "AStA Universität Paderborn – Referent für Kultur & IT",
+      role: "Referent für Kultur & IT",
       org: "Allgemeiner Studierendenausschuss der Universität Paderborn",
       start: "2022-10",
       end: "2024-10",
@@ -187,10 +187,11 @@ const PROFILE = {
     },
     {
       type: "work",
-      role: "Full-Stack-Entwickler",
+      role: "IT-Consultant & Full-Stack-Entwickler",
       org: "Beckmann & Partner Consult",
       start: "2020-08",
       end: "2024-11",
+      summary: "Full-Stack-Entwickler & IT-Projektmanager",
       highlights: [
         "Konzeptionierung und Realisierung interner Projekte.",
         "Full-Stack-Entwickler und DevOps-Engineer für RESTful Webservices und deren Architektur."
@@ -198,7 +199,7 @@ const PROFILE = {
     },
     {
       type: "education",
-      role: "Universität Paderborn – Wirtschaftsinformatik (B.Sc. & M.Sc.)",
+      role: "Wirtschaftsinformatik (B.Sc. & M.Sc.)",
       org: "Universität Paderborn",
       start: "2018-10",
       end: "2025-11",
@@ -210,7 +211,7 @@ const PROFILE = {
     },
     {
       type: "volunteer",
-      role: "Universität Paderborn – Gewählte Gremienarbeit",
+      role: "Gewählte Gremienarbeit",
       org: "Universität Paderborn Gremien",
       start: "2021-10",
       end: "2025-10",
@@ -223,7 +224,7 @@ const PROFILE = {
     },
     {
       type: "volunteer",
-      role: "Hochschulgruppe Wirtschaftsinformatik & Fachschaft",
+      role: "Vereinsmitgliedschaft & Vorstandsmitglied",
       org: "Hochschulgruppe Wirtschaftsinformatik Paderborn e.V.",
       start: "2019-10",
       end: "2025-11",
@@ -235,7 +236,7 @@ const PROFILE = {
     },
     {
       type: "volunteer",
-      role: "Verein der BuFaK WiWi e.V. – Vorstandsarbeit",
+      role: "Vorstandmitglied",
       org: "Verein der BuFaK WiWi e.V.",
       start: "2023-05",
       end: null,
