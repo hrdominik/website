@@ -85,6 +85,7 @@ section { scroll-margin-top: 92px; }
   border:1px solid var(--line);
   background: linear-gradient(135deg, #ffffff, #f0f0f3);
   object-fit: cover;
+  object-position: top;
   padding:2px;
 }
 .profile-chip__name{ font-weight:900; font-size:13px; line-height:1.05; }
@@ -287,16 +288,20 @@ section { scroll-margin-top: 92px; }
   border-radius:999px;
   opacity:0.22;
 }
+#portrait-col{
+    transform: translateY(var(--portrait-sink));
+    margin-top: -25%;
+}
 .portrait-cutout{
   position:relative;
   z-index:2;
   /* width: 100%; */
-  width: 150% !important; 
+  width: 100%; 
   max-width: unset;
-  max-height: 460px;
+  /* max-height: 460px; */
   object-fit:contain;
   object-position: bottom center;
-  transform: translateY(var(--portrait-sink));
+  /* transform: translateY(var(--portrait-sink)); */
   filter: drop-shadow(0 18px 28px rgba(0,0,0,0.22));
 }
 .portrait-badge{
