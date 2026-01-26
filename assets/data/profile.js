@@ -57,7 +57,7 @@ const PROFILE = {
         slug: "docker-fights-database",
         title: "Docker compose and database connections",
         date: "2025-07-10",
-        readTime: "17 min",
+        readTime: "14 min",
         tags: ["Docker", "DevOps", "Tips"],
         excerpt:
           "Ever had an Problem with docker compose and connection your app with the database?",
@@ -66,7 +66,7 @@ const PROFILE = {
         slug: "ai-workflow-pack-orchestrating-copilot",
         title: "Orchestrating Copilot: a repo-ready .github Workflow Pack for Enterprise AI Delivery",
         date: "2026-01-26",
-        readTime: "7 min",
+        readTime: "17 min",
         tags: ["AI", "GitHub Copilot", "VS Code", "Enterprise", "Governance", "Delivery"],
         excerpt: "AI creates real value long before autonomy: through intentional orchestration under human control. This post introduces a repo-ready .github workflow pack that makes Copilot usage predictable, traceable, and enterprise-friendly—without pretending there’s one universal right way."
       }

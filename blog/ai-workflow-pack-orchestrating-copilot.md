@@ -1,255 +1,130 @@
 ## AI is useful long before it’s autonomous
 
-The internet loves the “big bang” story:
+The internet loves the “big bang” version of AI adoption.
 
-> AI will replace developers.
-> AI will write the entire system.
-> AI will ship production features while you sip coffee.
+> AI replaces developers.  
+> AI writes the entire system.  
+> AI ships production features while you sip coffee.
 
-That story makes great headlines — and terrible delivery plans.
+It makes for good headlines. It makes for terrible delivery plans.
 
-In real enterprise work (especially regulated or business-critical systems), the value of AI is rarely found in autonomy. It’s found in **intentional orchestration under human control**.
+In real enterprise work—especially in regulated or business-critical environments—the value of AI almost never comes from autonomy. It comes from **intentional use under human control**. From placing AI into a delivery architecture you can explain, audit, and hand over.
 
-AI is not a revolution you unleash.
-It’s a tool you place into an architecture you can explain.
+AI is not something you “unleash”.
+It is something you integrate.
 
-And yes: the small things matter.
+And in that integration, the unglamorous details matter more than the model.
 
-- Clear roles
-- Clear boundaries
-- Clear expectations
-- A workflow that remains reviewable
+- Clear responsibilities.  
+- Clear boundaries.  
+- Clear expectations.  
+- A workflow that remains reviewable even when the chat history is gone.
 
-That’s why I built and published a small repo-ready `.github` workflow pack for VS Code + GitHub Copilot.
+That mindset is what led me to build and publish a small, repo-ready `.github` workflow pack for VS Code and GitHub Copilot. Not a framework, not a platform—just a baseline for turning abstract AI potential into **concrete, traceable improvements** in day-to-day delivery.
 
-Repo: https://github.com/hrdominik/vscode-copilot-workflow-template
 
-It’s not a framework. It’s a baseline: a practical way to turn “AI potential” into **concrete, traceable improvements** in day-to-day delivery.
+## Where default Copilot usage starts to break down
 
----
+Copilot is genuinely useful out of the box. But its defaults are optimized for speed and convenience, not for predictability.
 
-## The problem with default Copilot usage
+Left unstructured, usage patterns tend to converge toward the same shape: one omnipresent assistant, unclear ownership of decisions, and outputs that may look reasonable but are hard to reason about later. The model might be “right”, but the workflow is opaque.
 
-Copilot is already helpful out of the box — but it’s optimized for speed and convenience, not for predictability.
+That’s often acceptable in early experimentation or small teams.
 
-In practice, default usage often turns into:
+It is not acceptable in enterprise delivery, where you are explicitly paid for control, predictability, and traceability—and where “we’ll explain it later” is not an operating model.
 
-- **One monolithic agent**: everything becomes “ask Copilot”.
-- **Unclear responsibility**: who “owns” requirements, security decisions, or architecture?
-- **Hard-to-reason outputs**: the model may be correct, but the workflow is not.
-- **No explicit orchestration**: no guardrails, no sources of truth, no resume/handover discipline.
+The problem is not the model.  
+The problem is the absence of orchestration.
 
-That’s fine for startup experimentation.
 
-It’s not fine for enterprise delivery, where you are paid for:
+## My stance: AI does not replace responsibility
 
-- **Control**
-- **Predictability**
-- **Traceability**
-
-And where “move fast, explain later” is not an acceptable operating model.
-
----
-
-## My stance: I don’t let AI “write my code”
+I don’t let AI “write my code”.
 
 I let AI operate inside an architecture I control.
 
-AI already delivers real value when it’s used as:
+Used deliberately, AI already delivers real value as a constrained assistant: something that accelerates feedback loops, supports focused tasks, and reduces cognitive load—without replacing accountability.
 
-- a **constrained assistant**
-- a **specialised worker** with a clear role
-- a tool that improves feedback loops, not a replacement for accountability
+Instead of treating Copilot as a single all-knowing agent, I prefer to separate concerns. Planning, implementation, documentation, security review, and environment changes are different kinds of work. They deserve different guardrails.
 
-Instead of a single all-knowing agent, I prefer to split responsibility into multiple “agents” in the broad sense:
+The analogy I keep coming back to is familiar to most engineers: microservices instead of a monolith, pipeline stages instead of ad-hoc scripts, runbooks instead of tribal knowledge.
 
-- a planning mode
-- a code-writing mode
-- a docs-maintainer mode
-- a security-review mode
-- an environment/IaC mode
+The model remains probabilistic.  
+The workflow becomes deterministic.
 
-Think of it like:
 
-- microservices (clear responsibilities)
-- pipeline stages (explicit sequencing)
-- runbooks (repeatable operations)
+## A small but intentional `.github` workflow
 
-The model stays probabilistic. The workflow becomes deterministic.
+The result is a drop-in `.github/` folder you can add to an existing repository. It provides a structured, maintainers-first way of working with Copilot Chat—without binding you to a specific language, framework, cloud, or architecture.
 
----
+That lack of opinion is intentional.
 
-## The repo: a drop-in `.github` AI Workflow Pack
+What the workflow *does* insist on is discipline: explicit sources of truth, documented state, and repeatable interaction patterns between humans and AI.
 
-I created a repo-ready `.github/` folder you can drop into any repository to get a structured, maintainers-first way of working with Copilot Chat.
+At its core, the repository introduces a few simple ideas.
 
-It’s intentionally:
+There is a set of repo-wide Copilot instructions that define non-negotiables: where truth lives, what is forbidden, how changes are reviewed, and what “done” actually means.
 
-- **technology-agnostic** (on purpose)
-- focused on **delivery discipline**, not “AI magic”
-- easy to tailor per team, risk profile, environment, and regulation
+There are source-of-truth documents—requirements, architecture, and a single state file—that exist specifically to outlive chat sessions and context windows.
 
-### What’s inside
+There are instruction files that act like policy: security baselines, test discipline, documentation expectations, IaC rules.
 
-At a high level, it contains:
+And there are explicit prompts—used as slash commands—that support common, high-risk or high-leverage activities: resuming work from repo state, handing over at the end of a session, performing a structured security review, refactoring with invariants, or keeping documentation aligned with reality.
 
-- **Repo-wide Copilot instructions** (`.github/copilot-instructions.md`)
-	- Defines sources of truth and non-negotiables (no secrets, minimal diffs, ground claims, tests for behavior changes, security posture, documentation discipline).
+Nothing here is magical. That is the point.
 
-- **Source-of-truth docs** (`.github/docs/*`)
-	- `requirements.md`: testable requirements + evidence mapping
-	- `architecture.md`: boundaries + operational assumptions
-	- `state/state.md`: a single resume anchor to avoid relying on chat history
 
-- **Instruction files** (`.github/instructions/*.instructions.md`)
-	- Always-on guardrails (security baseline, tests discipline, docs discipline, IaC discipline).
+## The loop that actually scales
 
-- **Prompt files (slash commands)** (`.github/prompts/*.prompt.md`)
-	- `/resume`: rehydrate context from repo state (not chat)
-	- `/handover`: write a clean end-of-session state
-	- `/security-review`: structured findings + minimal-diff fixes
-	- `/refactor`: safe refactor agenda with invariants
-	- `/dockercompose`: create/update local dev compose securely
-	- `/docu-refresh`, `/readme-refresh`: keep docs aligned with reality
+In practice, the workflow reduces to a loop that is intentionally boring—and therefore scalable.
 
-- **Agendas** (`.github/agends/*`)
-	- Human-friendly checklists for plan/code/docu/environment work.
+You keep a stable memory in the repository.  
+You make AI consume that memory instead of chat history.  
+You write outcomes back into that memory.
 
-Nothing here requires a specific language, framework, cloud, or architecture.
-That’s a feature.
+This starts with enabling instruction files in VS Code so Copilot automatically reads your guardrails. Sessions begin with an explicit `/resume`, rehydrating context from the repo instead of relying on whatever the model happens to remember. Work is executed using agendas and specialised prompts, and sessions end with a `/handover` that updates the shared state.
 
----
+The difference is subtle but important. This is no longer “AI as chat”. It is AI as part of a delivery workflow.
 
-## How it works in practice (the boring loop that scales)
 
-The workflow is simple:
+## Why this matters in controlled environments
 
-1) Keep a stable “memory” in the repo
-2) Make AI consume that memory
-3) Capture outcomes back into that memory
-
-### 1) Enable instruction files in VS Code
-
-In your VS Code settings:
-
-```json
-{
-	"github.copilot.chat.codeGeneration.useInstructionFiles": true
-}
-```
-
-Now Copilot reads your guardrails automatically.
-
-### 2) Start sessions with `/resume`
-
-Instead of relying on chat history, you rehydrate from:
-
-- `.github/docs/state/state.md`
-- `.github/docs/requirements.md`
-- `.github/docs/architecture.md`
-
-That matters in enterprise settings because it reduces “tribal knowledge” and makes work resumable.
-
-### 3) Execute tasks with agendas + specialised prompts
-
-If you need a structured plan: use the Plan agenda.
-If you’re implementing: use the Code agenda.
-If you’re changing environment/IaC: use the Environment agenda.
-
-Then call the relevant prompt (e.g. `/security-review` on risky changes).
-
-### 4) End sessions with `/handover`
-
-You update `.github/docs/state/state.md` with:
-
-- what is done
-- what is next
-- open questions/risks
-- concrete commands to run next
-
-This is the difference between “AI as chat” and “AI as a delivery workflow”.
-
----
-
-## Why this matters in regulated and controlled environments
-
-In many client contexts, the blocker is not “can we call a model?”
+In many client environments, the hard part is not calling a model. That is usually trivial.
 
 The hard part is governance.
 
-### AI adoption does not start with models
+Real AI adoption starts with questions that are much less exciting than model benchmarks: who owns which decisions, what interfaces exist, what is explicitly forbidden, and how behaviour can be observed and audited.
 
-It starts with:
+When prompts and instructions are treated as configuration rather than magic incantations, new possibilities open up. Prompts can be versioned. Instructions can act as policy. AI behaviour becomes reviewable, explainable, and improvable over time.
 
-- **roles** (who owns what?)
-- **interfaces** (what are inputs/outputs?)
-- **constraints** (what is forbidden?)
-- **observability** (how do we audit and improve it?)
+This fits enterprise delivery far better than hoping that “vibes” scale.
 
-When you treat prompts and instructions like configuration, you can build:
 
-- **prompt versioning as configuration**
-- **agent instructions as policy**
-- **auditable AI behaviour**
-- **deterministic workflows around probabilistic components**
+## Why “just call the API” is rarely enough
 
-That is a much better fit for enterprise delivery than “just vibe it in chat”.
+Even with an API key in hand, production-grade AI usage tends to run into the same constraints as any other platform capability: network isolation, identity and access control, logging and monitoring, cost attribution, and data residency.
 
----
+Getting something to work is easy.  
+Operating it safely and predictably is the real job.
 
-## Outlook: why “just call OpenAI” is not enough
+This repository does not pretend to solve the entire platform story. It is a pragmatic baseline for governing how developers interact with AI inside a repository—day after day, sprint after sprint.
 
-Even if you already have an API key, production-grade AI adoption in enterprise environments typically runs into:
 
-- **Network isolation** (egress controls, private networking, data residency)
-- **Identity and access** (who can use which model for which workflow?)
-- **Logging and monitoring** (auditing AI interactions without leaking sensitive data)
-- **Cost control** (per agent, per workflow, per team)
+## What clients actually ask for
 
-Getting “AI running” is often the easy part.
-Managing it — safely and predictably — is the real job.
+Most clients do not ask for “AI”.
 
-This repo doesn’t claim to solve your entire platform story.
-It’s a pragmatic baseline to help you govern day-to-day developer interaction with AI inside the repo.
+They ask for faster feedback, better documentation, safer changes, and reduced cognitive load. The workflow is my attempt to translate abstract AI potential into delivery improvements that are reviewable, repeatable, and explainable.
 
----
+No revolution language. No productivity-multiplier claims without context. Just a controlled way to use assistance.
 
-## Against the hype: what clients actually need
-
-Most clients don’t ask for “AI”.
-
-They ask for:
-
-- faster feedback
-- better documentation
-- safer changes
-- reduced cognitive load
-
-The `.github` workflow pack is my attempt to translate abstract AI potential into delivery improvements that are:
-
-- reviewable
-- repeatable
-- explainable
-
-No “AI revolution” language. No productivity-multiplier claims without context.
-Just a workflow that helps teams build the habit of controlled assistance.
-
----
 
 ## If you want to try it
 
-Repo: https://github.com/hrdominik/vscode-copilot-workflow-template
+[GitHub Repository, hrdominik/vscode-copilot-workflow-template](https://github.com/hrdominik/vscode-copilot-workflow-template)
 
-Drop the `.github/` folder into a repo, enable instruction files, and start using `/resume` and `/handover` as your default loop.
+Drop the `.github/` folder into a repository, enable instruction files, and start using `/resume` and `/handover` as your default loop. Then adapt it—per team, per risk profile, per environment, per regulation.
 
-Then optimise it:
+There is no single right setup. There are only the right boundaries for your context.
 
-- per team
-- per risk profile
-- per environment
-- per regulation
-
-That’s the point: there is no single right way — only the right boundaries for your context.
-
-If you build a variant that fits your organisation better (different prompts, stricter policies, extra agendas), I’d love to see it.
-
+If you build a variant that fits your organisation better, I would genuinely be interested in seeing it.
