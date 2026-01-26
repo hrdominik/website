@@ -83,20 +83,38 @@ function markdownToHtml(mdRaw) {
   if (mdRaw == null) return '<p>(no content)</p>';
   let md = String(mdRaw).replace(/\r\n/g, '\n');
 
+  const mdEscapeHtml = (value) => {
+    if (typeof Core !== 'undefined' && typeof Core.escapeHtml === 'function') return Core.escapeHtml(value);
+    if (typeof escapeHtml === 'function') return escapeHtml(value);
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  };
+
+  const mdEscapeAttr = (value) => {
+    if (typeof Core !== 'undefined' && typeof Core.escapeAttr === 'function') return Core.escapeAttr(value);
+    if (typeof escapeAttr === 'function') return escapeAttr(value);
+    return mdEscapeHtml(value);
+  };
+
   // Extract fenced code blocks first
   const codeBlocks = [];
   md = md.replace(/```(\w+)?\n([\s\S]*?)```/g, (_, lang, code) => {
-    codeBlocks.push({ lang: lang || '', code: escapeHtml(code) });
+    codeBlocks.push({ lang: lang || '', code: mdEscapeHtml(code) });
     return `@@CODE${codeBlocks.length - 1}@@`;
   });
 
   // Escape remaining
-  md = escapeHtml(md);
+  md = mdEscapeHtml(md);
 
   const lines = md.split('\n');
   let html = '';
   let inList = false;
   let para = [];
+  let quote = [];
 
   const flushPara = () => {
     if (para.length) {
@@ -111,6 +129,12 @@ function markdownToHtml(mdRaw) {
     }
   };
 
+  const flushQuote = () => {
+    if (!quote.length) return;
+    html += `<blockquote><p>${inlineMd(quote.join(' '))}</p></blockquote>`;
+    quote = [];
+  };
+
   for (const line of lines) {
     const t = line.trim();
 
@@ -118,6 +142,7 @@ function markdownToHtml(mdRaw) {
     if (!t) {
       flushPara();
       closeList();
+      flushQuote();
       continue;
     }
 
@@ -125,12 +150,24 @@ function markdownToHtml(mdRaw) {
     if (t.startsWith('@@CODE') && t.endsWith('@@')) {
       flushPara();
       closeList();
-      html += `<div>${t}</div>`;
+      flushQuote();
+      html += t;
       continue;
     }
 
+    // blockquote (escaped '>' becomes '&gt;')
+    const bq = t.match(/^&gt;\s?(.*)$/);
+    if (bq) {
+      flushPara();
+      closeList();
+      quote.push(bq[1].trim());
+      continue;
+    } else {
+      flushQuote();
+    }
+
     // headings
-    const h = t.match(/^(#{1,3})\s+(.*)$/);
+    const h = t.match(/^(#{1,6})\s+(.*)$/);
     if (h) {
       flushPara();
       closeList();
@@ -157,13 +194,14 @@ function markdownToHtml(mdRaw) {
 
   flushPara();
   closeList();
+  flushQuote();
 
   // replace code placeholders
   html = html.replace(/@@CODE(\d+)@@/g, (_, idxStr) => {
     const idx = Number(idxStr);
     const block = codeBlocks[idx];
     if (!block) return '';
-    const langCls = block.lang ? ` class="language-${escapeAttr(block.lang)}"` : '';
+    const langCls = block.lang ? ` class="language-${mdEscapeAttr(block.lang)}"` : '';
     return `<pre><code${langCls}>${block.code}</code></pre>`;
   });
 
@@ -178,8 +216,22 @@ function inlineMd(s) {
   s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   // italic (simple)
   s = s.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-  // links
-  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+  // links (basic allowlist to avoid javascript:/data:)
+  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, text, href) => {
+    const raw = String(href || '').trim();
+    const lowered = raw.replace(/[\u0000-\u0020]+/g, '').toLowerCase();
+    const isSafe =
+      lowered.startsWith('http://') ||
+      lowered.startsWith('https://') ||
+      lowered.startsWith('mailto:') ||
+      lowered.startsWith('/') ||
+      lowered.startsWith('./') ||
+      lowered.startsWith('../') ||
+      lowered.startsWith('#');
+
+    const safeHref = isSafe ? raw : '#';
+    return `<a href="${safeHref}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+  });
   return s;
 }
 
