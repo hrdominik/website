@@ -2,7 +2,7 @@ const PROFILE = {
   nickname: "Dominik",
   name: "Dominik Höhr",
   title: "Cloud & DevOps @ CGI",
-  tagline: "Full-Stack • DevOps • Cloud",
+  tagline: "Cloud • DevOps • Full-Stack",
   location: "Paderborn / Remote",
   // availability: "Developing",
   email: { user: "dominik", domain: "hoehr", tld: "net" },
@@ -61,7 +61,14 @@ const PROFILE = {
         tags: ["Docker", "DevOps", "Tips"],
         excerpt:
           "Ever had an Problem with docker compose and connection your app with the database?",
-        // markdown: 
+      },
+      {
+        slug: "ai-workflow-pack-orchestrating-copilot",
+        title: "Orchestrating Copilot: a repo-ready .github Workflow Pack for Enterprise AI Delivery",
+        date: "2026-01-26",
+        readTime: "7 min",
+        tags: ["AI", "GitHub Copilot", "VS Code", "Enterprise", "Governance", "Delivery"],
+        excerpt: "AI creates real value long before autonomy: through intentional orchestration under human control. This post introduces a repo-ready .github workflow pack that makes Copilot usage predictable, traceable, and enterprise-friendly—without pretending there’s one universal right way."
       }
     ]
   },
@@ -73,8 +80,8 @@ const PROFILE = {
         icon: "gear",
         items: [
           { name: "GitLab, Azure DevOps", icon: "pipeline", accent: true },
-          { name: "Kubernetes", icon: "k8s", accent: true },
-          { name: "Docker", icon: "box" },
+          { name: "Kubernetes", icon: "k8s" },
+          { name: "Docker", icon: "box", accent: true },
           { name: "Nginx", icon: "server" }
         ]
       },
@@ -92,8 +99,8 @@ const PROFILE = {
         group: "Backend",
         icon: "backend",
         items: [
-          { name: "Python, insb. FastAPI- und Flask Server", icon: "python", accent: true },
-          { name: "Java/JakartaEE", icon: "java", accent: true },
+          { name: "Python (FastAPI)", icon: "python", accent: true },
+          { name: "Java/JakartaEE", icon: "java" },
           { name: "C#, C", icon: "code" },
           { name: "SQL", icon: "db" }
         ]
@@ -112,10 +119,20 @@ const PROFILE = {
 
     professional: [
       {
+        group: "Architektur & Konzeption",
+        icon: "cloud",
+        items: [
+          { name: "Private and Sovereign Cloud", icon: "shield", accent: true },
+          { name: "Cloud Architecture", icon: "cloud", accent: true },
+          { name: "System Design", icon: "api" },
+          { name: "Security Basics", icon: "shield" }
+        ]
+      },
+      {
         group: "Projektmanagement",
         icon: "code",
         items: [
-          { name: "Agile Delivery (SCRUM)", icon: "pipeline" },
+          { name: "Agile Delivery (SCRUM)", icon: "pipeline", accent: true },
           { name: "Projekt- und Risikomanagement", icon: "log" },
           { name: "Stakeholder Management", icon: "shield" }
         ]
@@ -124,8 +141,8 @@ const PROFILE = {
         group: "Modellierung",
         icon: "db",
         items: [
-          { name: "Business Process Model and Notation 2.0 / Erweiterte Ereignisgesteuerte Prozesskette", icon: "db" },
-          { name: "Datenbank Modellierung und Normalisierung", icon: "db" }
+          { name: "BPMN 2.0 | eEPK", icon: "db" },
+          { name: "DB Modellierung und Normalisierung", icon: "db" }
         ]
       },
       {
@@ -135,19 +152,9 @@ const PROFILE = {
           { name: "SAP", icon: "code" },
           { name: "Data Science, CRISP-DM, R", icon: "log" },
           { name: "Jupyter, Machine Learning, LLM", icon: "pulse" },
-          { name: "Microsoft Powerautomate (ehem. Flow)", icon: "cloud" },
+          { name: "Microsoft Powerautomate", icon: "cloud" },
         ]
       },
-      {
-        group: "Architektur & Konzeption",
-        icon: "cloud",
-        items: [
-          { name: "Private and Sovereign Cloud", icon: "shield" },
-          { name: "Cloud Architecture", icon: "cloud", accent: true },
-          { name: "System Design", icon: "api" },
-          { name: "Security Basics", icon: "shield" }
-        ]
-      }
     ]
   },
 
@@ -161,6 +168,52 @@ const PROFILE = {
       summary: "Entwicklung von leistungsfähigen Cloud-Architekturen mit Fokus auf Sicherheit und automatisierter Bereitstellung"
     },
     {
+      type: "volunteer",
+      role: "Vorstandmitglied",
+      org: "Verein der BuFaK WiWi e.V.",
+      start: "2023-05",
+      end: "2026-05",
+      summary: "Mitglied im Vereinsvorstand zur Unterstützung der Kontinuität und Durchführung der Bundesfachschaften Konferenzen."
+    },
+    {
+      type: "education",
+      role: "M.Sc. Wirtschaftsinformatik",
+      org: "Universität Paderborn",
+      start: "2018-10",
+      end: "2025-11",
+      summary: "Bachelor und Master Wirtschaftsinformatik an der Universität Paderborn.",
+      highlights: [
+        "Bachelor of Science Wirtschaftsinformatik (2018–2022)",
+        "Master of Science Wirtschaftsinformatik (2022-2025)"
+      ]
+    },
+    {
+      type: "volunteer",
+      role: "Vereins- & Vorstandsmitglied",
+      org: "Hochschulgruppe Wirtschaftsinformatik Paderborn e.V.",
+      start: "2019-10",
+      end: "2025-11",
+      summary: "Langjähriges Engagement in der Fachschaft und Hochschulgruppe Wirtschaftsinformatik.",
+      highlights: [
+        "Hochschulgruppe Wirtschaftsinformatik Paderborn e.V. (seit 2019)",
+        "Mitglied im Vereinsvorstand der Hochschulgruppe (2023–2025)",
+        "Aktives Mitglied im Fachschaftsrat Wirtschaftsinformatik (2019-2025)"
+      ]
+    },
+    {
+      type: "volunteer",
+      role: "Gewähltes Mitglied in universitären Gremien",
+      org: "Universität Paderborn",
+      start: "2021-10",
+      end: "2025-10",
+      summary: "Kontinuierliche ehrenamtliche Mitwirkung in universitären Gremien und Vertretungen.",
+      highlights: [
+        "Kommission für Angelegenheiten des IMT und Studierendenparlament (2024–2025)",
+        "Kommission für Angelegenheiten des IMT, Fakultätsrat der Fakultät Wirtschaftswissenschaften, Fachschaftsvertretung Wirtschaftswissenschaften, Prüfungsausschuss Wirtschaftsinformatik (2022–2024)",
+        "Haushaltsausschuss des Studierendenparlaments (Stellv. Vorsitz), Kommission für Angelegenheiten des IMT, Prüfungsausschuss Wirtschaftsinformatik (2021–2022)"
+      ]
+    },
+    {
       type: "work",
       role: "Geschäftsführung, IT & Events",
       org: "LOOK IN! GbR",
@@ -168,21 +221,9 @@ const PROFILE = {
       end: "2025-08",
       summary: "Verantwortung für Events, Geschäftsführung und IT-Infrastruktur der Firmenkontaktmesse LOOK IN!",
       highlights: [
-        "Ressortleitung Events (01/2022–07/2023): Organisation von Events rund um die Firmenkontaktmesse",
-        "Geschäftsführung (07/2023–07/2024): Geschäftsführung und Durchführung der Firmenkontaktmesse",
-        "Ressortleitung IT (07/2024–08/2025): Sicherstellung der IT-Infrastruktur und Support"
-      ]
-    },
-    {
-      type: "work",
-      role: "Referent für Kultur & IT",
-      org: "Allgemeiner Studierendenausschuss der Universität Paderborn",
-      start: "2022-10",
-      end: "2024-10",
-      summary: "Zwei aufeinanderfolgende Referate für Kultur sowie IT beim AStA der Universität Paderborn.",
-      highlights: [
-        "Referent für Kultur (10/2022–10/2023): Gestaltung der Kultur an und um den Campus für die Studierenden der Universität Paderborn; Unterstützung der Aktivenschaft",
-        "Referent für IT (10/2023–10/2024): Konzeptionierung und Koordination der IT-Infrastruktur des AStA und der Aktivenschaft; Wartung, Entwicklung und Prozessoptimierung; Verantwortung von 3 Mitarbeitern"
+        "Ressortleitung IT, zuständig für die Sicherstellung der IT-Infrastruktur und Support (2024-2025)",
+        "Geschäftsführung, verantwortlich für die Durchführung der Firmenkontaktmesse (2023-2024)",
+        "Ressortleitung Events, zuständig für die Organisation von Events rund um die Firmenkontaktmesse (2022-2023)"
       ]
     },
     {
@@ -198,51 +239,15 @@ const PROFILE = {
       ]
     },
     {
-      type: "education",
-      role: "Wirtschaftsinformatik (B.Sc. & M.Sc.)",
-      org: "Universität Paderborn",
-      start: "2018-10",
-      end: "2025-11",
-      summary: "Bachelor (10/2018–04/2022) und Master (04/2022–11/2025) Wirtschaftsinformatik an der Universität Paderborn.",
+      type: "work",
+      role: "Referent für Kultur & IT",
+      org: "Allgemeiner Studierendenausschuss der Universität Paderborn",
+      start: "2022-10",
+      end: "2024-10",
+      summary: "Zwei aufeinanderfolgende Referate für Kultur sowie IT beim AStA der Universität Paderborn.",
       highlights: [
-        "Bachelor of Science Wirtschaftsinformatik (2018–2022)",
-        "Master of Science Wirtschaftsinformatik (seit 2022)"
-      ]
-    },
-    {
-      type: "volunteer",
-      role: "Gewähltes Mitglied in universitären Gremien",
-      org: "Universität Paderborn",
-      start: "2021-10",
-      end: "2025-10",
-      summary: "Kontinuierliche ehrenamtliche Mitwirkung in universitären Gremien und Vertretungen.",
-      highlights: [
-        "2021–2022: Haushaltsausschuss des Studierendenparlaments (Stellv. Vorsitz), Kommission für Angelegenheiten des IMT, Prüfungsausschuss Wirtschaftsinformatik",
-        "2022–2024: Kommission für Angelegenheiten des IMT, Fakultätsrat der Fakultät Wirtschaftswissenschaften, Fachschaftsvertretung Wirtschaftswissenschaften, Prüfungsausschuss Wirtschaftsinformatik",
-        "2024–2025: Kommission für Angelegenheiten des IMT und Studierendenparlament"
-      ]
-    },
-    {
-      type: "volunteer",
-      role: "Vereinsmitgliedschaft & Vorstandsmitglied",
-      org: "Hochschulgruppe Wirtschaftsinformatik Paderborn e.V.",
-      start: "2019-10",
-      end: "2025-11",
-      summary: "Langjähriges Engagement in der Fachschaft und Hochschulgruppe Wirtschaftsinformatik.",
-      highlights: [
-        "Aktives Mitglied seit 2019 im Fachschaftsrat Wirtschaftsinformatik sowie der Hochschulgruppe Wirtschaftsinformatik Paderborn e.V.",
-        "Mitglied im Vereinsvorstand der Hochschulgruppe (07/2023–07/2025)"
-      ]
-    },
-    {
-      type: "volunteer",
-      role: "Vorstandmitglied",
-      org: "Verein der BuFaK WiWi e.V.",
-      start: "2023-05",
-      end: null,
-      summary: "Mitglied im Vereinsvorstand zur Unterstützung der Kontinuität und Durchführung der Bundesfachschaften Konferenzen.",
-      highlights: [
-        "Unterstützung der Kontinuität und Durchführung der Bundesfachschaften Konferenzen"
+        "Referent für IT, Konzeptionierung und Koordination der IT-Infrastruktur des AStA und der Aktivenschaft; Wartung, Entwicklung und Prozessoptimierung; Verantwortung von 3 Mitarbeitern (2023-2024)",
+        "Referent für Kultur, Gestaltung der Kultur an und um den Campus für die Studierenden der Universität Paderborn; Unterstützung der Aktivenschaft (2022-2023)",
       ]
     },
     {
