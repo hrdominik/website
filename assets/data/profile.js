@@ -5,7 +5,7 @@ const PROFILE = {
   tagline: "Cloud • DevOps • Full-Stack",
   location: "Paderborn / Remote",
   // availability: "Developing",
-  email: { user: "dominik", domain: "hoehr", tld: "net" },
+  email: { user: "mail", domain: "hoehr", tld: "net" },
 
   intro:
     "Cloud- & DevOps-Engineer (Lead Consultant) mit Full-Stack Background – Fokus auf Automatisierung, zuverlässigen Betrieb und souveräne Architekturen.",
