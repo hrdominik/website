@@ -1,6 +1,10 @@
-## AI is useful long before it’s autonomous
+> **Updated — April 2025:** This template has evolved. What started as a GitHub Copilot workflow pack is now a full Claude Code orchestration template — with specialized agents, automated hooks, domain rules, and multi-step skills. Same philosophy, sharper tooling. [Jump to the template.](#if-you-want-to-try-it)
 
-The internet loves the “big bang” version of AI adoption.
+---
+
+## AI is useful long before it's autonomous
+
+The internet loves the "big bang" version of AI adoption.
 
 > AI replaces developers.  
 > AI writes the entire system.  
@@ -10,7 +14,7 @@ It makes for good headlines. It makes for terrible delivery plans.
 
 In real enterprise work—especially in regulated or business-critical environments—the value of AI almost never comes from autonomy. It comes from **intentional use under human control**. From placing AI into a delivery architecture you can explain, audit, and hand over.
 
-AI is not something you “unleash”.
+AI is not something you "unleash".
 It is something you integrate.
 
 And in that integration, the unglamorous details matter more than the model.
@@ -20,18 +24,29 @@ And in that integration, the unglamorous details matter more than the model.
 - Clear expectations.  
 - A workflow that remains reviewable even when the chat history is gone.
 
-That mindset is what led me to build and publish a small, repo-ready `.github` workflow pack for VS Code and GitHub Copilot. Not a framework, not a platform—just a baseline for turning abstract AI potential into **concrete, traceable improvements** in day-to-day delivery.
+
+## Orchestration, not vibe coding
+
+There is a popular idea right now that "vibe coding" is the future of software development. You describe what you want in natural language, the model generates the code, and you ship it. Intuitive, fast, impressive in demos.
+
+It is also the opposite of what enterprise delivery requires.
+
+Vibe coding treats AI as a replacement for engineering judgment. Orchestration treats AI as a tool *within* engineering judgment. The difference is not academic—it determines whether your output is auditable, your process is repeatable, and your team can actually maintain what was built.
+
+The model might be "right". But if nobody can explain *why* it is right, or *what constraints* it operated under, you do not have a delivery—you have a bet.
+
+In regulated environments, bets do not ship.
 
 
-## Where default Copilot usage starts to break down
+## Where default AI usage starts to break down
 
-Copilot is genuinely useful out of the box. But its defaults are optimized for speed and convenience, not for predictability.
+AI coding assistants are genuinely useful out of the box. But their defaults are optimized for speed and convenience, not for predictability.
 
-Left unstructured, usage patterns tend to converge toward the same shape: one omnipresent assistant, unclear ownership of decisions, and outputs that may look reasonable but are hard to reason about later. The model might be “right”, but the workflow is opaque.
+Left unstructured, usage patterns tend to converge toward the same shape: one omnipresent assistant, unclear ownership of decisions, and outputs that may look reasonable but are hard to reason about later.
 
-That’s often acceptable in early experimentation or small teams.
+That is often acceptable in early experimentation or small teams.
 
-It is not acceptable in enterprise delivery, where you are explicitly paid for control, predictability, and traceability—and where “we’ll explain it later” is not an operating model.
+It is not acceptable in enterprise delivery, where you are explicitly paid for control, predictability, and traceability—and where "we'll explain it later" is not an operating model.
 
 The problem is not the model.  
 The problem is the absence of orchestration.
@@ -39,13 +54,13 @@ The problem is the absence of orchestration.
 
 ## My stance: AI does not replace responsibility
 
-I don’t let AI “write my code”.
+I don't let AI "write my code".
 
 I let AI operate inside an architecture I control.
 
 Used deliberately, AI already delivers real value as a constrained assistant: something that accelerates feedback loops, supports focused tasks, and reduces cognitive load—without replacing accountability.
 
-Instead of treating Copilot as a single all-knowing agent, I prefer to separate concerns. Planning, implementation, documentation, security review, and environment changes are different kinds of work. They deserve different guardrails.
+Instead of treating AI as a single all-knowing agent, I separate concerns. Planning, implementation, documentation, security review, and testing are different kinds of work. They deserve different agents with different guardrails.
 
 The analogy I keep coming back to is familiar to most engineers: microservices instead of a monolith, pipeline stages instead of ad-hoc scripts, runbooks instead of tribal knowledge.
 
@@ -53,77 +68,92 @@ The model remains probabilistic.
 The workflow becomes deterministic.
 
 
-## A small but intentional `.github` workflow
+## A structured template for AI-assisted development
 
-The result is a drop-in `.github/` folder you can add to an existing repository. It provides a structured, maintainers-first way of working with Copilot Chat—without binding you to a specific language, framework, cloud, or architecture.
+This mindset led me to build and publish a project template for VS Code and Claude Code. Not a framework, not a platform—a baseline for turning abstract AI potential into **concrete, traceable improvements** in day-to-day delivery.
 
-That lack of opinion is intentional.
+The template provides five layers of orchestration:
 
-What the workflow *does* insist on is discipline: explicit sources of truth, documented state, and repeatable interaction patterns between humans and AI.
+**Specialized agents** replace the single omniscient assistant. A code reviewer that follows your team's standards. A debugger that does root-cause analysis, not shotgun fixes. A test writer that matches your existing patterns. A documentation writer that keeps living docs current. A security auditor focused on exploitable vulnerabilities, not theoretical noise.
 
-At its core, the repository introduces a few simple ideas.
+**Domain rules** encode your non-negotiables. API conventions, database safety, frontend standards—applied automatically based on the code area being modified. These are not suggestions. They are constraints.
 
-There is a set of repo-wide Copilot instructions that define non-negotiables: where truth lives, what is forbidden, how changes are reviewed, and what “done” actually means.
+**Hooks** enforce discipline at the points where mistakes are most expensive. Pre-commit checks catch secrets, debug statements, and missing tests before they enter the history. On-save checks catch syntax errors in real time.
 
-There are source-of-truth documents—requirements, architecture, and a single state file—that exist specifically to outlive chat sessions and context windows.
+**Skills** automate multi-step workflows that are tedious but critical. `/commit-push-pr` reviews changes, generates a conventional commit, pushes, and creates a PR with a test plan—in one command. `/review-pr` runs code review, security audit, and test coverage analysis in parallel.
 
-There are instruction files that act like policy: security baselines, test discipline, documentation expectations, IaC rules.
-
-And there are explicit prompts—used as slash commands—that support common, high-risk or high-leverage activities: resuming work from repo state, handing over at the end of a session, performing a structured security review, refactoring with invariants, or keeping documentation aligned with reality.
-
-Nothing here is magical. That is the point.
+**Tracking documents** give AI—and your team—persistent context. Requirements, architecture decisions, and current development status live in `docs/` as structured markdown, updated continuously, and readable by both humans and AI.
 
 
 ## The loop that actually scales
 
 In practice, the workflow reduces to a loop that is intentionally boring—and therefore scalable.
 
-You keep a stable memory in the repository.  
+You keep a stable memory in the repository: requirements, architecture, status.  
 You make AI consume that memory instead of chat history.  
 You write outcomes back into that memory.
 
-This starts with enabling instruction files in VS Code so Copilot automatically reads your guardrails. Sessions begin with an explicit `/resume`, rehydrating context from the repo instead of relying on whatever the model happens to remember. Work is executed using agendas and specialised prompts, and sessions end with a `/handover` that updates the shared state.
+Each agent reads the project's `CLAUDE.md` for context: language, framework, commands, active rules. Each session can pick up where the last one left off because the state lives in files, not in ephemeral conversations.
 
-The difference is subtle but important. This is no longer “AI as chat”. It is AI as part of a delivery workflow.
+The difference is subtle but important. This is no longer "AI as chat". It is AI as part of a delivery workflow.
 
 
 ## Why this matters in controlled environments
 
-In many client environments, the hard part is not calling a model. That is usually trivial.
+In most client environments, the hard part is not calling a model. That is usually trivial.
 
 The hard part is governance.
 
 Real AI adoption starts with questions that are much less exciting than model benchmarks: who owns which decisions, what interfaces exist, what is explicitly forbidden, and how behaviour can be observed and audited.
 
-When prompts and instructions are treated as configuration rather than magic incantations, new possibilities open up. Prompts can be versioned. Instructions can act as policy. AI behaviour becomes reviewable, explainable, and improvable over time.
+When agent instructions and rules are treated as configuration rather than magic incantations, new possibilities open up. Instructions can be versioned. Agents can be scoped. AI behaviour becomes reviewable, explainable, and improvable over time—by the team, not just by the person who last talked to the model.
 
-This fits enterprise delivery far better than hoping that “vibes” scale.
+This is what separates a tool from a toy. Enterprise readiness is not about the model's capability. It is about the **governance surface** around it: can you explain what it did, why, under what constraints, and who approved it?
+
+The template answers these questions structurally:
+
+- **What it did** — tracked in `docs/STATUS.md` and commit history  
+- **Why** — captured in `docs/ARCHITECTURE.md` as decision records  
+- **Under what constraints** — defined in `.claude/rules/` and `CLAUDE.md`  
+- **Who approved it** — enforced by pre-commit hooks and PR reviews
 
 
-## Why “just call the API” is rarely enough
+## Vibe coding vs. orchestrated AI: a practical comparison
 
-Even with an API key in hand, production-grade AI usage tends to run into the same constraints as any other platform capability: network isolation, identity and access control, logging and monitoring, cost attribution, and data residency.
+| | Vibe Coding | Orchestrated AI |
+|---|---|---|
+| **Control** | Model decides scope | Human defines constraints |
+| **Auditability** | Chat history (ephemeral) | Rules, agents, docs (versioned) |
+| **Consistency** | Depends on prompt quality | Enforced by rules and hooks |
+| **Handover** | "Ask the model again" | Read the repo state |
+| **Enterprise fit** | Proof of concept | Production delivery |
 
-Getting something to work is easy.  
-Operating it safely and predictably is the real job.
+Vibe coding is a valid starting point for exploration. But it is not a delivery model. The moment you need to onboard a second developer, pass a security review, or explain a decision to a stakeholder, you need structure.
 
-This repository does not pretend to solve the entire platform story. It is a pragmatic baseline for governing how developers interact with AI inside a repository—day after day, sprint after sprint.
+Orchestration provides that structure without sacrificing the speed that makes AI valuable in the first place.
 
 
 ## What clients actually ask for
 
-Most clients do not ask for “AI”.
+Most clients do not ask for "AI".
 
-They ask for faster feedback, better documentation, safer changes, and reduced cognitive load. The workflow is my attempt to translate abstract AI potential into delivery improvements that are reviewable, repeatable, and explainable.
+They ask for faster feedback, better documentation, safer changes, and reduced cognitive load. The template is my attempt to translate abstract AI potential into delivery improvements that are reviewable, repeatable, and explainable.
 
-No revolution language. No productivity-multiplier claims without context. Just a controlled way to use assistance.
+No revolution language. No productivity-multiplier claims without context. Just a controlled way to use assistance—with the governance surface that enterprise environments demand.
 
 
 ## If you want to try it
 
-[GitHub Repository, hrdominik/vscode-copilot-workflow-template](https://github.com/hrdominik/vscode-copilot-workflow-template)
+[GitHub Repository — hrdominik/vscode-claude-template](https://github.com/hrdominik/vscode-claude-template)
 
-Drop the `.github/` folder into a repository, enable instruction files, and start using `/resume` and `/handover` as your default loop. Then adapt it—per team, per risk profile, per environment, per regulation.
+Clone the template, edit `CLAUDE.md` with your project details, and start using agents and skills as your default workflow. Then adapt it—per team, per risk profile, per environment, per regulation.
+
+The template includes:
+- **5 agents** — code reviewer, debugger, test writer, doc writer, security auditor
+- **2 hooks** — pre-commit checks, on-save validation
+- **3 rule sets** — API, database, frontend
+- **2 skills** — commit-push-pr, review-pr
+- **3 tracking docs** — requirements, architecture, development status
 
 There is no single right setup. There are only the right boundaries for your context.
 
