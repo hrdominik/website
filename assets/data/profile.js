@@ -2,27 +2,56 @@ const PROFILE = {
   nickname: "Dominik",
   name: "Dominik Höhr",
   title: "Cloud & DevOps @ CGI",
-  tagline: "Cloud • DevOps • Full-Stack",
+  tagline: "Souverän • Automatisiert • Skalierbar",
   location: "Paderborn / Remote",
   // availability: "Developing",
   email: { user: "mail", domain: "hoehr", tld: "net" },
 
   intro:
-    "Cloud- & DevOps-Engineer (Lead Consultant) mit Full-Stack Background – Fokus auf Automatisierung, zuverlässigen Betrieb und souveräne Architekturen.",
+    "Lead Consultant für Cloud- und DevOps-Engineering mit über fünf Jahren Erfahrung in Architektur, Aufbau und souveränem Betrieb sicherer Plattformen.",
 
   heroBullets: [
-    "End-to-End-Verantwortung für Cloud- und Systemarchitekturen von der Konzeption bis zum Betrieb",
-    "Cloud-native Entwicklung mit Containern, Kubernetes, Microservices und CI/CD-Automatisierung",
-    "Erfahrung in regulierten Umgebungen mit hohem Anspruch an Sicherheit, Governance und Kostenkontrolle"
+    "End-to-End-Verantwortung für Cloud- und Systemarchitekturen für belastbare Plattform-Standards",
+    "Souveräner Betrieb von Cloud- und On-Prem-Umgebungen mit Containerisierung, Automatisierung und klaren Betriebsmodellen",
+    "Pragmatischer KI-Einsatz: als Werkzeug für Qualität und Effizienz statt Hype"
   ],
 
-  aboutTitle: "Build. Ship. Automate.",
+  aboutTitle: "Build. Automate. Operate.",
   aboutText:
-    "Ich bringe über fünf Jahre Erfahrung in der Software-, Cloud- und Plattformentwicklung mit und habe in unterschiedlichen Rollen als Full-Stack-Entwickler, DevOps Engineer und Solution Architect gearbeitet. Mein Schwerpunkt liegt auf der Konzeption und Umsetzung skalierbarer, sicherer Cloud-Plattformen sowie der Entwicklung verteilter Backend-Systeme. Dabei verbinde ich technisches Tiefenverständnis mit strukturiertem Vorgehen, arbeite gerne in agilen Teams und übernehme Verantwortung für Architekturentscheidungen und deren Umsetzung. Besonders motiviert mich die Aufgabe, komplexe Anforderungen in robuste, nachhaltige technische Lösungen zu überführen und mich dabei kontinuierlich fachlich weiterzuentwickeln.",
+    "Ich verbinde technische Tiefe, strategisches Verständnis und operative Umsetzungsstärke für komplexe Cloud- und Transformationsvorhaben. Mein Fokus liegt auf dem Entwurf, Aufbau und dem souveränen Betrieb sicherer, skalierbarer Plattformen in regulierten Kontexten: von Landing Zones über Hub-Spoke-Netzwerke bis zu Managed Services und belastbaren Betriebsmodellen. Durch meinen Full-Stack- und Infrastrukturhintergrund denke ich Plattform, Anwendung und Betrieb ganzheitlich. KI nutze ich bewusst als Werkzeug in der Entwicklung und Automatisierung, verantwortungsvoll, nachvollziehbar und mit klarem Mehrwert für Team und Delivery.",
+
+  heroSkillsBanner: [
+    "Souveräne Cloud",
+    "Platform Operations",
+    "Cloud Architektur",
+    "Software Engineering"
+  ],
+
+  services: [
+    {
+      kicker: "Architecture",
+      title: "Souveräne Cloud-Architekturen",
+      text: "Konzeption von Landing Zones, Hub-Spoke-Topologien und Plattform-Blueprints mit Fokus auf Security, Governance und Nachvollziehbarkeit.",
+      emphasis: "primary"
+    },
+    {
+      kicker: "Operations",
+      title: "Betrieb & Managed Services",
+      text: "Stabiler Betrieb hybrider Landschaften mit Azure, StackIT und On-Prem mit klarer Verantwortung, Automatisierung und Observability.",
+      emphasis: "default"
+    },
+    {
+      kicker: "Engineering",
+      title: "Automatisierung & Entwicklung",
+      text: "IaC, CI/CD und moderne Softwareentwicklung für belastbare Delivery-Prozesse. KI-Tools wie Copilot und Claude werden praxisnah und kontrolliert eingesetzt.",
+      emphasis: "default"
+    }
+  ],
 
   social: {
     github: "https://github.com/hrdominik",
     linkedin: "https://www.linkedin.com/in/dominik-hoehr",
+    meetup: "https://www.meetup.com/de-DE/members/288437394/",
     blog: "/blog",
     links: "/links",
     tools: "/tools"
@@ -33,13 +62,14 @@ const PROFILE = {
     business: [
       { label: "LinkedIn", url: "https://www.linkedin.com/in/dominik-hoehr", desc: "Beruflicher Werdegang", icon: "linkedin" },
       { label: "GitHub", url: "https://github.com/hrdominik", desc: "Repos & Projekte", icon: "code" },
-      { label: "Kontakt", url: "/assets/data/DHR.vcf", desc: "", icon: "phone" },
+      { label: "Meetup", url: "https://www.meetup.com/de-DE/members/288437394/", desc: "Events & Networking", icon: "meetup" },
+      { label: "Kontakt", url: "/assets/data/DHR.vcf", desc: "vCard", icon: "phone" },
     ],
     private: [
-      { label: "Instagram", url: "https://www.instagram.com/hr.dominik", desc: "", icon: "pulse" },
-      { label: "Snapchat", url: "https://www.snapchat.com/add/hrdominik", desc: "", icon: "pulse" },
-      { label: "Discord", url: "#", desc: "", icon: "gaming" },
-      { label: "Steam", url: "#", desc: "", icon: "gaming" },
+      { label: "Instagram", url: "https://www.instagram.com/hr.dominik", desc: "", icon: "instagram" },
+      { label: "Snapchat", url: "https://www.snapchat.com/add/hrdominik", desc: "", icon: "snapchat" },
+      { label: "Discord", url: "https://discord.com/users/thecrackd", desc: "", icon: "discord" },
+      { label: "Steam", url: "https://steamcommunity.com/id/thecrackd", desc: "", icon: "steam" },
       { label: "PayPal", url: "https://www.paypal.me/dhoehr", desc: "", icon: "money" },
     ]
   },
@@ -76,43 +106,43 @@ const PROFILE = {
   skills: {
     technical: [
       {
-        group: "Entwicklungs- und Buildprozess",
-        icon: "gear",
-        items: [
-          { name: "GitLab, Azure DevOps", icon: "pipeline", accent: true },
-          { name: "Kubernetes", icon: "k8s" },
-          { name: "Docker", icon: "box", accent: true },
-          { name: "Nginx", icon: "server" }
-        ]
-      },
-      {
-        group: "Cloud und Infrastruktur",
+        group: "Cloud Plattform & Infrastruktur",
         icon: "cloud",
         items: [
-          { name: "Amazon Web Services", icon: "cloud" },
           { name: "Microsoft Azure", icon: "cloud", accent: true },
-          { name: "Infrastructure as Code", icon: "terraform" },
-          { name: "Monitoring/Logging", icon: "pulse" }
+          { name: "StackIT", icon: "cloud", accent: true },
+          { name: "Azure Arc", icon: "cloud" },
+          { name: "Amazon Web Services", icon: "cloud" }
         ]
       },
       {
-        group: "Backend",
-        icon: "backend",
+        group: "Netzwerk, Plattformbetrieb & Security",
+        icon: "gear",
+        items: [
+          { name: "Landing Zones & Hub-Spoke", icon: "api", accent: true },
+          { name: "Kubernetes & Docker", icon: "k8s" },
+          { name: "Linux (RHEL, Debian)", icon: "server" },
+          { name: "Windows Server & Active Directory", icon: "shield" }
+        ]
+      },
+      {
+        group: "Automation & Delivery",
+        icon: "shield",
+        items: [
+          { name: "Terraform / Infrastructure as Code", icon: "terraform", accent: true },
+          { name: "GitLab CI & Azure DevOps", icon: "pipeline", accent: true },
+          { name: "Monitoring, Logging, Observability", icon: "pulse" },
+          { name: "Berechtigungskonzepte & IAM", icon: "lock" }
+        ]
+      },
+      {
+        group: "Software Engineering",
+        icon: "api",
         items: [
           { name: "Python (FastAPI)", icon: "python", accent: true },
-          { name: "Java/JakartaEE", icon: "java" },
-          { name: "C#, C", icon: "code" },
-          { name: "SQL", icon: "db" }
-        ]
-      },
-      {
-        group: "Frontend",
-        icon: "frontend",
-        items: [
-          { name: "HTML5, CSS", icon: "web" },
-          { name: "Typescript", icon: "react", accent: true },
-          { name: "Flutter", icon: "code" },
-          { name: "PHP, Wordpress-Plugins", icon: "web" }
+          { name: "TypeScript / React", icon: "react" },
+          { name: "Java / JakartaEE", icon: "java" },
+          { name: "SQL & API Design", icon: "db" }
         ]
       }
     ],
@@ -122,37 +152,38 @@ const PROFILE = {
         group: "Architektur & Konzeption",
         icon: "cloud",
         items: [
-          { name: "Private and Sovereign Cloud", icon: "shield", accent: true },
-          { name: "Cloud Architecture", icon: "cloud", accent: true },
+          { name: "Souveränität in Cloud-Architekturen", icon: "shield", accent: true },
+          { name: "Cloud & Plattform Architektur", icon: "cloud", accent: true },
           { name: "System Design", icon: "api" },
-          { name: "Security Basics", icon: "shield" }
+          { name: "Betriebsmodelle & Service Design", icon: "user" },
+          { name: "Security by Design", icon: "lock" }
         ]
       },
       {
-        group: "Projektmanagement",
+        group: "Transformation & Delivery",
         icon: "code",
         items: [
           { name: "Agile Delivery (SCRUM)", icon: "pipeline", accent: true },
           { name: "Projekt- und Risikomanagement", icon: "log" },
-          { name: "Stakeholder Management", icon: "shield" }
+          { name: "Stakeholder- & Schnittstellenmanagement", icon: "user" }
         ]
       },
       {
-        group: "Modellierung",
-        icon: "db",
+        group: "Governance & Verantwortung",
+        icon: "shield",
         items: [
-          { name: "BPMN 2.0 | eEPK", icon: "db" },
-          { name: "DB Modellierung und Normalisierung", icon: "db" }
+          { name: "Regulierte Umgebungen", icon: "shield", accent: true },
+          { name: "Kostenkontrolle & Transparenz", icon: "log" },
+          { name: "Dokumentation & Entscheidungsnachvollziehbarkeit", icon: "code" }
         ]
       },
       {
-        group: "Tools",
+        group: "KI in der Praxis",
         icon: "gear",
         items: [
-          { name: "SAP", icon: "code" },
-          { name: "Data Science, CRISP-DM, R", icon: "log" },
-          { name: "Jupyter, Machine Learning, LLM", icon: "pulse" },
-          { name: "Microsoft Powerautomate", icon: "cloud" },
+          { name: "Copilot & Claude im Entwicklungsalltag", icon: "pulse", accent: true },
+          { name: "Verantwortungsvoller KI-Einsatz", icon: "shield" },
+          { name: "Technologische Neugier mit Pragmatismus", icon: "log" },
         ]
       },
     ]
@@ -165,7 +196,12 @@ const PROFILE = {
       org: "CGI",
       start: "2024-12",
       end: null,
-      summary: "Entwicklung von leistungsfähigen Cloud-Architekturen mit Fokus auf Sicherheit und automatisierter Bereitstellung"
+      summary: "Verantwortung für Architektur, Aufbau und Betrieb souveräner Cloud- und Plattformlösungen in regulierten Umgebungen mit Fokus auf Sicherheit, Skalierbarkeit und operativer Belastbarkeit.",
+      highlights: [
+        "Konzeption und Umsetzung von Landing-Zone- und Hub-Spoke-Architekturen inklusive Governance-, Netzwerk- und Security-Standards.",
+        "Aufbau und Stabilisierung von Betriebsmodellen für Managed Services über Cloud- und On-Prem-Landschaften hinweg.",
+        "Technische Beratung und Umsetzung in Themenfeldern wie Azure, StackIT, Azure Arc, IAM/Berechtigungskonzepte sowie CI/CD- und IaC-Automatisierung."
+      ]
     },
     {
       type: "volunteer",

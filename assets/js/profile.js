@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // render hero bullets (checks)
   renderHeroBullets(data.heroBullets || []);
+  renderSkillsBanner(data.heroSkillsBanner || []);
+  renderServiceCards(data.services || []);
 
   // skills/cv
   renderSkills('skillsTechnical', data.skills?.technical || []);
@@ -44,6 +46,37 @@ function renderHeroBullets(items) {
       <span class="opacity-90">${Core.escapeHtml(t)}</span>
     </li>
   `).join('');
+}
+
+function renderSkillsBanner(items) {
+  const track = document.getElementById('heroSkillsBanner');
+  if (!track) return;
+  track.innerHTML = (items || []).map((item, idx) => {
+    const separator = idx < items.length - 1 ? '<span class="opacity-50">•</span>' : '';
+    return `<span class="opacity-95">${Core.escapeHtml(item)}</span>${separator}`;
+  }).join('');
+}
+
+function renderServiceCards(items) {
+  const root = document.getElementById('servicesGrid');
+  if (!root) return;
+  root.innerHTML = (items || []).map((service) => {
+    const isPrimary = service.emphasis === 'primary';
+    const cardClass = isPrimary
+      ? 'rounded-2xl bg-ink p-6 text-paper shadow-crisp'
+      : 'rounded-2xl border border-ink/10 bg-white p-6 shadow-crisp';
+    const kickerClass = isPrimary
+      ? 'text-xs font-semibold uppercase tracking-[0.18em] opacity-80'
+      : 'text-xs font-semibold uppercase tracking-[0.18em] opacity-70';
+    const textClass = isPrimary ? 'mt-2 text-sm opacity-80' : 'mt-2 text-sm opacity-75';
+    return `
+      <div class="${cardClass}">
+        <p class="${kickerClass}">${Core.escapeHtml(service.kicker || '')}</p>
+        <h3 class="mt-2 font-display text-xl">${Core.escapeHtml(service.title || '')}</h3>
+        <p class="${textClass}">${Core.escapeHtml(service.text || '')}</p>
+      </div>
+    `;
+  }).join('');
 }
 
 /* Skills renderer reused from previous base.js */

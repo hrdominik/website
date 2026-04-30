@@ -142,6 +142,10 @@ function iconSvg(key) {
     case 'phone': return base(`<path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.55.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 6a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.21 1.11z"/>`);
     case 'linkedin': return base(`<path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>`);
     case 'pulse': return base(`<path d="M2 12h4l3-8 4 16 3-12h4"/>`);
+    case 'instagram': return base(`<rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37a4 4 0 1 1-4-4 4 4 0 0 1 4 4z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>`);
+    case 'snapchat': return base(`<path d="M16 7a4 4 0 0 1 4 4v2a2 2 0 0 1-2 2h-1v3a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-3H6a2 2 0 0 1-2-2v-2a4 4 0 0 1 4-4h8z"/><path d="M9.5 11.5h.01"/><path d="M14.5 11.5h.01"/>`);
+    case 'discord': return base(`<path d="M7 16c1.333-1.333 4-1.333 6 0s4 1.333 6 0"/><path d="M2 12a10 10 0 1020 0 10 10 0 00-20 0z"/><path d="M8.5 9h.01"/><path d="M15.5 9h.01"/>`);
+    case 'steam': return base(`<path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-4.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm2.5-2h3a2.5 2.5 0 1 1 .8 4.9"/><path d="M14.5 15a2.5 2.5 0 1 1-3-2.4"/>`);
     case 'gaming': return base(`<path d="M6 12h.01"/><path d="M12 12h.01"/><path d="M18 12h.01"/><path d="M2 12a10 10 0 1020 0 10 10 0 00-20 0z"/><path d="M6 16c1.333-1.333 4-1.333 6 0s4 1.333 6 0"/>`);
     case 'money': return base(`<circle cx="12" cy="12" r="9"/><path d="M8 9h8a4 4 0 010 6H8a4 4 0 010-6z"/><path d="M12 6v12"/>`);
     case 'python': return base(`<path d="M8 7h8a3 3 0 0 1 3 3v4"/><path d="M16 17H8a3 3 0 0 1-3-3V10"/><circle cx="9" cy="8.5" r="1"/><circle cx="15" cy="15.5" r="1"/>`);
@@ -164,6 +168,7 @@ function iconSvg(key) {
     case 'backend': return base(`<path d="M7 7h10v10H7z"/><path d="M4 12h3"/><path d="M17 12h3"/>`);
     case 'log': return base(`<path d="M4 4h16v16H4z"/><path d="M7 8h10"/><path d="M7 12h10"/><path d="M7 16h7"/>`);
     case 'code': return base(`<path d="M8 9l-3 3 3 3"/><path d="M16 9l3 3-3 3"/><path d="M14 6l-4 12"/>`);
+    case 'user': return base(`<path d="M20 21v-2a4 4 0 0 0-3-3.87"/><path d="M4 21v-2a4 4 0 0 1 3-3.87"/><circle cx="12" cy="7" r="4"/>`);
     default: return base(`<circle cx="12" cy="12" r="9"/>`);
   }
 }
