@@ -8,7 +8,7 @@ const PROFILE = {
   email: { user: "mail", domain: "hoehr", tld: "net" },
 
   intro:
-    "Lead Consultant für Cloud- und DevOps-Engineering mit über fünf Jahren Erfahrung in Architektur, Aufbau und souveränem Betrieb sicherer Plattformen.",
+    "Senior Consultant für Cloud- und DevOps-Engineering mit über fünf Jahren Erfahrung in Architektur, Aufbau und souveränem Betrieb sicherer Plattformen.",
 
   heroBullets: [
     "End-to-End-Verantwortung für Cloud- und Systemarchitekturen für belastbare Plattform-Standards",
@@ -216,7 +216,7 @@ const PROFILE = {
   cv: [
     {
       type: "work",
-      role: "Lead Consultant | Cloud- und DevOps-Engineer",
+      role: "Senior Consultant | Cloud- und DevOps-Engineer",
       org: "CGI",
       start: "2024-12",
       end: null,
