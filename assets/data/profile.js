@@ -220,11 +220,10 @@ const PROFILE = {
       org: "CGI",
       start: "2024-12",
       end: null,
-      summary: "Verantwortung für Architektur, Aufbau und Betrieb souveräner Cloud- und Plattformlösungen in regulierten Umgebungen mit Fokus auf Sicherheit, Skalierbarkeit und operativer Belastbarkeit.",
+      summary: "Verantwortung für Architektur, Aufbau und Betrieb souveräner Cloud- und Plattformlösungen in regulierten Umgebungen mit Fokus auf Sicherheit, Skalierbarkeit und operativer Belastbarkeit. Inklusive Konzeption von Landing-Zone- und Hub-Spoke-Architekturen, Stabilisierung von Betriebsmodellen für Managed Services (Cloud & On-Prem) sowie technischer Beratung und Umsetzung in Azure, StackIT, Azure Arc, IAM und CI/CD-/IaC-Automatisierung.",
       highlights: [
-        "Konzeption und Umsetzung von Landing-Zone- und Hub-Spoke-Architekturen inklusive Governance-, Netzwerk- und Security-Standards.",
-        "Aufbau und Stabilisierung von Betriebsmodellen für Managed Services über Cloud- und On-Prem-Landschaften hinweg.",
-        "Technische Beratung und Umsetzung in Themenfeldern wie Azure, StackIT, Azure Arc, IAM/Berechtigungskonzepte sowie CI/CD- und IaC-Automatisierung."
+        "Senior Consultant, Fokus auf souveräne Cloud- und Plattformarchitekturen (seit 2026)",
+        "Lead Consultant, Fokus auf Entwicklung und Umsetzung von Cloud- und DevOps-Architekturen (2024–2026)"
       ]
     },
     {
@@ -292,11 +291,7 @@ const PROFILE = {
       org: "Beckmann & Partner Consult",
       start: "2020-08",
       end: "2024-11",
-      summary: "Full-Stack-Entwickler & IT-Projektmanager",
-      highlights: [
-        "Konzeptionierung und Realisierung interner Projekte.",
-        "Full-Stack-Entwickler und DevOps-Engineer für RESTful Webservices und deren Architektur."
-      ]
+      summary: "Full-Stack-Entwicklung & IT-Projektmanagement. Konzeptionierung und Realisierung interner Projekte sowie Entwicklung und DevOps-Engineering von RESTful Webservices und deren Architektur."
     },
     {
       type: "work",
