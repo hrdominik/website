@@ -191,4 +191,4 @@ function formatDuration(start, end) {
 }
 function parseYm(ym) { const [y,m]=String(ym||'').split('-').map(Number); return {y,m}; }
 function todayYm(){ const d=new Date(); return { y:d.getFullYear(), m:d.getMonth()+1 }; }
-function cvTypeIcon(type) { return Core.iconSvg(type==='education'?'code':'code'); }
+function cvTypeIcon(type) { return Core.cvTypeIcon ? Core.cvTypeIcon(type) : ''; }
