@@ -258,7 +258,47 @@ function markdownToHtml(mdRaw) {
   };
   const flushQuote = () => {
     if (!quote.length) return;
-    html += `<blockquote><p>${inlineMd(quote.join(' '))}</p></blockquote>`;
+
+    const firstLine = quote[0].trim();
+    // Match GFM Callout: [!NOTE], [!WARNING], [!UPDATE], [!TIP], [!INFO], [!IMPORTANT], [!CAUTION]
+    const gfmMatch = firstLine.match(/^\[!(NOTE|WARNING|UPDATE|TIP|INFO|IMPORTANT|CAUTION)\]\s*(.*)$/i);
+    // Match bold header Callout: **Updated...**, **Note:**, **Warning:**, **Tip:**
+    const boldMatch = firstLine.match(/^\*\*(Updated(?:\s*\([^)]+\))?|Note|Warning|Tip|Info|Achtung|Connection to database[^*]+)[:\s]*\*\*:?\s*(.*)$/i);
+
+    if (gfmMatch) {
+      const typeRaw = gfmMatch[1].toLowerCase();
+      let type = typeRaw;
+      if (typeRaw === 'important' || typeRaw === 'caution') type = 'warning';
+      if (typeRaw === 'note') type = 'info';
+
+      const customTitle = gfmMatch[2];
+      const title = customTitle || (type === 'update' ? 'Update' : type === 'warning' ? 'Warning' : type === 'tip' ? 'Tip' : 'Note');
+
+      const bodyText = quote.slice(1).join(' ');
+
+      html += `<div class="callout callout--${type}">
+        <div class="callout__header">${inlineMd(title)}</div>
+        <div class="callout__body">${bodyText ? `<p>${inlineMd(bodyText)}</p>` : ''}</div>
+      </div>`;
+    } else if (boldMatch) {
+      const matchLabel = boldMatch[1];
+      let type = 'info';
+      if (/updated/i.test(matchLabel)) type = 'update';
+      else if (/warning|achtung|connection/i.test(matchLabel)) type = 'warning';
+      else if (/tip/i.test(matchLabel)) type = 'tip';
+
+      const inlineRest = boldMatch[2];
+      const bodyLines = quote.slice(1);
+      const fullBody = (inlineRest ? inlineRest + ' ' : '') + bodyLines.join(' ');
+
+      html += `<div class="callout callout--${type}">
+        <div class="callout__header">${inlineMd(matchLabel)}</div>
+        <div class="callout__body"><p>${inlineMd(fullBody)}</p></div>
+      </div>`;
+    } else {
+      html += `<blockquote><p>${inlineMd(quote.join(' '))}</p></blockquote>`;
+    }
+
     quote = [];
   };
 
@@ -364,8 +404,31 @@ function markdownToHtml(mdRaw) {
 
 function inlineMd(s) {
   if (!s) return '';
+
+  const escapeFn = (typeof Core !== 'undefined' && Core.escapeAttr) ? Core.escapeAttr : (v => v);
+
+  // 1. Linked Images: [![alt](src)](href)
+  s = s.replace(/\[\s*!\[([^\]]*)\]\(([^)]+)\)\s*\]\(([^)]+)\)/g, (_, alt, src, href) => {
+    const rawSrc = String(src || '').trim();
+    const rawHref = String(href || '').trim();
+    const loweredHref = rawHref.replace(/[\u0000-\u0020]+/g, '').toLowerCase();
+    const isExternal = loweredHref.startsWith('http://') || loweredHref.startsWith('https://');
+    const targetAttr = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+    const caption = alt ? `<figcaption class="md-figcaption">${inlineMdTextOnly(alt)}</figcaption>` : '';
+
+    return `<figure class="md-figure"><a href="${escapeFn(rawHref)}"${targetAttr} class="md-img-link"><img src="${escapeFn(rawSrc)}" alt="${escapeFn(alt)}" class="md-img" loading="lazy" /></a>${caption}</figure>`;
+  });
+
+  // 2. Standalone Images: ![alt](src)
+  s = s.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, src) => {
+    const rawSrc = String(src || '').trim();
+    const caption = alt ? `<figcaption class="md-figcaption">${inlineMdTextOnly(alt)}</figcaption>` : '';
+    return `<figure class="md-figure"><img src="${escapeFn(rawSrc)}" alt="${escapeFn(alt)}" class="md-img" loading="lazy" />${caption}</figure>`;
+  });
+
   s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
   s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  s = s.replace(/\*([^*]+)\*\*/g, '<em>$1</em>');
   s = s.replace(/\*([^*]+)\*/g, '<em>$1</em>');
   s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, text, href) => {
     const raw = String(href || '').trim();
@@ -384,6 +447,13 @@ function inlineMd(s) {
     return `<a href="${safeHref}"${targetAttr}>${text}</a>`;
   });
   return s;
+}
+
+function inlineMdTextOnly(s) {
+  if (!s) return '';
+  return s.replace(/\*\*([^*]+)\*\*/g, '$1')
+          .replace(/\*([^*]+)\*/g, '$1')
+          .replace(/`([^`]+)`/g, '$1');
 }
 
 /* fetchText utility */

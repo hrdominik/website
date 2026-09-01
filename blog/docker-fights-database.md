@@ -22,6 +22,7 @@ We’ll examine the technical considerations, configuration differences, and pra
 - **Data persistence strategy** – You must define volumes for durable storage.
 - **Observability tooling** – Host-level monitoring agents may not see inside the container.
 
+> [!NOTE] Database Scope
 > In this guide, a PostgreSQL database is used as an example, but the same principles apply to MySQL (MariaDB), MongoDB, and most other databases.
 
 ### Typical `docker-compose.yml`
@@ -180,9 +181,9 @@ DB_HOST: 127.0.0.1
 
 #### Troubleshooting: Socket vs TCP Connections
 
-> **Connection to database does not work?**
+> [!WARNING] Connection Troubleshooting
 > If you see an error like `(mariadb.OperationalError) Can't connect to local server through socket '/run/mysqld/mysqld.sock'`, it means the socket connection is failing. This is typical in local dev environments. MariaDB interprets `localhost` as a socket connection, not TCP. For local development, use `127.0.0.1` to force TCP. This is especially important if the DB port (`3306`) is not published.
-> If your application requires `localhost`, you can fix it by setting:
+> If your application requires `localhost`, you can fix it by setting `network_mode: host`.
 
 ```yaml
 network_mode: host

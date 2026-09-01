@@ -133,6 +133,16 @@ const PROFILE = {
         readTime: "4 min",
         tags: ["Consulting", "Career", "Networking", "Community"],
         excerpt: "Networking gets useful when it stops being performance art and becomes honest exchange about trends, careers, client reality, and good work."
+      },
+      {
+        slug: "secondbrain-obsidian-ai",
+        title: "Building a Sovereign Second Brain: Local AI, Pure Markdown, and Zero Vector DB Hype",
+        category: "technical",
+        categoryLabel: "Technical",
+        date: "2026-09-01",
+        readTime: "10 min",
+        tags: ["Second Brain", "Obsidian", "Local AI", "Hermes", "Ollama", "Whisper", "Architecture"],
+        excerpt: "Knowledge management fails when it turns into maintenance debt. Here is how I built a local-first, Markdown-based Second Brain on macOS with Ollama, Whisper, and Hermes cron automations—without vector DBs or cloud dependencies."
       }
     ]
   },

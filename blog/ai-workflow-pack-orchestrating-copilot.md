@@ -1,4 +1,5 @@
-> **Updated (April 2025):** This template has evolved. What started as a GitHub Copilot workflow pack is now a full Claude Code orchestration template with specialized agents, automated hooks, domain rules, and multi-step skills. Same philosophy, sharper tooling. [Jump to the template.](#if-you-want-to-try-it)
+> [!UPDATE] Updated (April 2025)
+> This template has evolved. What started as a GitHub Copilot workflow pack is now a full Claude Code orchestration template with specialized agents, automated hooks, domain rules, and multi-step skills. Same philosophy, sharper tooling. [Jump to the template.](#if-you-want-to-try-it)
 
 ---
 
