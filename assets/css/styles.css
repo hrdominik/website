@@ -507,6 +507,40 @@ section { scroll-margin-top: 92px; }
 .post-card__tags{ margin-top:12px; display:flex; flex-wrap:wrap; gap:8px; }
 
 /* Markdown styling */
+.md {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.md p {
+  margin: 16px 0;
+  line-height: 1.75;
+}
+.md ul, .md ol {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+.md li {
+  margin: 6px 0;
+  line-height: 1.65;
+}
+.md ul li {
+  list-style-type: disc;
+}
+.md ol li {
+  list-style-type: decimal;
+}
+.md a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: opacity 160ms ease;
+}
+.md a:hover {
+  opacity: 0.75;
+}
 .md h1{ font-family: "Space Grotesk", system-ui, sans-serif; font-size: 34px; margin: 24px 0 12px; }
 .md h2{ font-family: "Space Grotesk", system-ui, sans-serif; font-size: 22px; margin: 24px 0 10px; scroll-margin-top: 100px; }
 .md h3{ font-family: "Space Grotesk", system-ui, sans-serif; font-size: 18px; margin: 20px 0 8px; scroll-margin-top: 100px; }
@@ -524,6 +558,99 @@ section { scroll-margin-top: 92px; }
   line-height: 1.7;
   opacity: 0.9;
 }
+
+/* Inline Code */
+.md code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.86em;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: rgba(11, 11, 12, 0.06);
+  color: var(--ink);
+  border: 1px solid rgba(11, 11, 12, 0.12);
+  word-break: break-word;
+}
+
+/* Fenced Code Blocks */
+.code-block {
+  margin: 22px 0;
+  border-radius: 16px;
+  border: 1px solid var(--line-strong);
+  background: #0d0d0e;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.code-block__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a1a1aa;
+}
+
+.md pre {
+  margin: 22px 0;
+  padding: 16px 20px;
+  background: #0d0d0e;
+  color: #e4e4e7;
+  border-radius: 16px;
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: pre;
+  -webkit-overflow-scrolling: touch;
+}
+
+.code-block pre {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.md pre code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 13.5px;
+  line-height: 1.65;
+  background: transparent;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  color: inherit;
+  display: block;
+}
+
+/* Custom Scrollbar for Code Blocks */
+.md pre::-webkit-scrollbar,
+.code-block::-webkit-scrollbar {
+  height: 6px;
+}
+.md pre::-webkit-scrollbar-track,
+.code-block::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+.md pre::-webkit-scrollbar-thumb,
+.code-block::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+.md pre::-webkit-scrollbar-thumb:hover,
+.code-block::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
 
 /* Callout Box System */
 .callout {

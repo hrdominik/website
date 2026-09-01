@@ -192,7 +192,7 @@ function markdownToHtml(mdRaw) {
 
   // 1. Extract fenced code blocks first
   const codeBlocks = [];
-  md = md.replace(/```(\w+)?\n([\s\S]*?)```/g, (_, lang, code) => {
+  md = md.replace(/```([a-zA-Z0-9_+\-#]+)?[ \t]*\n([\s\S]*?)```/g, (_, lang, code) => {
     codeBlocks.push({ lang: lang || '', code: mdEscapeHtml(code) });
     return `\n\n@@CODE${codeBlocks.length - 1}@@\n\n`;
   });
@@ -389,8 +389,10 @@ function markdownToHtml(mdRaw) {
     const idx = Number(idxStr);
     const block = codeBlocks[idx];
     if (!block) return '';
-    const langCls = block.lang ? ` class="language-${mdEscapeAttr(block.lang)}"` : '';
-    return `<pre><code${langCls}>${block.code}</code></pre>`;
+    const lang = block.lang ? mdEscapeAttr(block.lang) : '';
+    const langCls = lang ? ` class="language-${lang}"` : '';
+    const headerHtml = lang ? `<div class="code-block__header"><span>${lang}</span></div>` : '';
+    return `<div class="code-block">${headerHtml}<pre><code${langCls}>${block.code}</code></pre></div>`;
   });
 
   // Restore Table blocks
