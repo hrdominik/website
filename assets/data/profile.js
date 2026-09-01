@@ -101,15 +101,15 @@ const PROFILE = {
         excerpt: "AI creates real value long before autonomy: through intentional orchestration under human control. This post introduces a repo-ready .github workflow pack that makes Copilot usage predictable, traceable, and enterprise-friendly—without pretending there’s one universal right way."
       },
       {
-        slug: "corporate-karriere-ohne-starbucks-ai-app",
+        slug: "corporate-career-without-starbucks-ai-app",
         title: "Not everyone is building the next AI app from a Starbucks table",
-        date: "2026-04-30",
+        date: "2026-05-06",
         readTime: "5 min",
         tags: ["Career", "Consulting", "Corporate", "Delivery"],
         excerpt: "Most meaningful work is less cinematic than startup folklore suggests. Sometimes impact looks like better platforms, clearer delivery, and fewer 2 a.m. incidents."
       },
       {
-        slug: "homesetup-zwischen-spielerei-und-souveraenitaet",
+        slug: "homesetup-between-optimism-and-souvereignity",
         title: "Home lab or just expensive self-hosted optimism?",
         date: "2026-04-30",
         readTime: "6 min",
@@ -117,9 +117,9 @@ const PROFILE = {
         excerpt: "Between Raspberry Pi minimalism and full self-hosting ambition lies the real question: not what can be hosted at home, but what should be."
       },
       {
-        slug: "consulting-netzwerk-zwischen-billability-und-afterwork",
+        slug: "consulting-networking-between-billability-and-afterwork",
         title: "Networking in consulting: somewhere between billability and after-work beer",
-        date: "2026-04-30",
+        date: "2026-05-15",
         readTime: "5 min",
         tags: ["Consulting", "Career", "Networking", "Community"],
         excerpt: "Networking gets useful when it stops being performance art and becomes honest exchange about trends, careers, client reality, and good work."
