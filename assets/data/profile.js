@@ -86,8 +86,10 @@ const PROFILE = {
       {
         slug: "docker-fights-database",
         title: "Docker compose and database connections",
+        category: "technical",
+        categoryLabel: "Technical",
         date: "2025-07-10",
-        readTime: "14 min",
+        readTime: "7 min",
         tags: ["Docker", "DevOps", "Tips"],
         excerpt:
           "Ever had an Problem with docker compose and connection your app with the database?",
@@ -95,32 +97,40 @@ const PROFILE = {
       {
         slug: "ai-workflow-pack-orchestrating-copilot",
         title: "Orchestrating Copilot: a repo-ready .github Workflow Pack for Enterprise AI Delivery",
+        category: "technical",
+        categoryLabel: "Technical",
         date: "2026-01-26",
-        readTime: "17 min",
+        readTime: "7 min",
         tags: ["AI", "GitHub Copilot", "VS Code", "Enterprise", "Governance", "Delivery"],
         excerpt: "AI creates real value long before autonomy: through intentional orchestration under human control. This post introduces a repo-ready .github workflow pack that makes Copilot usage predictable, traceable, and enterprise-friendly—without pretending there’s one universal right way."
       },
       {
         slug: "corporate-career-without-starbucks-ai-app",
         title: "Not everyone is building the next AI app from a Starbucks table",
+        category: "thoughts",
+        categoryLabel: "Business & Thoughts",
         date: "2026-05-06",
-        readTime: "5 min",
+        readTime: "4 min",
         tags: ["Career", "Consulting", "Corporate", "Delivery"],
         excerpt: "Most meaningful work is less cinematic than startup folklore suggests. Sometimes impact looks like better platforms, clearer delivery, and fewer 2 a.m. incidents."
       },
       {
         slug: "homesetup-between-optimism-and-souvereignity",
         title: "Home lab or just expensive self-hosted optimism?",
+        category: "thoughts",
+        categoryLabel: "Business & Thoughts",
         date: "2026-04-30",
-        readTime: "6 min",
+        readTime: "4 min",
         tags: ["Home Lab", "Sovereignty", "Privacy", "Operations"],
         excerpt: "Between Raspberry Pi minimalism and full self-hosting ambition lies the real question: not what can be hosted at home, but what should be."
       },
       {
         slug: "consulting-networking-between-billability-and-afterwork",
         title: "Networking in consulting: somewhere between billability and after-work beer",
+        category: "thoughts",
+        categoryLabel: "Business & Thoughts",
         date: "2026-05-15",
-        readTime: "5 min",
+        readTime: "4 min",
         tags: ["Consulting", "Career", "Networking", "Community"],
         excerpt: "Networking gets useful when it stops being performance art and becomes honest exchange about trends, careers, client reality, and good work."
       }

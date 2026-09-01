@@ -1,4 +1,4 @@
-> **Updated — April 2025:** This template has evolved. What started as a GitHub Copilot workflow pack is now a full Claude Code orchestration template — with specialized agents, automated hooks, domain rules, and multi-step skills. Same philosophy, sharper tooling. [Jump to the template.](#if-you-want-to-try-it)
+> **Updated (April 2025):** This template has evolved. What started as a GitHub Copilot workflow pack is now a full Claude Code orchestration template with specialized agents, automated hooks, domain rules, and multi-step skills. Same philosophy, sharper tooling. [Jump to the template.](#if-you-want-to-try-it)
 
 ---
 
@@ -12,7 +12,7 @@ The internet loves the "big bang" version of AI adoption.
 
 It makes for good headlines. It makes for terrible delivery plans.
 
-In real enterprise work—especially in regulated or business-critical environments—the value of AI almost never comes from autonomy. It comes from **intentional use under human control**. From placing AI into a delivery architecture you can explain, audit, and hand over.
+In real enterprise work, especially in regulated or business-critical environments, the value of AI almost never comes from autonomy. It comes from **intentional use under human control**. From placing AI into a delivery architecture you can explain, audit, and hand over.
 
 AI is not something you "unleash".
 It is something you integrate.
@@ -31,7 +31,7 @@ There is a popular idea right now that "vibe coding" is the future of software d
 
 It is also the opposite of what enterprise delivery requires.
 
-Vibe coding treats AI as a replacement for engineering judgment. Orchestration treats AI as a tool *within* engineering judgment. The difference is not academic—it determines whether your output is auditable, your process is repeatable, and your team can actually maintain what was built.
+Vibe coding treats AI as a replacement for engineering judgment. Orchestration treats AI as a tool *within* engineering judgment. The difference is not academic: it determines whether your output is auditable, your process is repeatable, and your team can actually maintain what was built.
 
 The model might be "right". But if nobody can explain *why* it is right, or *what constraints* it operated under, you do not have a delivery—you have a bet.
 
@@ -46,7 +46,7 @@ Left unstructured, usage patterns tend to converge toward the same shape: one om
 
 That is often acceptable in early experimentation or small teams.
 
-It is not acceptable in enterprise delivery, where you are explicitly paid for control, predictability, and traceability—and where "we'll explain it later" is not an operating model.
+It is not acceptable in enterprise delivery, where you are explicitly paid for control, predictability, and traceability, and where "we'll explain it later" is not an operating model.
 
 The problem is not the model.  
 The problem is the absence of orchestration.
@@ -58,7 +58,7 @@ I don't let AI "write my code".
 
 I let AI operate inside an architecture I control.
 
-Used deliberately, AI already delivers real value as a constrained assistant: something that accelerates feedback loops, supports focused tasks, and reduces cognitive load—without replacing accountability.
+Used deliberately, AI already delivers real value as a constrained assistant: something that accelerates feedback loops, supports focused tasks, and reduces cognitive load without replacing accountability.
 
 Instead of treating AI as a single all-knowing agent, I separate concerns. Planning, implementation, documentation, security review, and testing are different kinds of work. They deserve different agents with different guardrails.
 
@@ -70,7 +70,7 @@ The workflow becomes deterministic.
 
 ## A structured template for AI-assisted development
 
-This mindset led me to build and publish a project template for VS Code and Claude Code. Not a framework, not a platform—a baseline for turning abstract AI potential into **concrete, traceable improvements** in day-to-day delivery.
+This mindset led me to build and publish a project template for VS Code and Claude Code. Not a framework, not a platform: a baseline for turning abstract AI potential into **concrete, traceable improvements** in day-to-day delivery.
 
 The template provides five layers of orchestration:
 
@@ -80,14 +80,14 @@ The template provides five layers of orchestration:
 
 **Hooks** enforce discipline at the points where mistakes are most expensive. Pre-commit checks catch secrets, debug statements, and missing tests before they enter the history. On-save checks catch syntax errors in real time.
 
-**Skills** automate multi-step workflows that are tedious but critical. `/commit-push-pr` reviews changes, generates a conventional commit, pushes, and creates a PR with a test plan—in one command. `/review-pr` runs code review, security audit, and test coverage analysis in parallel.
+**Skills** automate multi-step workflows that are tedious but critical. `/commit-push-pr` reviews changes, generates a conventional commit, pushes, and creates a PR with a test plan in one command. `/review-pr` runs code review, security audit, and test coverage analysis in parallel.
 
 **Tracking documents** give AI—and your team—persistent context. Requirements, architecture decisions, and current development status live in `docs/` as structured markdown, updated continuously, and readable by both humans and AI.
 
 
 ## The loop that actually scales
 
-In practice, the workflow reduces to a loop that is intentionally boring—and therefore scalable.
+In practice, the workflow reduces to a loop that is intentionally boring, and therefore scalable.
 
 You keep a stable memory in the repository: requirements, architecture, status.  
 You make AI consume that memory instead of chat history.  
@@ -106,16 +106,16 @@ The hard part is governance.
 
 Real AI adoption starts with questions that are much less exciting than model benchmarks: who owns which decisions, what interfaces exist, what is explicitly forbidden, and how behaviour can be observed and audited.
 
-When agent instructions and rules are treated as configuration rather than magic incantations, new possibilities open up. Instructions can be versioned. Agents can be scoped. AI behaviour becomes reviewable, explainable, and improvable over time—by the team, not just by the person who last talked to the model.
+When agent instructions and rules are treated as configuration rather than magic incantations, new possibilities open up. Instructions can be versioned. Agents can be scoped. AI behaviour becomes reviewable, explainable, and improvable over time by the team, not just by the person who last talked to the model.
 
 This is what separates a tool from a toy. Enterprise readiness is not about the model's capability. It is about the **governance surface** around it: can you explain what it did, why, under what constraints, and who approved it?
 
 The template answers these questions structurally:
 
-- **What it did** — tracked in `docs/STATUS.md` and commit history  
-- **Why** — captured in `docs/ARCHITECTURE.md` as decision records  
-- **Under what constraints** — defined in `.claude/rules/` and `CLAUDE.md`  
-- **Who approved it** — enforced by pre-commit hooks and PR reviews
+- **What it did**: tracked in `docs/STATUS.md` and commit history  
+- **Why**: captured in `docs/ARCHITECTURE.md` as decision records  
+- **Under what constraints**: defined in `.claude/rules/` and `CLAUDE.md`  
+- **Who approved it**: enforced by pre-commit hooks and PR reviews
 
 
 ## Vibe coding vs. orchestrated AI: a practical comparison
@@ -139,22 +139,23 @@ Most clients do not ask for "AI".
 
 They ask for faster feedback, better documentation, safer changes, and reduced cognitive load. The template is my attempt to translate abstract AI potential into delivery improvements that are reviewable, repeatable, and explainable.
 
-No revolution language. No productivity-multiplier claims without context. Just a controlled way to use assistance—with the governance surface that enterprise environments demand.
+No revolution language. No productivity-multiplier claims without context. Just a controlled way to use assistance with the governance surface that enterprise environments demand.
 
 
 ## If you want to try it
 
-[GitHub Repository — hrdominik/vscode-claude-template](https://github.com/hrdominik/vscode-claude-template)
+[GitHub Repository: hrdominik/vscode-claude-template](https://github.com/hrdominik/vscode-claude-template)
 
-Clone the template, edit `CLAUDE.md` with your project details, and start using agents and skills as your default workflow. Then adapt it—per team, per risk profile, per environment, per regulation.
+Clone the template, edit `CLAUDE.md` with your project details, and start using agents and skills as your default workflow. Then adapt it: per team, per risk profile, per environment, per regulation.
 
 The template includes:
-- **5 agents** — code reviewer, debugger, test writer, doc writer, security auditor
-- **2 hooks** — pre-commit checks, on-save validation
-- **3 rule sets** — API, database, frontend
-- **2 skills** — commit-push-pr, review-pr
-- **3 tracking docs** — requirements, architecture, development status
+- **5 agents**: code reviewer, debugger, test writer, doc writer, security auditor
+- **2 hooks**: pre-commit checks, on-save validation
+- **3 rule sets**: API, database, frontend
+- **2 skills**: commit-push-pr, review-pr
+- **3 tracking docs**: requirements, architecture, development status
 
 There is no single right setup. There are only the right boundaries for your context.
 
 If you build a variant that fits your organisation better, I would genuinely be interested in seeing it.
+

@@ -1,21 +1,47 @@
-/* assets/js/blog_renderer.js
-   Renders blog index and loads individual markdown posts from /assets/blog/<slug>.md
-   Load this on both blog.html and blog-post.html
+/* assets/js/blogs.js
+   Renders blog index and loads individual markdown posts from /blog/<slug>.md
+   Supports Category Badges (Technical vs Business & Thoughts) and Category Filtering
 */
 "use strict";
 
 document.addEventListener('DOMContentLoaded', async () => {
   if (typeof PROFILE === 'undefined') return;
-  Core.bindText(PROFILE);
-  Core.hydrateEmailEverywhere(PROFILE.email);
+  if (typeof Core !== 'undefined') {
+    Core.bindText(PROFILE);
+    Core.hydrateEmailEverywhere(PROFILE.email);
+  }
 
   renderBlogIndex(PROFILE);
   renderBlogPost(PROFILE);
 
   // set year
-  const y = document.getElementById('year'); if (y) y.textContent = String(new Date().getFullYear());
+  const y = document.getElementById('year');
+  if (y) y.textContent = String(new Date().getFullYear());
 });
 
+/* =========================
+   Category Badge Helper
+   ========================= */
+function getCategoryBadgeHtml(category, categoryLabel) {
+  const cat = String(category || '').toLowerCase();
+  const escapeFn = (typeof Core !== 'undefined' && Core.escapeHtml) ? Core.escapeHtml : (s => s);
+
+  if (cat === 'technical') {
+    const label = categoryLabel || 'Technical';
+    return `<span class="badge-category badge-category--technical">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+      ${escapeFn(label)}
+    </span>`;
+  } else if (cat === 'thoughts') {
+    const label = categoryLabel || 'Business & Thoughts';
+    return `<span class="badge-category badge-category--thoughts">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+      ${escapeFn(label)}
+    </span>`;
+  }
+  const label = categoryLabel || 'Post';
+  return `<span class="badge-category badge-category--default">${escapeFn(label)}</span>`;
+}
 
 /* =========================
    Blog index
@@ -30,28 +56,70 @@ function renderBlogIndex(data) {
     return;
   }
 
+  const escapeFn = (typeof Core !== 'undefined' && Core.escapeHtml) ? Core.escapeHtml : (s => s);
+  const escapeAttrFn = (typeof Core !== 'undefined' && Core.escapeAttr) ? Core.escapeAttr : escapeFn;
+
+  // Render category filter bar if container exists
+  const filterRoot = document.getElementById('categoryFilter');
+  if (filterRoot) {
+    const techCount = posts.filter(p => p.category === 'technical').length;
+    const thoughtsCount = posts.filter(p => p.category === 'thoughts').length;
+
+    filterRoot.innerHTML = `
+      <button class="category-filter__btn active" data-filter="all">Alle (${posts.length})</button>
+      <button class="category-filter__btn" data-filter="technical">⚡ Technical (${techCount})</button>
+      <button class="category-filter__btn" data-filter="thoughts">💡 Business & Thoughts (${thoughtsCount})</button>
+    `;
+
+    filterRoot.querySelectorAll('.category-filter__btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterRoot.querySelectorAll('.category-filter__btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        filterBlogCards(filter);
+      });
+    });
+  }
+
   root.innerHTML = posts.map(p => {
     const url = `./blog-post.html?slug=${encodeURIComponent(p.slug)}`;
-    const tags = (p.tags || []).slice(0, 4).map(tag => `<span class="pill">${escapeHtml(tag)}</span>`).join('');
+    const tags = (p.tags || []).slice(0, 4).map(tag => `<span class="pill">${escapeFn(tag)}</span>`).join('');
+    const badgeHtml = getCategoryBadgeHtml(p.category, p.categoryLabel);
+
     return `
-      <a class="post-card" href="${escapeAttr(url)}">
-        <div class="post-card__meta">
-          <span class="opacity-70">${escapeHtml(p.date || '')}</span>
-          <span class="opacity-50">•</span>
-          <span class="opacity-70">${escapeHtml(p.readTime || '')}</span>
+      <a class="post-card" data-category="${escapeAttrFn(p.category || 'other')}" href="${escapeAttrFn(url)}">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          ${badgeHtml}
+          <div class="post-card__meta opacity-70 text-xs font-semibold">
+            <span>${escapeFn(p.date || '')}</span>
+            <span class="opacity-50">•</span>
+            <span>${escapeFn(p.readTime || '')}</span>
+          </div>
         </div>
-        <div class="post-card__title">${escapeHtml(p.title || 'Post')}</div>
-        <div class="post-card__excerpt">${escapeHtml(p.excerpt || '')}</div>
+        <div class="post-card__title">${escapeFn(p.title || 'Post')}</div>
+        <div class="post-card__excerpt">${escapeFn(p.excerpt || '')}</div>
         <div class="post-card__tags">${tags}</div>
       </a>
     `;
   }).join('');
 }
 
+function filterBlogCards(filter) {
+  const cards = document.querySelectorAll('#blogList .post-card');
+  cards.forEach(card => {
+    const cat = card.getAttribute('data-category');
+    if (filter === 'all' || cat === filter) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
 /* =========================
    Blog post (markdown)
    ========================= */
-function renderBlogPost(data) {
+async function renderBlogPost(data) {
   const contentEl = document.getElementById('postContent');
   if (!contentEl) return;
 
@@ -59,33 +127,62 @@ function renderBlogPost(data) {
   const metaEl = document.getElementById('postMeta');
   const tagsEl = document.getElementById('postTags');
 
-  const slug = getQueryParam('slug');
-  const post = (data.blog?.posts || []).find(p => p.slug === slug) || (data.blog?.posts || [])[0];
+  const getParam = (typeof Core !== 'undefined' && Core.getQueryParam) ? Core.getQueryParam : (key => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get(key);
+  });
 
-  if (!post) {
+  const slug = getParam('slug') || (data.blog?.posts?.[0]?.slug);
+  const postMeta = (data.blog?.posts || []).find(p => p.slug === slug);
+
+  if (!postMeta) {
     if (titleEl) titleEl.textContent = 'Post nicht gefunden';
     contentEl.innerHTML = `<div class="card p-6">Dieser Blogpost existiert nicht.</div>`;
     return;
   }
 
-  if (titleEl) titleEl.textContent = post.title || 'Blogpost';
-  if (metaEl) metaEl.textContent = `${post.date || ''} • ${post.readTime || ''}`;
-  if (tagsEl) tagsEl.innerHTML = (post.tags || []).map(t => `<span class="pill">${escapeHtml(t)}</span>`).join('');
+  const escapeFn = (typeof Core !== 'undefined' && Core.escapeHtml) ? Core.escapeHtml : (s => s);
 
-  const md = String(post.markdown || '');
-  contentEl.innerHTML = markdownToHtml(md);
+  if (titleEl) titleEl.textContent = postMeta.title || 'Blogpost';
+  if (metaEl) {
+    const badgeHtml = getCategoryBadgeHtml(postMeta.category, postMeta.categoryLabel);
+    metaEl.innerHTML = `<div class="flex items-center gap-3">${badgeHtml} <span>${escapeFn(postMeta.date || '')} • ${escapeFn(postMeta.readTime || '')}</span></div>`;
+  }
+  if (tagsEl) tagsEl.innerHTML = (postMeta.tags || []).map(t => `<span class="pill">${escapeFn(t)}</span>`).join('');
+
+  // try fetching markdown file from /blog/<slug>.md
+  const mdPath = `./${encodeURIComponent(slug)}.md`;
+  const mdText = await fetchText(mdPath);
+
+  if (!mdText) {
+    contentEl.innerHTML = `<div class="card p-6">Fehler: Beitrag konnte nicht geladen werden (${escapeFn(mdPath)}).</div>`;
+    return;
+  }
+
+  contentEl.innerHTML = markdownToHtml(mdText);
 }
 
 /* =========================
-   Markdown (safe-ish, minimal)
+   Markdown parser (safe-ish, minimal)
    ========================= */
+/* =========================
+   Markdown parser (Enhanced)
+   ========================= */
+function slugify(text) {
+  return String(text || '')
+    .toLowerCase()
+    .replace(/<[^>]*>/g, '')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
+}
+
 function markdownToHtml(mdRaw) {
   if (mdRaw == null) return '<p>(no content)</p>';
   let md = String(mdRaw).replace(/\r\n/g, '\n');
 
   const mdEscapeHtml = (value) => {
     if (typeof Core !== 'undefined' && typeof Core.escapeHtml === 'function') return Core.escapeHtml(value);
-    if (typeof escapeHtml === 'function') return escapeHtml(value);
     return String(value)
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
@@ -96,23 +193,61 @@ function markdownToHtml(mdRaw) {
 
   const mdEscapeAttr = (value) => {
     if (typeof Core !== 'undefined' && typeof Core.escapeAttr === 'function') return Core.escapeAttr(value);
-    if (typeof escapeAttr === 'function') return escapeAttr(value);
     return mdEscapeHtml(value);
   };
 
-  // Extract fenced code blocks first
+  // 1. Extract fenced code blocks first
   const codeBlocks = [];
   md = md.replace(/```(\w+)?\n([\s\S]*?)```/g, (_, lang, code) => {
     codeBlocks.push({ lang: lang || '', code: mdEscapeHtml(code) });
-    return `@@CODE${codeBlocks.length - 1}@@`;
+    return `\n\n@@CODE${codeBlocks.length - 1}@@\n\n`;
   });
 
-  // Escape remaining
+  // 2. Extract markdown tables before escaping text
+  const tableBlocks = [];
+  const tableRegex = /(?:(?:^|\n)\|[^\n]+\|\n\|[-:\s|]+\|\n(?:\|[^\n]+\|\n?)+)/g;
+
+  md = md.replace(tableRegex, (match) => {
+    const rawLines = match.trim().split('\n');
+    if (rawLines.length < 2) return match;
+
+    const parseRow = (rowStr) => {
+      const cells = rowStr.split('|');
+      if (cells.length > 2) {
+        return cells.slice(1, -1).map(c => c.trim());
+      }
+      return cells.map(c => c.trim()).filter(Boolean);
+    };
+
+    const headers = parseRow(rawLines[0]);
+    // rawLines[1] is alignment / delimiter row (|---|---|)
+    const bodyRows = rawLines.slice(2).map(parseRow);
+
+    let tableHtml = '<div class="table-wrapper"><table class="md-table"><thead><tr>';
+    headers.forEach(h => {
+      tableHtml += `<th>${inlineMd(mdEscapeHtml(h))}</th>`;
+    });
+    tableHtml += '</tr></thead><tbody>';
+
+    bodyRows.forEach(row => {
+      tableHtml += '<tr>';
+      row.forEach(c => {
+        tableHtml += `<td>${inlineMd(mdEscapeHtml(c))}</td>`;
+      });
+      tableHtml += '</tr>';
+    });
+
+    tableHtml += '</tbody></table></div>';
+    tableBlocks.push(tableHtml);
+    return `\n\n@@TABLE${tableBlocks.length - 1}@@\n\n`;
+  });
+
+  // 3. Escape remaining text
   md = mdEscapeHtml(md);
 
   const lines = md.split('\n');
   let html = '';
-  let inList = false;
+  let inList = null; // null | 'ul' | 'ol'
   let para = [];
   let quote = [];
 
@@ -123,12 +258,10 @@ function markdownToHtml(mdRaw) {
     }
   };
   const closeList = () => {
-    if (inList) {
-      html += `</ul>`;
-      inList = false;
-    }
+    if (inList === 'ul') html += `</ul>`;
+    else if (inList === 'ol') html += `</ol>`;
+    inList = null;
   };
-
   const flushQuote = () => {
     if (!quote.length) return;
     html += `<blockquote><p>${inlineMd(quote.join(' '))}</p></blockquote>`;
@@ -138,7 +271,6 @@ function markdownToHtml(mdRaw) {
   for (const line of lines) {
     const t = line.trim();
 
-    // blank
     if (!t) {
       flushPara();
       closeList();
@@ -146,7 +278,6 @@ function markdownToHtml(mdRaw) {
       continue;
     }
 
-    // placeholders for code blocks
     if (t.startsWith('@@CODE') && t.endsWith('@@')) {
       flushPara();
       closeList();
@@ -155,7 +286,15 @@ function markdownToHtml(mdRaw) {
       continue;
     }
 
-    // blockquote (escaped '>' becomes '&gt;')
+    if (t.startsWith('@@TABLE') && t.endsWith('@@')) {
+      flushPara();
+      closeList();
+      flushQuote();
+      html += t;
+      continue;
+    }
+
+    // Blockquote
     const bq = t.match(/^&gt;\s?(.*)$/);
     if (bq) {
       flushPara();
@@ -166,29 +305,44 @@ function markdownToHtml(mdRaw) {
       flushQuote();
     }
 
-    // headings
+    // Headings (with auto ID slug)
     const h = t.match(/^(#{1,6})\s+(.*)$/);
     if (h) {
       flushPara();
       closeList();
       const level = h[1].length;
-      html += `<h${level}>${inlineMd(h[2])}</h${level}>`;
+      const headingText = h[2];
+      const headingId = slugify(headingText);
+      html += `<h${level} id="${headingId}">${inlineMd(headingText)}</h${level}>`;
       continue;
     }
 
-    // list
-    const li = t.match(/^[-*]\s+(.*)$/);
-    if (li) {
+    // Unordered List
+    const uli = t.match(/^[-*]\s+(.*)$/);
+    if (uli) {
       flushPara();
-      if (!inList) {
+      if (inList !== 'ul') {
+        closeList();
         html += `<ul>`;
-        inList = true;
+        inList = 'ul';
       }
-      html += `<li>${inlineMd(li[1])}</li>`;
+      html += `<li>${inlineMd(uli[1])}</li>`;
       continue;
     }
 
-    // paragraph
+    // Ordered List
+    const oli = t.match(/^(\d+)\.\s+(.*)$/);
+    if (oli) {
+      flushPara();
+      if (inList !== 'ol') {
+        closeList();
+        html += `<ol>`;
+        inList = 'ol';
+      }
+      html += `<li>${inlineMd(oli[2])}</li>`;
+      continue;
+    }
+
     para.push(t);
   }
 
@@ -196,7 +350,7 @@ function markdownToHtml(mdRaw) {
   closeList();
   flushQuote();
 
-  // replace code placeholders
+  // Restore Code blocks
   html = html.replace(/@@CODE(\d+)@@/g, (_, idxStr) => {
     const idx = Number(idxStr);
     const block = codeBlocks[idx];
@@ -205,24 +359,26 @@ function markdownToHtml(mdRaw) {
     return `<pre><code${langCls}>${block.code}</code></pre>`;
   });
 
-  // Wrap for styling
+  // Restore Table blocks
+  html = html.replace(/@@TABLE(\d+)@@/g, (_, idxStr) => {
+    const idx = Number(idxStr);
+    return tableBlocks[idx] || '';
+  });
+
   return `<div class="md">${html}</div>`;
 }
 
 function inlineMd(s) {
-  // inline code
+  if (!s) return '';
   s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
-  // bold
   s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-  // italic (simple)
   s = s.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-  // links (basic allowlist to avoid javascript:/data:)
   s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, text, href) => {
     const raw = String(href || '').trim();
     const lowered = raw.replace(/[\u0000-\u0020]+/g, '').toLowerCase();
+    const isExternal = lowered.startsWith('http://') || lowered.startsWith('https://');
     const isSafe =
-      lowered.startsWith('http://') ||
-      lowered.startsWith('https://') ||
+      isExternal ||
       lowered.startsWith('mailto:') ||
       lowered.startsWith('/') ||
       lowered.startsWith('./') ||
@@ -230,7 +386,8 @@ function inlineMd(s) {
       lowered.startsWith('#');
 
     const safeHref = isSafe ? raw : '#';
-    return `<a href="${safeHref}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+    const targetAttr = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+    return `<a href="${safeHref}"${targetAttr}>${text}</a>`;
   });
   return s;
 }
@@ -247,61 +404,4 @@ async function fetchText(path) {
   }
 }
 
-/* BLOG INDEX: uses PROFILE.blog.posts metadata */
-function renderBlogIndex(data) {
-  const root = document.getElementById('blogList');
-  if (!root) return;
-  const posts = data.blog?.posts || [];
-  if (!posts.length) {
-    root.innerHTML = `<div class="card p-6 opacity-75">Noch keine Posts.</div>`;
-    return;
-  }
-  root.innerHTML = posts.map(p => {
-    const url = `./blog-post.html?slug=${encodeURIComponent(p.slug)}`;
-    const tags = (p.tags||[]).slice(0,4).map(t => `<span class="pill">${Core.escapeHtml(t)}</span>`).join('');
-    return `
-      <a class="post-card" href="${Core.escapeHtml(url)}">
-        <div class="post-card__meta">
-          <span class="opacity-70">${Core.escapeHtml(p.date||'')}</span>
-          <span class="opacity-50">•</span>
-          <span class="opacity-70">${Core.escapeHtml(p.readTime||'')}</span>
-        </div>
-        <div class="post-card__title">${Core.escapeHtml(p.title||'Post')}</div>
-        <div class="post-card__excerpt">${Core.escapeHtml(p.excerpt||'')}</div>
-        <div class="post-card__tags">${tags}</div>
-      </a>`;
-  }).join('');
-}
 
-/* BLOG POST: fetch .md and render */
-async function renderBlogPost(data) {
-  const slug = Core.getQueryParam('slug') || (data.blog?.posts?.[0]?.slug);
-  const target = document.getElementById('postContent');
-  const titleEl = document.getElementById('postTitle');
-  const metaEl = document.getElementById('postMeta');
-  const tagsEl = document.getElementById('postTags');
-  if (!slug || !target) {
-    if (titleEl) titleEl.textContent = 'Post nicht gefunden';
-    target.innerHTML = `<div class="card p-6">Dieser Blogpost existiert nicht.</div>`;
-    return;
-  }
-
-  const postMeta = (data.blog?.posts || []).find(p => p.slug === slug);
-  if (postMeta) {
-    if (titleEl) titleEl.textContent = postMeta.title || 'Blogpost';
-    if (metaEl) metaEl.textContent = `${postMeta.date || ''} • ${postMeta.readTime || ''}`;
-    if (tagsEl) tagsEl.innerHTML = (postMeta.tags || []).map(t => `<span class="pill">${Core.escapeHtml(t)}</span>`).join('');
-  }
-
-  // try fetching markdown file from /assets/blog/<slug>.md
-  const mdPath = `./${encodeURIComponent(slug)}.md`;
-  const mdText = await fetchText(mdPath);
-
-  if (!mdText) {
-    target.innerHTML = `<div class="card p-6">Fehler: Beitrag konnte nicht geladen werden (${Core.escapeHtml(mdPath)}).</div>`;
-    return;
-  }
-
-  // render markdown -> html
-  target.innerHTML = markdownToHtml(mdText);
-}
