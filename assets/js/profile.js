@@ -171,7 +171,7 @@ function setupCvFilters() {
 /* small helpers re-used here */
 function formatPeriod(start, end) {
   const s = start ? formatYm(start) : '';
-  const e = end ? formatYm(end) : 'heute';
+  const e = end ? formatYm(end) : 'Heute';
   return (s && e) ? `${s} – ${e}` : '';
 }
 function formatYm(ym) {
