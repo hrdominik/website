@@ -2,6 +2,15 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
+  <script>
+    (function() {
+      try {
+        if (localStorage.getItem('theme') === 'gruvbox') {
+          document.documentElement.setAttribute('data-theme', 'gruvbox');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Standard-Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon.png">
@@ -298,11 +307,17 @@
               <a class="hover:underline" data-bind-attr="href:social.links" href="#">Links</a>
               <a class="hover:underline" data-bind-attr="href:social.blog" href="#">Blog</a>
             </div>
-            <p class="text-xs opacity-60">
-              <a class="hover:underline" href="/impressum">Impressum</a>
-              <a class="hover:underline" href="/datenschutz">Datenschutz</a>
-              © <span id="year"></span> <span data-bind="name">Dominik</span>
-            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+              <div class="theme-switcher" role="group" aria-label="Theme switcher">
+                <button type="button" class="theme-switcher__btn active" data-theme-toggle="light" aria-pressed="true">☀️ </button>
+                <button type="button" class="theme-switcher__btn" data-theme-toggle="gruvbox" aria-pressed="false">🪵 </button>
+              </div>
+              <p class="text-xs opacity-60">
+                <a class="hover:underline" href="/impressum">Impressum</a>
+                <a class="hover:underline" href="/datenschutz">Datenschutz</a>
+                © <span id="year"></span> <span data-bind="name">Dominik</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>

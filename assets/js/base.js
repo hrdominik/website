@@ -1,10 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const data = (typeof PROFILE !== 'undefined') ? PROFILE : null;
-  if (!data) return;
+  // Theme switcher initialization
+  initThemeToggle();
 
   // Year (optional)
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  const data = (typeof PROFILE !== 'undefined') ? PROFILE : null;
+  if (!data) return;
 
   bindText(data);
   hydrateEmailEverywhere(data.email);
@@ -188,6 +191,48 @@ function cvTypeIcon(type) {
   }
 }
 
+function initThemeToggle() {
+  const toggleBtns = document.querySelectorAll('[data-theme-toggle]');
+  if (!toggleBtns.length) return;
+
+  function updateButtons(currentTheme) {
+    toggleBtns.forEach(btn => {
+      const target = btn.getAttribute('data-theme-toggle');
+      const isActive = (target === currentTheme);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      if (isActive) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+
+  const savedTheme = (typeof localStorage !== 'undefined' && localStorage.getItem('theme') === 'gruvbox') ? 'gruvbox' : 'light';
+  updateButtons(savedTheme);
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = btn.getAttribute('data-theme-toggle');
+      if (target === 'gruvbox') {
+        document.documentElement.setAttribute('data-theme', 'gruvbox');
+        try { localStorage.setItem('theme', 'gruvbox'); } catch (err) {}
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        try { localStorage.setItem('theme', 'light'); } catch (err) {}
+      }
+      updateButtons(target);
+    });
+  });
+}
+
+// In case script is loaded dynamically or after DOMContentLoaded
+if (document.readyState !== 'loading') {
+  initThemeToggle();
+}
+
 window.Core = {
-  bindText, hydrateEmailEverywhere, getDeep, escapeHtml, iconSvg, cvTypeIcon, getQueryParam
+  bindText, hydrateEmailEverywhere, getDeep, escapeHtml, iconSvg, cvTypeIcon, getQueryParam, initThemeToggle
 };
+

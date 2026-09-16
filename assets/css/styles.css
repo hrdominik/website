@@ -903,3 +903,410 @@ section { scroll-margin-top: 92px; }
   box-shadow: var(--shadow-crisp);
 }
 
+/* =========================
+   Theme Switcher Control
+   ========================= */
+.theme-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  background: rgba(11, 11, 12, 0.05);
+  border: 1px solid var(--line);
+  border-radius: 9999px;
+}
+.theme-switcher__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 800;
+  color: inherit;
+  opacity: 0.65;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 160ms ease;
+  user-select: none;
+}
+.theme-switcher__btn:hover {
+  opacity: 0.95;
+}
+.theme-switcher__btn.active {
+  opacity: 1;
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   Gruvbox Material Theme Overrides (Scoped strictly to [data-theme="gruvbox"])
+   Light mode remains 100% untouched.
+   ========================================================================== */
+html[data-theme="gruvbox"] {
+  --ink: #fbf1c7;
+  --paper: #282828;
+  --line: rgba(235, 219, 178, 0.16);
+  --line-strong: rgba(235, 219, 178, 0.28);
+  --shadow-crisp: 0 1px 0 rgba(0, 0, 0, 0.4), 0 18px 60px rgba(0, 0, 0, 0.35);
+  --header-bg: rgba(40, 40, 40, 0.88);
+  color-scheme: dark;
+}
+
+html[data-theme="gruvbox"] body {
+  background-color: #282828 !important;
+  color: #fbf1c7 !important;
+}
+
+html[data-theme="gruvbox"] ::selection {
+  background: rgba(254, 128, 25, 0.35);
+  color: #fbf1c7;
+}
+
+html[data-theme="gruvbox"] :focus-visible {
+  outline: 2px solid #fe8019;
+  outline-offset: 3px;
+}
+
+/* Tailwind utility mappings in Gruvbox */
+html[data-theme="gruvbox"] .bg-paper {
+  background-color: #282828 !important;
+}
+html[data-theme="gruvbox"] .text-ink {
+  color: #fbf1c7 !important;
+}
+html[data-theme="gruvbox"] .bg-white {
+  background-color: #32302f !important;
+  color: #fbf1c7;
+  border-color: rgba(235, 219, 178, 0.16) !important;
+}
+html[data-theme="gruvbox"] [class*="border-ink"] {
+  border-color: rgba(235, 219, 178, 0.16) !important;
+}
+
+/* Header & Navigation */
+html[data-theme="gruvbox"] .site-header {
+  background: var(--header-bg);
+  border-bottom-color: rgba(235, 219, 178, 0.12);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme="gruvbox"] .navlink {
+  color: #fbf1c7;
+}
+
+html[data-theme="gruvbox"] .navlink::after {
+  background: #fe8019;
+}
+
+html[data-theme="gruvbox"] .underline-accent {
+  text-decoration-color: rgba(254, 128, 25, 0.45);
+}
+
+/* Profile Chip */
+html[data-theme="gruvbox"] .profile-chip {
+  background: rgba(50, 48, 47, 0.95);
+  border-color: rgba(235, 219, 178, 0.18);
+  color: #fbf1c7;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme="gruvbox"] .profile-chip:hover {
+  border-color: #fe8019;
+}
+
+html[data-theme="gruvbox"] .profile-chip__img {
+  border-color: rgba(235, 219, 178, 0.2);
+  background: linear-gradient(135deg, #3c3836, #32302f);
+}
+
+/* Cards & Surfaces */
+html[data-theme="gruvbox"] .card,
+html[data-theme="gruvbox"] .post-card,
+html[data-theme="gruvbox"] .tool-card,
+html[data-theme="gruvbox"] .contact-card,
+html[data-theme="gruvbox"] .cv-row,
+html[data-theme="gruvbox"] .link-card {
+  background: #32302f;
+  border-color: rgba(235, 219, 178, 0.16);
+  color: #fbf1c7;
+  box-shadow: var(--shadow-crisp);
+}
+
+html[data-theme="gruvbox"] .post-card:hover,
+html[data-theme="gruvbox"] .cv-row:hover,
+html[data-theme="gruvbox"] .link-card:hover {
+  border-color: rgba(254, 128, 25, 0.5);
+}
+
+/* Primary Ink Action Highlights */
+html[data-theme="gruvbox"] .btn-ink {
+  background: #1d2021;
+  color: #fbf1c7;
+  border: 1.5px solid #fe8019;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(254, 128, 25, 0.2);
+}
+html[data-theme="gruvbox"] .btn-ink:hover {
+  background: #fe8019;
+  color: #1d2021;
+  border-color: #fe8019;
+}
+
+html[data-theme="gruvbox"] .btn-outline {
+  background: #32302f;
+  color: #fbf1c7;
+  border-color: rgba(235, 219, 178, 0.28);
+}
+html[data-theme="gruvbox"] .btn-outline:hover {
+  border-color: #fe8019;
+  color: #fe8019;
+}
+
+html[data-theme="gruvbox"] .bg-ink,
+html[data-theme="gruvbox"] .cta-mail {
+  background-color: #1d2021 !important;
+  color: #fbf1c7 !important;
+  border: 1.5px solid #fe8019 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(254, 128, 25, 0.2);
+}
+html[data-theme="gruvbox"] .bg-ink:hover,
+html[data-theme="gruvbox"] .cta-mail:hover {
+  background-color: #fe8019 !important;
+  color: #1d2021 !important;
+  border-color: #fe8019 !important;
+}
+html[data-theme="gruvbox"] .bg-ink .text-paper,
+html[data-theme="gruvbox"] .cta-mail .text-paper {
+  color: inherit !important;
+}
+
+html[data-theme="gruvbox"] .link-card--ink {
+  background: #1d2021;
+  color: #fbf1c7;
+  border: 1.5px solid #fe8019;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 0 10px rgba(254, 128, 25, 0.2);
+}
+html[data-theme="gruvbox"] .link-card__icon,
+html[data-theme="gruvbox"] .tool-card__icon {
+  background: rgba(235, 219, 178, 0.08);
+  border-color: rgba(235, 219, 178, 0.12);
+}
+html[data-theme="gruvbox"] .link-card--ink .link-card__icon {
+  background: rgba(254, 128, 25, 0.16);
+  border-color: rgba(254, 128, 25, 0.35);
+  color: #fe8019;
+}
+
+/* Pills & Filter Badges */
+html[data-theme="gruvbox"] .pill,
+html[data-theme="gruvbox"] .meta-pill {
+  background: rgba(50, 48, 47, 0.92);
+  border-color: rgba(235, 219, 178, 0.18);
+  color: #fbf1c7;
+}
+
+html[data-theme="gruvbox"] .chip {
+  background: rgba(50, 48, 47, 0.9);
+  border-color: rgba(235, 219, 178, 0.18);
+  color: #fbf1c7;
+}
+
+html[data-theme="gruvbox"] .chip--ink {
+  background: #1d2021;
+  color: #fe8019;
+  border: 1px solid #fe8019;
+}
+
+html[data-theme="gruvbox"] .filter-pill,
+html[data-theme="gruvbox"] .category-filter__btn {
+  background: #32302f;
+  border-color: rgba(235, 219, 178, 0.22);
+  color: #fbf1c7;
+}
+html[data-theme="gruvbox"] .filter-pill:hover,
+html[data-theme="gruvbox"] .category-filter__btn:hover {
+  border-color: #fe8019;
+}
+html[data-theme="gruvbox"] .filter-pill[aria-pressed="true"],
+html[data-theme="gruvbox"] .category-filter__btn.active {
+  background: #fe8019;
+  color: #1d2021;
+  border-color: #fe8019;
+  box-shadow: 0 2px 10px rgba(254, 128, 25, 0.3);
+}
+
+/* Hero bullets */
+html[data-theme="gruvbox"] .hero-check {
+  background: rgba(50, 48, 47, 0.85);
+  border-color: rgba(235, 219, 178, 0.2);
+  color: #fbf1c7;
+}
+
+/* Portrait Stage */
+html[data-theme="gruvbox"] .portrait-stage {
+  background: linear-gradient(135deg, #32302f, #282828);
+  border-color: rgba(235, 219, 178, 0.18);
+}
+html[data-theme="gruvbox"] .portrait-badge {
+  background: #1d2021;
+  color: #fe8019;
+  border: 1px solid #fe8019;
+}
+html[data-theme="gruvbox"] .portrait-inkmark {
+  background: rgba(235, 219, 178, 0.2);
+}
+html[data-theme="gruvbox"] .portrait-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(235, 219, 178, 0.25) 1px, transparent 0);
+}
+
+/* Noise overlay & Blobs */
+html[data-theme="gruvbox"] .noise-overlay {
+  opacity: 0.04;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.4) 1px, transparent 0);
+}
+html[data-theme="gruvbox"] .blob {
+  background: radial-gradient(closest-side,
+    rgba(254, 128, 25, 0.3),
+    rgba(250, 189, 47, 0.16),
+    rgba(184, 187, 38, 0.1),
+    transparent 70%
+  );
+}
+
+/* CV Rows */
+html[data-theme="gruvbox"] .cv-num {
+  background: rgba(235, 219, 178, 0.08);
+  color: #fbf1c7;
+}
+html[data-theme="gruvbox"] .cv-type-icon {
+  background: #32302f;
+  border-color: rgba(235, 219, 178, 0.2);
+  color: #fbf1c7;
+}
+html[data-theme="gruvbox"] .cv-type-icon--work {
+  background: #1d2021;
+  color: #fe8019;
+  border: 1px solid #fe8019;
+}
+html[data-theme="gruvbox"] .cv-details {
+  border-top-color: rgba(235, 219, 178, 0.12);
+}
+
+/* Markdown styling */
+html[data-theme="gruvbox"] .md {
+  color: #ebdbb2;
+}
+html[data-theme="gruvbox"] .md h1,
+html[data-theme="gruvbox"] .md h2,
+html[data-theme="gruvbox"] .md h3 {
+  color: #fbf1c7;
+}
+html[data-theme="gruvbox"] .md a {
+  color: #fe8019;
+}
+html[data-theme="gruvbox"] .md a:hover {
+  opacity: 0.85;
+}
+html[data-theme="gruvbox"] .md blockquote {
+  border-left-color: #fe8019;
+  background: rgba(254, 128, 25, 0.08);
+  color: #ebdbb2;
+}
+html[data-theme="gruvbox"] .md code {
+  background: #3c3836;
+  color: #fabd2f;
+  border-color: rgba(235, 219, 178, 0.18);
+}
+html[data-theme="gruvbox"] .code-block,
+html[data-theme="gruvbox"] .md pre {
+  background: #1d2021;
+  border-color: rgba(235, 219, 178, 0.18);
+  color: #ebdbb2;
+}
+html[data-theme="gruvbox"] .code-block__header {
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom-color: rgba(235, 219, 178, 0.12);
+  color: #a89984;
+}
+
+/* Callouts */
+html[data-theme="gruvbox"] .callout--update {
+  background: rgba(184, 187, 38, 0.12);
+  border-color: rgba(184, 187, 38, 0.35);
+}
+html[data-theme="gruvbox"] .callout--update .callout__header { color: #b8bb26; }
+
+html[data-theme="gruvbox"] .callout--info,
+html[data-theme="gruvbox"] .callout--note {
+  background: rgba(131, 165, 152, 0.12);
+  border-color: rgba(131, 165, 152, 0.35);
+}
+html[data-theme="gruvbox"] .callout--info .callout__header,
+html[data-theme="gruvbox"] .callout--note .callout__header { color: #83a598; }
+
+html[data-theme="gruvbox"] .callout--warning {
+  background: rgba(250, 189, 47, 0.12);
+  border-color: rgba(250, 189, 47, 0.35);
+}
+html[data-theme="gruvbox"] .callout--warning .callout__header { color: #fabd2f; }
+
+html[data-theme="gruvbox"] .callout--tip {
+  background: rgba(211, 134, 155, 0.12);
+  border-color: rgba(211, 134, 155, 0.35);
+}
+html[data-theme="gruvbox"] .callout--tip .callout__header { color: #d3869b; }
+
+/* Category Badges */
+html[data-theme="gruvbox"] .badge-category--technical {
+  background: rgba(131, 165, 152, 0.15);
+  color: #83a598;
+  border-color: rgba(131, 165, 152, 0.35);
+}
+html[data-theme="gruvbox"] .badge-category--thoughts {
+  background: rgba(211, 134, 155, 0.15);
+  color: #d3869b;
+  border-color: rgba(211, 134, 155, 0.35);
+}
+html[data-theme="gruvbox"] .badge-category--default {
+  background: rgba(235, 219, 178, 0.08);
+  color: #fbf1c7;
+  border-color: rgba(235, 219, 178, 0.18);
+}
+
+/* Tables */
+html[data-theme="gruvbox"] .table-wrapper {
+  border-color: rgba(235, 219, 178, 0.16);
+}
+html[data-theme="gruvbox"] .md-table th {
+  background: rgba(235, 219, 178, 0.08);
+  border-bottom-color: rgba(235, 219, 178, 0.2);
+  color: #fbf1c7;
+}
+html[data-theme="gruvbox"] .md-table td {
+  border-bottom-color: rgba(235, 219, 178, 0.12);
+  color: #ebdbb2;
+}
+
+/* Contact Card Doodles */
+html[data-theme="gruvbox"] .cta-doodle {
+  border-color: rgba(235, 219, 178, 0.25);
+}
+html[data-theme="gruvbox"] .scribble-ring {
+  border-color: rgba(235, 219, 178, 0.15);
+  box-shadow: inset 0 0 0 6px rgba(235, 219, 178, 0.04);
+}
+
+/* Switcher in Gruvbox mode */
+html[data-theme="gruvbox"] .theme-switcher {
+  background: rgba(29, 32, 33, 0.7);
+  border-color: rgba(235, 219, 178, 0.18);
+}
+html[data-theme="gruvbox"] .theme-switcher__btn.active {
+  background: #fe8019;
+  color: #1d2021;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+

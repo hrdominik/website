@@ -2,6 +2,15 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
+  <script>
+    (function() {
+      try {
+        if (localStorage.getItem('theme') === 'gruvbox') {
+          document.documentElement.setAttribute('data-theme', 'gruvbox');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Maintenance</title>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -58,7 +67,11 @@
       </div>
 
       <div class="border-t border-ink/10 px-6 py-5 md:px-10 mt-10">
-        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm opacity-80 md:justify-center">
+        <div class="flex flex-wrap items-center justify-center gap-4 text-sm opacity-80 md:justify-center">
+          <div class="theme-switcher" role="group" aria-label="Theme switcher">
+            <button type="button" class="theme-switcher__btn active" data-theme-toggle="light" aria-pressed="true">☀️ </button>
+            <button type="button" class="theme-switcher__btn" data-theme-toggle="gruvbox" aria-pressed="false">🪵 </button>
+          </div>
           <p class="text-xs opacity-60">
             <a class="hover:underline" href="/impressum">Impressum</a>
             <a class="hover:underline" href="/datenschutz">Datenschutz</a>
@@ -68,5 +81,36 @@
       </div>
     </section>
   </main>
+  <script>
+    (function() {
+      var yr = document.getElementById('year');
+      if (yr) yr.textContent = String(new Date().getFullYear());
+      var toggleBtns = document.querySelectorAll('[data-theme-toggle]');
+      if (!toggleBtns.length) return;
+      function update(theme) {
+        toggleBtns.forEach(function(b) {
+          var act = b.getAttribute('data-theme-toggle') === theme;
+          b.setAttribute('aria-pressed', act ? 'true' : 'false');
+          if (act) b.classList.add('active'); else b.classList.remove('active');
+        });
+      }
+      var cur = (localStorage.getItem('theme') === 'gruvbox') ? 'gruvbox' : 'light';
+      update(cur);
+      toggleBtns.forEach(function(b) {
+        b.addEventListener('click', function(e) {
+          e.preventDefault();
+          var t = b.getAttribute('data-theme-toggle');
+          if (t === 'gruvbox') {
+            document.documentElement.setAttribute('data-theme', 'gruvbox');
+            try { localStorage.setItem('theme', 'gruvbox'); } catch (e) {}
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+            try { localStorage.setItem('theme', 'light'); } catch (e) {}
+          }
+          update(t);
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
