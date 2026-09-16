@@ -143,7 +143,17 @@ const PROFILE = {
         readTime: "10 min",
         tags: ["Second Brain", "Obsidian", "Local AI", "Hermes", "Ollama", "Whisper", "Architecture"],
         excerpt: "Knowledge management fails when it turns into maintenance debt. Here is how I built a local-first, Markdown-based Second Brain on macOS with Ollama, Whisper, and Hermes cron automations—without vector DBs or cloud dependencies."
-      }
+      },
+      {
+        slug: "ai-automation-is-not-a-personality",
+        title: "Stop Automating Everything with AI: Sometimes You Should Just Write the Software",
+        category: "thoughts",
+        categoryLabel: "Business & Thoughts",
+        date: "2026-09-16",
+        readTime: "8 min",
+        tags: ["AI", "Automation", "Software Engineering", "Vibecoding", "Architecture"],
+        excerpt: "AI is accessible to everyone, but not every workflow needs an AI runtime. Define the problem first, then choose between a model, a script, or a combination of both."
+      },
     ]
   },
 
