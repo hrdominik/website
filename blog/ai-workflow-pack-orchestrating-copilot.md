@@ -1,5 +1,5 @@
 > [!UPDATE] Updated (April 2025)
-> This template has evolved. What started as a GitHub Copilot workflow pack is now a full Claude Code orchestration template with specialized agents, automated hooks, domain rules, and multi-step skills. Same philosophy, sharper tooling. [Jump to the template.](#if-you-want-to-try-it)
+> This template has evolved. What started as a GitHub Copilot workflow pack is now a full Claude Code compatible orchestration template with specialized agents, automated hooks, domain rules, and multi-step skills. Same philosophy, sharper tooling. [Jump to the template.](#if-you-want-to-try-it)
 
 ---
 
@@ -25,7 +25,6 @@ And in that integration, the unglamorous details matter more than the model.
 - Clear expectations.  
 - A workflow that remains reviewable even when the chat history is gone.
 
-
 ## Orchestration, not vibe coding
 
 There is a popular idea right now that "vibe coding" is the future of software development. You describe what you want in natural language, the model generates the code, and you ship it. Intuitive, fast, impressive in demos.
@@ -37,7 +36,6 @@ Vibe coding treats AI as a replacement for engineering judgment. Orchestration t
 The model might be "right". But if nobody can explain *why* it is right, or *what constraints* it operated under, you do not have a delivery—you have a bet.
 
 In regulated environments, bets do not ship.
-
 
 ## Where default AI usage starts to break down
 
@@ -51,7 +49,6 @@ It is not acceptable in enterprise delivery, where you are explicitly paid for c
 
 The problem is not the model.  
 The problem is the absence of orchestration.
-
 
 ## My stance: AI does not replace responsibility
 
@@ -67,7 +64,6 @@ The analogy I keep coming back to is familiar to most engineers: microservices i
 
 The model remains probabilistic.  
 The workflow becomes deterministic.
-
 
 ## A structured template for AI-assisted development
 
@@ -85,7 +81,6 @@ The template provides five layers of orchestration:
 
 **Tracking documents** give AI—and your team—persistent context. Requirements, architecture decisions, and current development status live in `docs/` as structured markdown, updated continuously, and readable by both humans and AI.
 
-
 ## The loop that actually scales
 
 In practice, the workflow reduces to a loop that is intentionally boring, and therefore scalable.
@@ -97,7 +92,6 @@ You write outcomes back into that memory.
 Each agent reads the project's `CLAUDE.md` for context: language, framework, commands, active rules. Each session can pick up where the last one left off because the state lives in files, not in ephemeral conversations.
 
 The difference is subtle but important. This is no longer "AI as chat". It is AI as part of a delivery workflow.
-
 
 ## Why this matters in controlled environments
 
@@ -118,11 +112,10 @@ The template answers these questions structurally:
 - **Under what constraints**: defined in `.claude/rules/` and `CLAUDE.md`  
 - **Who approved it**: enforced by pre-commit hooks and PR reviews
 
-
 ## Vibe coding vs. orchestrated AI: a practical comparison
 
 | | Vibe Coding | Orchestrated AI |
-|---|---|---|
+| --- | --- | --- |
 | **Control** | Model decides scope | Human defines constraints |
 | **Auditability** | Chat history (ephemeral) | Rules, agents, docs (versioned) |
 | **Consistency** | Depends on prompt quality | Enforced by rules and hooks |
@@ -133,7 +126,6 @@ Vibe coding is a valid starting point for exploration. But it is not a delivery 
 
 Orchestration provides that structure without sacrificing the speed that makes AI valuable in the first place.
 
-
 ## What clients actually ask for
 
 Most clients do not ask for "AI".
@@ -142,14 +134,38 @@ They ask for faster feedback, better documentation, safer changes, and reduced c
 
 No revolution language. No productivity-multiplier claims without context. Just a controlled way to use assistance with the governance surface that enterprise environments demand.
 
-
 ## If you want to try it
 
-[GitHub Repository: hrdominik/vscode-claude-template](https://github.com/hrdominik/vscode-claude-template)
+[GitHub Repository: hrdominik/vscode-copilot-(claude)-workflow-template](https://github.com/hrdominik/vscode-copilot-workflow-template)
 
 Clone the template, edit `CLAUDE.md` with your project details, and start using agents and skills as your default workflow. Then adapt it: per team, per risk profile, per environment, per regulation.
 
+> [!TIP] **You know whats beautiful?**
+> Give GitHub Copilot a serious try - especially if you are a software engineer who spends most of the day in VS Code.
+>
+> The reason is not that Copilot is magically better at every task. Its advantage is that it is a practical control plane for using AI during normal software delivery. You can choose between several models, keep the interaction inside VS Code, review proposed changes at file or line level, accept only the parts you agree with, and continue working with the tools you already use.
+> That makes it a particularly good fit for the workflow described in this article. Copilot can use different models for different jobs—including Claude and Codex models where they are available — so you can select a model based on the task rather than committing your entire workflow to one vendor or one type of reasoning. A fast model can handle a small completion or refactoring, a stronger reasoning model can help investigate a failure or review a broader change.
+> There is also a practical cost advantage. Model selection can be fine-tuned to the importance and complexity of the task, while the development environment, source control, terminal, tests, pull requests, and review loop stay in one place. You do not need to add a separate CLI, desktop application, or AI-native IDE just to get started. You can keep the environment you already know and introduce AI where it provides measurable value.
+
+### A practical Copilot setup
+
+Start with the repository, not with a chat window:
+
+1. Add a concise `AGENTS.md`, `CLAUDE.md`, or repository instruction file describing the architecture, coding conventions, forbidden operations, test commands, and definition of done. Keep it versioned with the code.
+2. Put durable project context in `docs/`: requirements, architecture decisions, operational notes, and current status. Ask Copilot to read the relevant documents before making a change.
+3. Use VS Code Chat or the agent workflow for bounded tasks. State the goal, files or area in scope, constraints, and validation commands. Ask for a plan before implementation when the change crosses module boundaries.
+4. Use model choice deliberately: a fast model for navigation, explanations, and small edits; a more capable model for debugging, design trade-offs, security-sensitive changes, and multi-file implementation.
+5. Keep granular acceptance enabled. Review the diff, inspect each proposed file change, run the relevant tests and linters, and reject or revise changes that do not satisfy the repository rules.
+6. Put deterministic checks outside the model: pre-commit hooks, secret scanning, formatting, type checking, tests, and CI. **Instructions guide Copilot - automated checks verify the result.**
+
+This is not a recommendation to let Copilot generate an application from a vague paragraph and approve everything. It is a recommendation to use Copilot as an integrated engineering assistant: one that can switch models, operate close to the code, and leave the final decisions with the person responsible for the software. That distinction matters. Copilot can support orchestration, but it does not replace architecture, code review, testing, security ownership, or professional judgment.
+
+---
+
+Back to the topic, the template:
+
 The template includes:
+
 - **5 agents**: code reviewer, debugger, test writer, doc writer, security auditor
 - **2 hooks**: pre-commit checks, on-save validation
 - **3 rule sets**: API, database, frontend
@@ -159,4 +175,3 @@ The template includes:
 There is no single right setup. There are only the right boundaries for your context.
 
 If you build a variant that fits your organisation better, I would genuinely be interested in seeing it.
-
