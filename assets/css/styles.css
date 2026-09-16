@@ -941,6 +941,30 @@ section { scroll-margin-top: 92px; }
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
+/* =========================
+   QR & Share Details
+   ========================= */
+details.card > summary {
+  cursor: pointer;
+  list-style: none;
+}
+details.card > summary::-webkit-details-marker {
+  display: none;
+}
+#qrCodeContainer {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+#qrCodeContainer canvas,
+#qrCodeContainer img {
+  display: block;
+  margin: 0 auto;
+}
+html[data-theme="gruvbox"] #qrCodeContainer {
+  background: #ffffff !important;
+  border-color: rgba(235, 219, 178, 0.3) !important;
+}
+
 /* ==========================================================================
    Gruvbox Material Theme Overrides (Scoped strictly to [data-theme="gruvbox"])
    Light mode remains 100% untouched.
