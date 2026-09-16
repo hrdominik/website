@@ -48,7 +48,7 @@
   <header class="site-header">
     <div class="mx-auto max-w-6xl px-4 py-4">
       <nav class="flex items-center justify-between gap-4">
-        <a href="/tools" class="flex items-baseline gap-2">
+        <a href="/" class="flex items-baseline gap-2">
           <span class="font-display text-lg tracking-tight">it’s me</span>
           <span class="text-xs opacity-60">/ Dominik</span>
         </a>
@@ -60,13 +60,13 @@
         </div>
 
         <div class="flex items-center gap-3">
-          <div class="hidden lg:flex profile-chip">
+          <a href="/" class="hidden lg:flex profile-chip">
             <img class="profile-chip__img" data-bind-attr="src:portraitUrl" src="../assets/img/DHR_transparent.png" alt="Portrait">
-            <div href="/" class="">
+            <div>
               <div class="profile-chip__name" data-bind="name">Dominik Höhr</div>
               <div class="profile-chip__title" data-bind="title"></div>
             </div>
-          </div>
+          </a>
         </div>
       </nav>
     </div>
@@ -84,32 +84,32 @@
             </p>
           </div>
           <div class="flex items-center gap-3">
-          <a data-bind-attr="href:social.github"
-             href="#"
-             class="rounded-full bg-ink px-4 py-2 text-sm font-extrabold text-paper shadow-crisp hover:translate-y-[-1px] transition">
-            Repositories
-          </a>
+            <a data-bind-attr="href:social.github"
+               href="#"
+               class="rounded-full bg-ink px-4 py-2 text-sm font-extrabold text-paper shadow-crisp hover:translate-y-[-1px] transition">
+              Repositories
+            </a>
+          </div>
         </div>
-        </div>
-      </div>
 
-      <div id="toolsList" class="mt-6 grid gap-4 md:grid-cols-2">
-        <!-- rendered -->
-      </div>
-
-      <div class="border-t border-ink/10 px-6 py-5 md:px-10 mt-10">
-        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm opacity-80 md:justify-between">
-        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
-          <a class="hover:underline" data-bind-attr="href:social.github" href="#">GitHub</a>
-          <a class="hover:underline" data-bind-attr="href:social.linkedin" href="#">LinkedIn</a>
-          <a class="hover:underline" data-bind-attr="href:social.links" href="#">Links</a>
-          <a class="hover:underline" data-bind-attr="href:social.blog" href="#">Blog</a>
+        <div id="toolsList" class="mt-6 grid gap-4">
+          <!-- rendered by tools.js -->
         </div>
-        <p class="text-xs opacity-60">
-          <a class="hover:underline" href="/impressum">Impressum</a>
-          <a class="hover:underline" href="/datenschutz">Datenschutz</a>
-          © <span id="year"></span> <span data-bind="name">Dominik</span>
-        </p>
+
+        <div class="border-t border-ink/10 px-6 py-5 md:px-10 mt-10">
+          <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm opacity-80 md:justify-between">
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+              <a class="hover:underline" data-bind-attr="href:social.github" href="#">GitHub</a>
+              <a class="hover:underline" data-bind-attr="href:social.linkedin" href="#">LinkedIn</a>
+              <a class="hover:underline" data-bind-attr="href:social.links" href="#">Links</a>
+              <a class="hover:underline" data-bind-attr="href:social.blog" href="#">Blog</a>
+            </div>
+            <p class="text-xs opacity-60">
+              <a class="hover:underline" href="/impressum">Impressum</a>
+              <a class="hover:underline" href="/datenschutz">Datenschutz</a>
+              © <span id="year"></span> <span data-bind="name">Dominik</span>
+            </p>
+          </div>
         </div>
       </div>
     </section>
