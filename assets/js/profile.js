@@ -112,6 +112,7 @@ function renderCv(items) {
   list.innerHTML = (items || []).map((it, idx) => {
     const num = idx + 1;
     const dur = formatDuration(it.start, it.end);
+    const durShort = formatDuration(it.start, it.end, true);
     const period = formatPeriod(it.start, it.end);
     const hasDetails = (it.highlights && it.highlights.length) || it.summary;
     const detailsId = `cv-details-${idx}`;
@@ -134,9 +135,12 @@ function renderCv(items) {
             ${toggleBtn}
           </div>
           <p class="text-sm opacity-70">${Core.escapeHtml(it.org || '')}${it.location ? ` • ${Core.escapeHtml(it.location)}` : ''}</p>
-          ${detailsHtml}
         </div>
-        <div class="text-right"><p class="text-sm font-semibold">${Core.escapeHtml(period)}</p><p class="text-xs opacity-60">${Core.escapeHtml(dur)}</p></div>
+        <div class="text-right max-w-[85px] md:max-w-none shrink-0">
+          <p class="text-xs md:text-sm font-semibold leading-tight">${Core.escapeHtml(period)}</p>
+          ${dur ? `<p class="text-[11px] md:text-xs opacity-60 mt-0.5 leading-tight"><span class="md:hidden">${Core.escapeHtml(durShort)}</span><span class="hidden md:inline">${Core.escapeHtml(dur)}</span></p>` : ''}
+        </div>
+        ${detailsHtml}
       </li>
     `;
   }).join('');
@@ -180,13 +184,20 @@ function formatYm(ym) {
   const label = months[(m - 1) || 0] || String(y || '');
   return `${label} ${y}`;
 }
-function formatDuration(start, end) {
+function formatDuration(start, end, short = false) {
   if (!start) return '';
   const s = parseYm(start); const e = end ? parseYm(end) : todayYm();
   const months = (e.y - s.y) * 12 + (e.m - s.m) + 1;
   if (months <= 0) return '';
   const years = Math.floor(months / 12); const rem = months % 12;
-  const parts = []; if (years) parts.push(`${years} Jahr${years===1?'':'e'}`); if (rem) parts.push(`${rem} Monat${rem===1?'':'e'}`);
+  const parts = [];
+  if (short) {
+    if (years) parts.push(`${years} J.`);
+    if (rem) parts.push(`${rem} M.`);
+  } else {
+    if (years) parts.push(`${years} Jahr${years===1?'':'e'}`);
+    if (rem) parts.push(`${rem} Monat${rem===1?'':'e'}`);
+  }
   return parts.join(' ');
 }
 function parseYm(ym) { const [y,m]=String(ym||'').split('-').map(Number); return {y,m}; }
