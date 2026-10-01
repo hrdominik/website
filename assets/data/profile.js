@@ -8,7 +8,7 @@ const PROFILE = {
   email: { user: "mail", domain: "hoehr", tld: "net" },
 
   intro:
-    "Senior Consultant für Cloud- und DevOps-Engineering mit über fünf Jahren Erfahrung in Architektur, Aufbau und souveränem Betrieb sicherer Plattformen.",
+    "Senior Consultant für Cloud- und DevOps-Engineering mit über fünf Jahren Erfahrung in Architektur, Aufbau und Einführung souveränen Betriebs skalierbarer Plattformen.",
 
   heroBullets: [
     "End-to-End-Verantwortung für Cloud- und Systemarchitekturen für belastbare Plattform-Standards",
@@ -16,34 +16,35 @@ const PROFILE = {
     "Pragmatischer KI-Einsatz: als Werkzeug für Qualität und Effizienz statt Hype"
   ],
 
-  aboutTitle: "Build. Automate. Operate.",
+  aboutTitle: "Design. Build. Enable.",
   aboutText:
-    "Ich verbinde technische Tiefe, strategisches Verständnis und operative Umsetzungsstärke für komplexe Cloud- und Transformationsvorhaben. Mein Fokus liegt auf dem Entwurf, Aufbau und dem souveränen Betrieb sicherer, skalierbarer Plattformen in regulierten Kontexten: von Landing Zones über Hub-Spoke-Netzwerke bis zu Managed Services und belastbaren Betriebsmodellen. Durch meinen Full-Stack- und Infrastrukturhintergrund denke ich Plattform, Anwendung und Betrieb ganzheitlich. KI nutze ich bewusst als Werkzeug in der Entwicklung und Automatisierung, verantwortungsvoll, nachvollziehbar und mit klarem Mehrwert für Team und Delivery.",
+    "Ich verbinde technische Tiefe und strategisches Verständnis für den Aufbau souveräner und resilienter Cloud-Plattformen. Mein Schwerpunkt liegt im Design, der Implementierung und der nahtlosen Betriebsüberführung komplexer Infrastrukturen in regulierten Umgebungen. Belastbare Plattformen gestalte ich über klar strukturierte Landing Zones und segmentierte Hub-Spoke-Netzwerkarchitekturen. Ich erstelle nicht nur den Infrastructure-as-Code-Stack, sondern entwerfe und etabliere von Beginn an tragfähige Betriebsmodelle und Governance-Leitplanken, damit der Betrieb reibungslos und auditsicher übernehmen können. Durch meinen Software-Engineering-Hintergrund denke ich Plattform, Anwendung und Betrieb ganzheitlich. KI nutze ich dabei pragmatisch als Werkzeug: verantwortungsvoll, nachvollziehbar und mit messbarem Qualitätsgewinn",
 
   heroSkillsBanner: [
     "Souveräne Cloud",
-    "Platform Operations",
+    "Resiliente Plattformen",
     "Cloud Architektur",
+    "Betriebsmodelle & Governance",
     "Software Engineering"
   ],
 
   services: [
     {
       kicker: "Architecture",
-      title: "Souveräne Cloud-Architekturen",
-      text: "Konzeption von Landing Zones, Hub-Spoke-Topologien und Plattform-Blueprints mit Fokus auf Security, Governance und Nachvollziehbarkeit.",
+      title: "Souveräne Cloud- & Plattformarchitektur",
+      text: "Konzeption resilienter Landing Zones, mandantenfähiger Hub-Spoke-Topologien und Sicherheitsarchitekturen in Multi-Provider- und Hybrid-Szenarien.",
       emphasis: "primary"
     },
     {
-      kicker: "Operations",
-      title: "Betrieb & Managed Services",
-      text: "Stabiler Betrieb hybrider Landschaften mit Azure, StackIT und On-Prem mit klarer Verantwortung, Automatisierung und Observability.",
+      kicker: "Engineering",
+      title: "Automatisierung & Platform Delivery",
+      text: "Entwicklung reproduzierbarer Plattformen via IaC und standardisierter CI/CD-Pipelines. Pragmatische Beschleunigung durch zielgerichteten Einsatz moderner KI-Toolings.",
       emphasis: "default"
     },
     {
-      kicker: "Engineering",
-      title: "Automatisierung & Entwicklung",
-      text: "IaC, CI/CD und moderne Softwareentwicklung für belastbare Delivery-Prozesse. KI-Tools wie Copilot und Claude werden praxisnah und kontrolliert eingesetzt.",
+      kicker: "Transition",
+      title: "Betriebsmodelle & Handover",
+      text: "Design und Einführung belastbarer Betriebsmodelle. Etablierung von Observability-Standards, Betriebsdokumentation und sauberer Überführung.",
       emphasis: "default"
     }
   ],
@@ -153,30 +154,31 @@ const PROFILE = {
         readTime: "8 min",
         tags: ["AI", "Automation", "Software Engineering", "Vibecoding", "Architecture"],
         excerpt: "AI is accessible to everyone, but not every workflow needs an AI runtime. Define the problem first, then choose between a model, a script, or a combination of both."
-      },
+      }
     ]
   },
 
   skills: {
     technical: [
       {
-        group: "Cloud Plattform & Infrastruktur",
+        group: "Souveräne Cloud & Infrastruktur",
         icon: "cloud",
         items: [
           { name: "Microsoft Azure", icon: "cloud", accent: true },
           { name: "StackIT", icon: "cloud", accent: true },
           { name: "Azure Arc", icon: "cloud" },
-          { name: "Amazon Web Services", icon: "cloud" }
+          { name: "Amazon Web Services", icon: "cloud" },
+          { name: "Kubernetes & Container Runtimes", icon: "k8s" }
         ]
       },
       {
-        group: "Netzwerk, Plattformbetrieb & Security",
+        group: "Plattformbetrieb & Resilienz",
         icon: "gear",
         items: [
-          { name: "Landing Zones & Hub-Spoke", icon: "api", accent: true },
-          { name: "Kubernetes & Docker", icon: "k8s" },
-          { name: "Linux (RHEL, Debian)", icon: "server" },
-          { name: "Windows Server & Active Directory", icon: "shield" }
+          { name: "Well Architected: Landing Zones & Hub-Spoke", icon: "api", accent: true },
+          { name: "Netzwerksegmentierung & Hybrid Connectivity", icon: "shield" },
+          { name: "Identity & Access Management", icon: "lock" },
+          { name: "Linux Enterprise (RHEL, Debian)", icon: "server" }
         ]
       },
       {
@@ -186,17 +188,16 @@ const PROFILE = {
           { name: "Terraform / Infrastructure as Code", icon: "terraform", accent: true },
           { name: "GitLab CI & Azure DevOps", icon: "pipeline", accent: true },
           { name: "Monitoring, Logging, Observability", icon: "pulse" },
-          { name: "Berechtigungskonzepte & IAM", icon: "lock" }
+          { name: "GitOps & Pipeline-Sicherheit", icon: "shield" }
         ]
       },
       {
         group: "Software Engineering",
         icon: "api",
         items: [
-          { name: "Python (FastAPI)", icon: "python", accent: true },
-          { name: "TypeScript / React", icon: "react" },
-          { name: "Java / JakartaEE", icon: "java" },
-          { name: "SQL & API Design", icon: "db" }
+          { name: "Python (Automation & Cloud Tooling)", icon: "python", accent: true },
+          { name: "API Design & REST Services", icon: "api" },
+          { name: "SQL & Data Persistence", icon: "db" }
         ]
       }
     ],
@@ -206,11 +207,10 @@ const PROFILE = {
         group: "Architektur & Konzeption",
         icon: "cloud",
         items: [
-          { name: "Souveränität in Cloud-Architekturen", icon: "shield", accent: true },
-          { name: "Cloud & Plattform Architektur", icon: "cloud", accent: true },
-          { name: "System Design", icon: "api" },
-          { name: "Betriebsmodelle & Service Design", icon: "user" },
-          { name: "Security by Design", icon: "lock" }
+          { name: "Souveränität, Resilienz & Vendor Independence", icon: "shield", accent: true },
+          { name: "Enterprise Cloud- & Plattform-Architektur", icon: "cloud", accent: true },
+          { name: "Landing Zone Blueprints & Security Baselines", icon: "api" },
+          { name: "Entwurf von Betriebsmodellen & Transition-Konzepte", icon: "user" }
         ]
       },
       {
@@ -228,16 +228,15 @@ const PROFILE = {
         items: [
           { name: "Regulierte Umgebungen", icon: "shield", accent: true },
           { name: "Kostenkontrolle & Transparenz", icon: "log" },
-          { name: "Dokumentation & Entscheidungsnachvollziehbarkeit", icon: "code" }
+          { name: "Dokumentation & Nachvollziehbarkeit", icon: "code" }
         ]
       },
       {
         group: "KI in der Praxis",
         icon: "gear",
         items: [
-          { name: "Copilot & Claude im Entwicklungsalltag", icon: "pulse", accent: true },
-          { name: "Verantwortungsvoller KI-Einsatz", icon: "shield" },
-          { name: "Technologische Neugier mit Pragmatismus", icon: "log" },
+          { name: "Copilot & Claude in Platform Engineering", icon: "pulse", accent: true },
+          { name: "KI Governance", icon: "shield" }
         ]
       },
     ]
@@ -250,7 +249,7 @@ const PROFILE = {
       org: "CGI",
       start: "2024-12",
       end: null,
-      summary: "Verantwortung für Architektur, Aufbau und Betrieb souveräner Cloud- und Plattformlösungen in regulierten Umgebungen mit Fokus auf Sicherheit, Skalierbarkeit und operativer Belastbarkeit. Inklusive Konzeption von Landing-Zone- und Hub-Spoke-Architekturen, Stabilisierung von Betriebsmodellen für Managed Services (Cloud & On-Prem) sowie technischer Beratung und Umsetzung in Azure, StackIT, Azure Arc, IAM und CI/CD-/IaC-Automatisierung.",
+      summary: "Verantwortung für Architektur, Aufbau und die operative Überführung souveräner und resilienter Cloud- und Plattformlösungen in regulierten Umgebungen mit Fokus auf Sicherheit, Skalierbarkeit und operativer Belastbarkeit. Inklusive Konzeption von Landing-Zone- und Hub-Spoke-Architekturen, Stabilisierung von Betriebsmodellen für Managed Services (Cloud & On-Prem) sowie technischer Beratung und Umsetzung in Azure, StackIT, Azure Arc, IAM und CI/CD-/IaC-Automatisierung.",
       highlights: [
         "Senior Consultant, Fokus auf souveräne Cloud- und Plattformarchitekturen (seit 2026)",
         "Lead Consultant, Fokus auf Entwicklung und Umsetzung von Cloud- und DevOps-Architekturen (2024–2026)"
