@@ -320,7 +320,7 @@ const PROFILE = {
       org: "Beckmann & Partner Consult",
       start: "2020-08",
       end: "2024-11",
-      summary: "Full-Stack-Entwicklung & IT-Projektmanagement. Konzeptionierung und Realisierung interner Projekte sowie Entwicklung und DevOps-Engineering von RESTful Webservices und deren Architektur."
+      summary: "Full-Stack-Entwicklung und IT-Projektmanagement. Konzeption und Umsetzung interner IT-Projekte sowie Architekturdesign und Entwicklung von RESTful Webservices. Konzeption und Umsetzung der AWS-Cloud-Architektur einschließlich automatisierter Bereitstellung und Betrieb der selbst entwickelten Anwendungen."
     },
     {
       type: "work",
